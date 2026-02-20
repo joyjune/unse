@@ -207,7 +207,6 @@ function updateFortune(type) {
         else constIdx = 11;
 
         const constellation = data.constellations[constIdx];
-        document.getElementById('const-icon').innerText = constellation.icon;
         document.getElementById('const-name').innerText = constellation.name;
         document.getElementById('const-desc').innerText = constellation.desc;
         document.getElementById('luck-item').innerText = data.items[Math.floor(seededRandom(seed) * data.items.length)];

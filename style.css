@@ -222,16 +222,46 @@ h1 {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-.const-image {
-    width: 200px;
-    height: 200px;
+.const-visual {
+    width: 300px;
+    height: 250px;
     margin: 0 auto 1.5rem;
-    background-image: url('https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDEwMTNfNTQg%2FMDAxNjAyNTcwNjAyMjQz.-LCB9vgmJWA_KjT6YGqZC7hoHChE3yjXoT0r-CwTWzEg.nMlgz3jvPmZK6kiINJL3tog99I2mc2WNfFQbbzSzSJkg.PNG.colovers2010%2Fimg.png&type=sc960_832');
-    background-size: 800px 600px; /* 4x3 grid of 200x200 blocks */
-    background-repeat: no-repeat;
-    filter: invert(1) brightness(2); /* White lines on Dark BG */
-    border-radius: 10px;
-    transition: background-position 0.5s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.const-visual svg {
+    width: 100%;
+    height: 100%;
+}
+
+.const-line {
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    stroke-opacity: 0.6;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2.5s forwards ease-in-out;
+}
+
+.const-dot {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 4px #ffffff);
+    opacity: 0;
+    animation: fadeInDot 0.6s forwards ease-out;
+}
+
+@keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeInDot {
+    to { opacity: 1; transform: scale(1.1); }
 }
 
 /* Oha-Asa */

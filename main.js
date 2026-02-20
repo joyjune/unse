@@ -91,18 +91,18 @@ const data = {
     items: ["빨간색 펜", "노트북", "은색 반지", "향수", "작은 거울", "파란색 텀블러", "이어폰", "책"],
     colors: ["금색", "보라색", "에메랄드", "진분홍", "남색", "주황색", "흰색", "검은색"],
     constellations: [
-        { name: "양자리 (3.21-4.19)", desc: "오늘은 열정이 넘치는 하루입니다. 새로운 도전에 임해보세요." },
-        { name: "황소자리 (4.20-5.20)", desc: "안정적인 기운이 감도는 날입니다. 금전적인 이득이 예상됩니다." },
-        { name: "쌍둥이자리 (5.21-6.21)", desc: "대인관계에서 활발한 소통이 이루어지는 즐거운 날입니다." },
-        { name: "게자리 (6.22-7.22)", desc: "가족이나 가까운 이들과 따뜻한 시간을 보내기에 좋습니다." },
-        { name: "사자자리 (7.23-8.22)", desc: "주목받는 하루입니다. 당신의 매력을 한껏 발산해보세요." },
-        { name: "처녀자리 (8.23-9.23)", desc: "꼼꼼한 일 처리가 빛을 발하는 날입니다. 성과가 좋습니다." },
-        { name: "천칭자리 (9.24-10.22)", desc: "조화와 균형이 필요한 날입니다. 중재자 역할을 잘 수행할 것입니다." },
-        { name: "전갈자리 (10.23-11.22)", desc: "직관력이 예리해지는 날입니다. 숨겨진 진실을 발견할 수 있습니다." },
-        { name: "사수자리 (11.23-12.24)", desc: "여행이나 외출에 행운이 따릅니다. 시야를 넓혀보세요." },
-        { name: "염소자리 (12.25-1.19)", desc: "목표를 향해 한 걸음 더 나아가는 성실한 하루가 될 것입니다." },
-        { name: "물병자리 (1.20-2.18)", desc: "창의적인 아이디어가 돋보이는 날입니다. 독창성을 유지하세요." },
-        { name: "물고기자리 (2.19-3.20)", desc: "감수성이 풍부해지는 날입니다. 예술적인 활동에 좋습니다." }
+        { name: "양자리 (3.21-4.19)", icon: "♈", desc: "오늘은 열정이 넘치는 하루입니다. 새로운 도전에 임해보세요." },
+        { name: "황소자리 (4.20-5.20)", icon: "♉", desc: "안정적인 기운이 감도는 날입니다. 금전적인 이득이 예상됩니다." },
+        { name: "쌍둥이자리 (5.21-6.21)", icon: "♊", desc: "대인관계에서 활발한 소통이 이루어지는 즐거운 날입니다." },
+        { name: "게자리 (6.22-7.22)", icon: "♋", desc: "가족이나 가까운 이들과 따뜻한 시간을 보내기에 좋습니다." },
+        { name: "사자자리 (7.23-8.22)", icon: "♌", desc: "주목받는 하루입니다. 당신의 매력을 한껏 발산해보세요." },
+        { name: "처녀자리 (8.23-9.23)", icon: "♍", desc: "꼼꼼한 일 처리가 빛을 발하는 날입니다. 성과가 좋습니다." },
+        { name: "천칭자리 (9.24-10.22)", icon: "♎", desc: "조화와 균형이 필요한 날입니다. 중재자 역할을 잘 수행할 것입니다." },
+        { name: "전갈자리 (10.23-11.22)", icon: "♏", desc: "직관력이 예리해지는 날입니다. 숨겨진 진실을 발견할 수 있습니다." },
+        { name: "사수자리 (11.23-12.24)", icon: "♐", desc: "여행이나 외출에 행운이 따릅니다. 시야를 넓혀보세요." },
+        { name: "염소자리 (12.25-1.19)", icon: "♑", desc: "목표를 향해 한 걸음 더 나아가는 성실한 하루가 될 것입니다." },
+        { name: "물병자리 (1.20-2.18)", icon: "♒", desc: "창의적인 아이디어가 돋보이는 날입니다. 독창성을 유지하세요." },
+        { name: "물고기자리 (2.19-3.20)", icon: "♓", desc: "감수성이 풍부해지는 날입니다. 예술적인 활동에 좋습니다." }
     ],
     zodiacs: ["쥐띠", "소띠", "호랑이띠", "토끼띠", "용띠", "뱀띠", "말띠", "양띠", "원숭이띠", "닭띠", "개띠", "돼지띠"],
     zodiacDesc: [
@@ -193,8 +193,10 @@ function updateFortune(type) {
         else if ((birthMonth == 1 && birthDay >= 20) || (birthMonth == 2 && birthDay <= 18)) constIdx = 10;
         else constIdx = 11;
 
-        document.getElementById('const-name').innerText = data.constellations[constIdx].name;
-        document.getElementById('const-desc').innerText = data.constellations[constIdx].desc;
+        const constellation = data.constellations[constIdx];
+        document.getElementById('const-icon').innerText = constellation.icon;
+        document.getElementById('const-name').innerText = constellation.name;
+        document.getElementById('const-desc').innerText = constellation.desc;
         document.getElementById('luck-item').innerText = data.items[Math.floor(seededRandom(seed) * data.items.length)];
         document.getElementById('luck-color').innerText = data.colors[Math.floor(seededRandom(seed + 1) * data.colors.length)];
     }

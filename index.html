@@ -1,14 +1,64 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신비로운 오늘의 운세</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="stars"></div>
+    <div class="container">
+        <header>
+            <h1>Cosmic Destiny</h1>
+            <p class="subtitle">별들이 들려주는 당신의 오늘 이야기</p>
+        </header>
+
+        <main id="app">
+            <section id="input-section" class="card">
+                <div class="input-group">
+                    <label for="birthdate">당신의 생년월일을 선택해주세요</label>
+                    <input type="date" id="birthdate" required>
+                </div>
+                <button id="get-fortune-btn" class="glow-on-hover">운세 확인하기</button>
+            </section>
+
+            <section id="result-section" class="card hidden">
+                <div class="result-header">
+                    <h2 id="user-info-display"></h2>
+                    <div id="luck-score" class="stars-display"></div>
+                </div>
+                
+                <div class="fortune-grid">
+                    <div class="fortune-item">
+                        <h3>✨ 종합운</h3>
+                        <p id="general-fortune"></p>
+                    </div>
+                    <div class="fortune-item">
+                        <h3>❤️ 연애운</h3>
+                        <p id="love-fortune"></p>
+                    </div>
+                    <div class="fortune-item">
+                        <h3>💰 금전운</h3>
+                        <p id="money-fortune"></p>
+                    </div>
+                    <div class="fortune-item">
+                        <h3>💼 직장/학업운</h3>
+                        <p id="work-fortune"></p>
+                    </div>
+                </div>
+
+                <button id="retry-btn">다시 확인하기</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Cosmic Destiny. 모든 운세는 재미로만 봐주세요.</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -248,8 +248,15 @@ function updateFortune(type) {
         document.getElementById('luck-item').innerText = data.items[Math.floor(seededRandom(seed) * data.items.length)];
         document.getElementById('luck-color').innerText = data.colors[Math.floor(seededRandom(seed + 1) * data.colors.length)];
 
-        // Draw Constellation SVG
-        drawConstellation(constellation);
+        // Sprite Position (4 columns x 3 rows)
+        const col = constIdx % 4;
+        const row = Math.floor(constIdx / 4);
+        const posX = col * -200;
+        const posY = row * -200; // Assuming square blocks for easier alignment
+        const imgEl = document.getElementById('const-image');
+        if (imgEl) {
+            imgEl.style.backgroundPosition = `${posX}px ${posY}px`;
+        }
     }
 
     if (type === 'saju') {

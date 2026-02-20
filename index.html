@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신비로운 오늘의 운세</title>
+    <title>Cosmic Destiny - 종합 운세 서비스</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,45 +13,102 @@
     <div class="stars"></div>
     <div class="container">
         <header>
-            <h1>Cosmic Destiny</h1>
-            <p class="subtitle">별들이 들려주는 당신의 오늘 이야기</p>
+            <h1 id="home-btn" style="cursor: pointer;">Cosmic Destiny</h1>
+            <nav class="main-nav">
+                <button class="nav-item active" data-target="home">홈</button>
+                <button class="nav-item" data-target="tarot">타로</button>
+                <button class="nav-item" data-target="constellation">오하아사</button>
+                <button class="nav-item" data-target="saju">사주</button>
+                <button class="nav-item" data-target="zodiac">띠운세</button>
+            </nav>
         </header>
 
         <main id="app">
-            <section id="input-section" class="card">
-                <div class="input-group">
-                    <label for="birthdate">당신의 생년월일을 선택해주세요</label>
-                    <input type="date" id="birthdate" required>
+            <!-- Home Section -->
+            <section id="home-section" class="view">
+                <div class="hero-card card">
+                    <h2>당신의 운명은 무엇을 말하고 있나요?</h2>
+                    <p>생년월일을 입력하고 다양한 운세를 확인해보세요.</p>
+                    <div class="input-group">
+                        <input type="date" id="birthdate-global" required>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-card" data-target="tarot">
+                            <span class="icon">🃏</span>
+                            <h3>타로</h3>
+                            <p>오늘의 한 장</p>
+                        </div>
+                        <div class="menu-card" data-target="constellation">
+                            <span class="icon">♈</span>
+                            <h3>오하아사</h3>
+                            <p>별자리 행운</p>
+                        </div>
+                        <div class="menu-card" data-target="saju">
+                            <span class="icon">☯️</span>
+                            <h3>사주</h3>
+                            <p>오행 분석</p>
+                        </div>
+                        <div class="menu-card" data-target="zodiac">
+                            <span class="icon">🐉</span>
+                            <h3>띠운세</h3>
+                            <p>12지신 조언</p>
+                        </div>
+                    </div>
                 </div>
-                <button id="get-fortune-btn" class="glow-on-hover">운세 확인하기</button>
             </section>
 
-            <section id="result-section" class="card hidden">
-                <div class="result-header">
-                    <h2 id="user-info-display"></h2>
-                    <div id="luck-score" class="stars-display"></div>
-                </div>
-                
-                <div class="fortune-grid">
-                    <div class="fortune-item">
-                        <h3>✨ 종합운</h3>
-                        <p id="general-fortune"></p>
+            <!-- Tarot Section -->
+            <section id="tarot-section" class="view hidden">
+                <div class="card">
+                    <h2>오늘의 타로</h2>
+                    <p>마음을 가다듬고 카드 한 장을 선택하세요.</p>
+                    <div class="tarot-deck">
+                        <div class="tarot-card-back" id="draw-tarot">?</div>
                     </div>
-                    <div class="fortune-item">
-                        <h3>❤️ 연애운</h3>
-                        <p id="love-fortune"></p>
-                    </div>
-                    <div class="fortune-item">
-                        <h3>💰 금전운</h3>
-                        <p id="money-fortune"></p>
-                    </div>
-                    <div class="fortune-item">
-                        <h3>💼 직장/학업운</h3>
-                        <p id="work-fortune"></p>
+                    <div id="tarot-result" class="hidden result-box">
+                        <h3 id="tarot-name"></h3>
+                        <p id="tarot-desc"></p>
                     </div>
                 </div>
+            </section>
 
-                <button id="retry-btn">다시 확인하기</button>
+            <!-- Constellation Section -->
+            <section id="constellation-section" class="view hidden">
+                <div class="card">
+                    <h2>오하아사 별자리 운세</h2>
+                    <div id="const-result" class="result-box">
+                        <h3 id="const-name"></h3>
+                        <div class="luck-items">
+                            <p>🍀 행운의 아이템: <span id="luck-item"></span></p>
+                            <p>🎨 행운의 색상: <span id="luck-color"></span></p>
+                        </div>
+                        <p id="const-desc" class="desc-box"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Saju Section -->
+            <section id="saju-section" class="view hidden">
+                <div class="card">
+                    <h2>사주 오행 분석</h2>
+                    <div id="saju-result" class="result-box">
+                        <div class="element-grid">
+                            <div class="element-item" id="elem-main">기운: <span>-</span></div>
+                        </div>
+                        <p id="saju-desc" class="desc-box"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Zodiac Section -->
+            <section id="zodiac-section" class="view hidden">
+                <div class="card">
+                    <h2>띠별 운세</h2>
+                    <div id="zodiac-result" class="result-box">
+                        <h3 id="zodiac-name"></h3>
+                        <p id="zodiac-desc" class="desc-box"></p>
+                    </div>
+                </div>
             </section>
         </main>
 

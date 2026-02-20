@@ -69,10 +69,19 @@ navItems.forEach(item => {
     item.addEventListener('click', () => {
         const target = item.getAttribute('data-target');
         const birthInput = document.getElementById('birthdate-global').value;
-        if (target !== 'home' && !birthInput) {
-            alert('먼저 생년월일을 입력해주세요!');
-            switchView('home');
-            return;
+        const year = birthInput.split('-')[0];
+
+        if (target !== 'home') {
+            if (!birthInput) {
+                alert('먼저 생년월일을 입력해주세요!');
+                switchView('home');
+                return;
+            }
+            if (year.length !== 4) {
+                alert('연도는 4자리(예: 1990)로 입력해주세요!');
+                switchView('home');
+                return;
+            }
         }
         globalBirthdate = birthInput;
         switchView(target);

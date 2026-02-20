@@ -210,7 +210,7 @@ h1 {
     color: #e0e0e0;
 }
 
-.const-icon {
+.const-icon, .zodiac-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
     color: var(--accent-color);

@@ -104,7 +104,20 @@ const data = {
         { name: "물병자리 (1.20-2.18)", icon: "♒", desc: "창의적인 아이디어가 돋보이는 날입니다. 독창성을 유지하세요." },
         { name: "물고기자리 (2.19-3.20)", icon: "♓", desc: "감수성이 풍부해지는 날입니다. 예술적인 활동에 좋습니다." }
     ],
-    zodiacs: ["쥐띠", "소띠", "호랑이띠", "토끼띠", "용띠", "뱀띠", "말띠", "양띠", "원숭이띠", "닭띠", "개띠", "돼지띠"],
+    zodiacs: [
+        { name: "쥐띠", icon: "🐭" },
+        { name: "소띠", icon: "🐮" },
+        { name: "호랑이띠", icon: "🐯" },
+        { name: "토끼띠", icon: "🐰" },
+        { name: "용띠", icon: "🐲" },
+        { name: "뱀띠", icon: "🐍" },
+        { name: "말띠", icon: "🐴" },
+        { name: "양띠", icon: "🐑" },
+        { name: "원숭이띠", icon: "🐵" },
+        { name: "닭띠", icon: "🐔" },
+        { name: "개띠", icon: "🐶" },
+        { name: "돼지띠", icon: "🐷" }
+    ],
     zodiacDesc: [
         "오늘은 겸손한 태도가 행운을 불러옵니다.",
         "인내심을 가지고 기다리면 좋은 결과가 있을 것입니다.",
@@ -218,7 +231,9 @@ function updateFortune(type) {
     if (type === 'zodiac') {
         const year = parseInt(globalBirthdate.split('-')[0]);
         const zodiacIdx = (year - 4) % 12;
-        document.getElementById('zodiac-name').innerText = `${data.zodiacs[zodiacIdx]} (출생연도 기준)`;
+        const zodiac = data.zodiacs[zodiacIdx];
+        document.getElementById('zodiac-icon').innerText = zodiac.icon;
+        document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
         document.getElementById('zodiac-desc').innerText = data.zodiacDesc[Math.floor(seededRandom(seed) * data.zodiacDesc.length)];
     }
 }

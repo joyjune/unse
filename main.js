@@ -313,7 +313,6 @@ const tarotResult = document.getElementById('tarot-result');
 const tarotName = document.getElementById('tarot-name');
 const tarotIcon = document.getElementById('tarot-card-image');
 const tarotDesc = document.getElementById('tarot-desc');
-const resetBtn = document.getElementById('reset-tarot');
 
 if (tarotCard) {
     tarotCard.addEventListener('click', function() {
@@ -334,14 +333,6 @@ if (tarotCard) {
         setTimeout(() => {
             tarotResult.classList.remove('hidden');
         }, 800);
-    });
-}
-
-if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-        isTarotDrawn = false;
-        tarotCard.classList.remove('flipped');
-        tarotResult.classList.add('hidden');
     });
 }
 

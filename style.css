@@ -125,6 +125,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.icon.grayscale {
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
 /* Tarot 3D Flip */
 .tarot-container {
     perspective: 1000px;

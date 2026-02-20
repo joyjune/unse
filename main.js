@@ -248,15 +248,8 @@ function updateFortune(type) {
         document.getElementById('luck-item').innerText = data.items[Math.floor(seededRandom(seed) * data.items.length)];
         document.getElementById('luck-color').innerText = data.colors[Math.floor(seededRandom(seed + 1) * data.colors.length)];
 
-        // Sprite Position (4 columns x 3 rows)
-        const col = constIdx % 4;
-        const row = Math.floor(constIdx / 4);
-        const posX = col * -200;
-        const posY = row * -200; // Assuming square blocks for easier alignment
-        const imgEl = document.getElementById('const-image');
-        if (imgEl) {
-            imgEl.style.backgroundPosition = `${posX}px ${posY}px`;
-        }
+        // Draw Constellation SVG
+        drawConstellation(constellation);
     }
 
     if (type === 'saju') {
@@ -285,10 +278,12 @@ function updateFortune(type) {
 
 function drawConstellation(constellation) {
     const container = document.getElementById('const-visual');
-    const width = 250;
-    const height = 200;
+    if (!container) return;
     
-    let svgContent = `<svg viewBox="0 0 ${width} ${height}">`;
+    const width = 300;
+    const height = 250;
+    
+    let svgContent = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`;
     
     // Draw Lines
     constellation.lines.forEach(line => {
@@ -320,35 +315,40 @@ const tarotIcon = document.getElementById('tarot-card-image');
 const tarotDesc = document.getElementById('tarot-desc');
 const resetBtn = document.getElementById('reset-tarot');
 
-tarotCard.addEventListener('click', function() {
-    if (isTarotDrawn) return;
-    
-    isTarotDrawn = true;
-    const seed = getSeed() + 777;
-    const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
-    const card = data.tarot[tarotIdx];
+if (tarotCard) {
+    tarotCard.addEventListener('click', function() {
+        if (isTarotDrawn) return;
+        
+        isTarotDrawn = true;
+        const seed = getSeed() + 777;
+        const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
+        const card = data.tarot[tarotIdx];
 
-    // Setup card content before flip completes
-    tarotName.innerText = card.name;
-    tarotIcon.innerText = card.icon;
-    tarotDesc.innerText = card.desc;
+        // Setup card content before flip completes
+        tarotName.innerText = card.name;
+        tarotIcon.innerText = card.icon;
+        tarotDesc.innerText = card.desc;
 
-    this.classList.add('flipped');
-    
-    setTimeout(() => {
-        tarotResult.classList.remove('hidden');
-    }, 800);
-});
+        this.classList.add('flipped');
+        
+        setTimeout(() => {
+            tarotResult.classList.remove('hidden');
+        }, 800);
+    });
+}
 
-resetBtn.addEventListener('click', () => {
-    isTarotDrawn = false;
-    tarotCard.classList.remove('flipped');
-    tarotResult.classList.add('hidden');
-});
+if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+        isTarotDrawn = false;
+        tarotCard.classList.remove('flipped');
+        tarotResult.classList.add('hidden');
+    });
+}
 
 // Initial Background Stars
 function createStars() {
     const starsContainer = document.querySelector('.stars');
+    if (!starsContainer) return;
     for (let i = 0; i < 80; i++) {
         const star = document.createElement('div');
         star.className = 'star';

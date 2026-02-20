@@ -1,11 +1,92 @@
 const data = {
     tarot: [
-        { name: "The Fool (광대)", desc: "새로운 시작, 자유로운 영혼, 모험의 시작을 의미합니다. 두려움 없이 나아가세요." },
-        { name: "The Magician (마법사)", desc: "창의력, 능력, 의지력을 상징합니다. 당신의 기술을 발휘할 때입니다." },
-        { name: "The High Priestess (고위 여사제)", desc: "직관, 신비, 내면의 지혜를 의미합니다. 마음의 소리에 귀를 기울이세요." },
-        { name: "The Empress (황후)", desc: "풍요, 모성, 창조를 상징합니다. 주변의 사랑과 풍요를 만끽하세요." },
-        { name: "The Emperor (황제)", desc: "권위, 구조, 안정성을 의미합니다. 리더십을 발휘하여 상황을 통제하세요." },
-        { name: "The Lovers (연인)", desc: "사랑, 조화, 선택을 상징합니다. 중요한 관계나 결정을 앞두고 있나요?" }
+        // Major Arcana (22)
+        { name: "0. The Fool (광대)", icon: "🃏", desc: "새로운 시작, 자유로움, 모험, 순수함. 두려워 말고 새로운 길을 나서보세요." },
+        { name: "I. The Magician (마법사)", icon: "✨", desc: "창의력, 능력, 실천력, 의지. 당신에겐 이미 모든 준비가 되어 있습니다." },
+        { name: "II. The High Priestess (고위 여사제)", icon: "🌙", desc: "직관, 신비, 지혜, 무의식. 내면의 소리에 귀를 기울여야 할 때입니다." },
+        { name: "III. The Empress (황후)", icon: "👸", desc: "풍요, 모성, 창조, 자연. 주변의 아름다움과 풍요를 만끽하세요." },
+        { name: "IV. The Emperor (황제)", icon: "👑", desc: "권위, 구조, 안정성, 리더십. 계획을 세우고 상황을 통제하세요." },
+        { name: "V. The Hierophant (교황)", icon: "⛪", desc: "전통, 교육, 신념, 영적 조언. 지혜로운 조언자에게 도움을 구해보세요." },
+        { name: "VI. The Lovers (연인)", icon: "❤️", desc: "사랑, 조화, 선택, 파트너십. 마음이 이끄는 대로 결단을 내리세요." },
+        { name: "VII. The Chariot (전차)", icon: "🏹", desc: "승리, 의지, 전진, 극복. 강한 추진력으로 목표를 향해 나아가세요." },
+        { name: "VIII. Strength (힘)", icon: "🦁", desc: "용기, 인내, 부드러운 통제. 육체적인 힘보다 내면의 힘이 필요한 때입니다." },
+        { name: "IX. The Hermit (은둔자)", icon: "💡", desc: "성찰, 고독, 내면의 탐구, 인도. 잠시 멈추어 자신을 돌아보세요." },
+        { name: "X. Wheel of Fortune (운명의 수레바퀴)", icon: "🎡", desc: "운명, 변화, 순환, 행운. 변화의 흐름을 받아들이고 순응하세요." },
+        { name: "XI. Justice (정의)", icon: "⚖️", desc: "공정, 진실, 인과응보, 균형. 객관적인 시각으로 상황을 판단하세요." },
+        { name: "XII. The Hanged Man (매달린 사람)", icon: "🙃", desc: "희생, 새로운 시각, 정체, 인내. 상황을 다른 각도에서 바라보세요." },
+        { name: "XIII. Death (죽음)", icon: "💀", desc: "끝, 새로운 시작, 변화, 변형. 과거를 보내주고 새로운 미래를 맞이하세요." },
+        { name: "XIV. Temperance (절제)", icon: "🍷", desc: "균형, 조화, 인내, 중용. 서로 다른 것들을 잘 조화시켜야 합니다." },
+        { name: "XV. The Devil (악마)", icon: "😈", desc: "속박, 유혹, 중독, 물질주의. 당신을 얽매고 있는 욕망에서 벗어나세요." },
+        { name: "XVI. The Tower (탑)", icon: "⚡", desc: "갑작스러운 변화, 붕괴, 깨달음, 해방. 위기는 곧 새로운 기회가 됩니다." },
+        { name: "XVII. The Star (별)", icon: "🌟", desc: "희망, 영감, 치유, 평온. 어둠 속에서도 빛나는 희망을 잃지 마세요." },
+        { name: "XVIII. The Moon (달)", icon: "🌕", desc: "불안, 혼란, 환상, 직관. 보이지 않는 곳의 진실을 직시하세요." },
+        { name: "XIX. The Sun (태양)", icon: "☀️", desc: "성공, 행복, 활력, 긍정. 밝은 에너지가 당신을 비추고 있습니다." },
+        { name: "XX. Judgement (심판)", icon: "🎺", desc: "부활, 결정, 용서, 소명. 과거를 청산하고 새로운 부름에 답하세요." },
+        { name: "XXI. The World (세계)", icon: "🌍", desc: "완성, 통합, 성취, 여행. 하나의 주기가 완성되고 성공을 거둡니다." },
+
+        // Wands (지팡이 - 열정, 행동)
+        { name: "Ace of Wands", icon: "🪄", desc: "새로운 시작, 영감, 잠재력. 열정적인 아이디어가 떠오르는 날입니다." },
+        { name: "Two of Wands", icon: "🪄", desc: "계획, 미래 지향, 결정. 더 큰 세상으로 나아갈 계획을 세우세요." },
+        { name: "Three of Wands", icon: "🪄", desc: "확장, 전망, 협력. 당신의 노력이 결실을 맺기 시작합니다." },
+        { name: "Four of Wands", icon: "🪄", desc: "축하, 화합, 안정. 즐거운 소식이나 축하할 일이 생길 수 있습니다." },
+        { name: "Five of Wands", icon: "🪄", desc: "경쟁, 갈등, 혼란. 작은 다툼이나 경쟁이 예상되니 주의하세요." },
+        { name: "Six of Wands", icon: "🪄", desc: "승리, 인정, 성취. 당신의 능력이 세상에 인정받는 날입니다." },
+        { name: "Seven of Wands", icon: "🪄", desc: "방어, 저항, 인내. 자신의 신념을 지키기 위해 노력해야 합니다." },
+        { name: "Eight of Wands", icon: "🪄", desc: "신속함, 소식, 이동. 상황이 빠르게 전개되니 속도를 맞추세요." },
+        { name: "Nine of Wands", icon: "🪄", desc: "경계, 마지막 힘, 준비. 끝까지 포기하지 말고 마지막 힘을 내세요." },
+        { name: "Ten of Wands", icon: "🪄", desc: "부담, 책임감, 과로. 너무 많은 짐을 혼자 짊어지고 있지는 않나요?" },
+        { name: "Page of Wands", icon: "🪄", desc: "새로운 소식, 호기심, 모험심. 설레는 소식이 찾아올 수 있습니다." },
+        { name: "Knight of Wands", icon: "🪄", desc: "열정, 추진력, 급한 성격. 앞뒤 가리지 않고 행동하는 기운입니다." },
+        { name: "Queen of Wands", icon: "🪄", desc: "매력, 자신감, 사교성. 당신의 밝은 에너지가 주변을 즐겁게 합니다." },
+        { name: "King of Wands", icon: "🪄", desc: "리더십, 비전, 카리스마. 강한 의지로 상황을 주도해 나가세요." },
+
+        // Cups (컵 - 감정, 관계)
+        { name: "Ace of Cups", icon: "🍷", desc: "사랑의 시작, 기쁨, 감성. 새로운 감정이나 관계가 피어납니다." },
+        { name: "Two of Cups", icon: "🍷", desc: "결합, 파트너십, 조화. 마음이 맞는 사람과의 깊은 교감이 예상됩니다." },
+        { name: "Three of Cups", icon: "🍷", desc: "축하, 우정, 즐거움. 친구들과 즐거운 시간을 보내기에 좋은 날입니다." },
+        { name: "Four of Cups", icon: "🍷", desc: "무기력, 권태, 성찰. 새로운 기회를 놓치고 있지는 않은지 확인하세요." },
+        { name: "Five of Cups", icon: "🍷", desc: "상실감, 후회, 슬픔. 잃은 것보다 남은 것에 집중해야 할 때입니다." },
+        { name: "Six of Cups", icon: "🍷", desc: "추억, 순수함, 재회. 과거의 인연이나 추억이 힘이 되어줍니다." },
+        { name: "Seven of Cups", icon: "🍷", desc: "환상, 선택의 고민, 상상. 현실적인 판단이 필요한 시점입니다." },
+        { name: "Eight of Cups", icon: "🍷", desc: "떠남, 새로운 탐구, 포기. 더 가치 있는 것을 찾아 떠날 용기가 필요합니다." },
+        { name: "Nine of Cups", icon: "🍷", desc: "만족, 소원 성취, 행복. 마음먹은 대로 일이 풀리는 즐거운 날입니다." },
+        { name: "Ten of Cups", icon: "🍷", desc: "가족애, 평화, 행복한 가정. 주변 사람들과 행복을 나누는 시간입니다." },
+        { name: "Page of Cups", icon: "🍷", desc: "감수성, 새로운 소식, 직관. 감성적인 아이디어나 소식이 찾아옵니다." },
+        { name: "Knight of Cups", icon: "🍷", desc: "로맨틱, 제안, 평화주의자. 부드러운 유혹이나 제안이 있을 수 있습니다." },
+        { name: "Queen of Cups", icon: "🍷", desc: "자애로움, 직관, 공감. 타인의 마음을 어루만져주는 지혜가 빛납니다." },
+        { name: "King of Cups", icon: "🍷", desc: "감정적 조절, 포용력, 평온. 요동치는 감정을 다스리고 평정을 유지하세요." },
+
+        // Swords (검 - 이성, 논리)
+        { name: "Ace of Swords", icon: "⚔️", desc: "승리, 명확함, 결단. 날카로운 통찰력으로 문제를 해결할 것입니다." },
+        { name: "Two of Swords", icon: "⚔️", desc: "균형, 갈등, 결정 보류. 선택의 기로에서 신중을 기하고 있습니다." },
+        { name: "Three of Swords", icon: "⚔️", desc: "상처, 아픔, 이별. 마음 아픈 소식이 있을 수 있으나 성장의 기회입니다." },
+        { name: "Four of Swords", icon: "⚔️", desc: "휴식, 명상, 회복. 지친 몸과 마음을 쉬게 해주어야 하는 때입니다." },
+        { name: "Five of Swords", icon: "⚔️", desc: "패배, 갈등, 공허한 승리. 다툼에서 이겨도 상처만 남을 수 있습니다." },
+        { name: "Six of Swords", icon: "⚔️", desc: "회복, 이동, 문제 해결. 어려운 상황에서 벗어나 안정으로 향합니다." },
+        { name: "Seven of Swords", icon: "⚔️", desc: "전략, 배신, 은밀함. 신중하고 기민한 대처가 필요한 상황입니다." },
+        { name: "Eight of Swords", icon: "⚔️", desc: "고립, 속박, 두려움. 스스로 만든 감옥에서 벗어날 용기를 내세요." },
+        { name: "Nine of Swords", icon: "⚔️", desc: "불안, 악몽, 과도한 걱정. 생각보다 상황은 나쁘지 않을 수 있습니다." },
+        { name: "Ten of Swords", icon: "⚔️", desc: "완전한 끝, 고통, 새로운 시작. 이제 바닥을 쳤으니 올라갈 일만 남았습니다." },
+        { name: "Page of Swords", icon: "⚔️", desc: "경계, 지적 호기심, 새로운 정보. 주변을 살피고 정보를 수집하세요." },
+        { name: "Knight of Swords", icon: "⚔️", desc: "돌격, 행동력, 논리. 망설임 없이 생각한 바를 밀어붙이세요." },
+        { name: "Queen of Swords", icon: "⚔️", desc: "냉철함, 독립심, 지혜. 객관적인 시선으로 진실을 바라보세요." },
+        { name: "King of Swords", icon: "⚔️", desc: "권위, 논리, 공정함. 지적인 리더십으로 상황을 판단하세요." },
+
+        // Pentacles (펜타클 - 물질, 현실)
+        { name: "Ace of Pentacles", icon: "💰", desc: "기회, 풍요, 현실적 시작. 금전적인 이득이나 기회가 찾아옵니다." },
+        { name: "Two of Pentacles", icon: "💰", desc: "균형, 융통성, 변화. 여러 상황을 능숙하게 조율해야 하는 날입니다." },
+        { name: "Three of Pentacles", icon: "💰", desc: "협력, 기술, 성과. 팀워크를 통해 전문성을 인정받게 됩니다." },
+        { name: "Four of Pentacles", icon: "💰", desc: "소유욕, 보수적, 안정. 가진 것을 지키는 것도 좋지만 집착은 금물입니다." },
+        { name: "Five of Pentacles", icon: "💰", desc: "곤경, 고립, 손실. 주변에 도움을 청하면 해결책을 찾을 수 있습니다." },
+        { name: "Six of Pentacles", icon: "💰", desc: "자선, 관용, 균형. 베풀고 받는 과정에서 조화를 이루는 날입니다." },
+        { name: "Seven of Pentacles", icon: "💰", desc: "인내, 수확 대기, 평가. 지금까지의 노력을 돌아보고 점검하세요." },
+        { name: "Eight of Pentacles", icon: "💰", desc: "숙련, 성실, 전문성. 맡은 바 일에 집중하면 큰 성과를 거둡니다." },
+        { name: "Nine of Pentacles", icon: "💰", desc: "풍요, 여유, 독립적 성공. 스스로 일궈낸 성취를 마음껏 즐기세요." },
+        { name: "Ten of Pentacles", icon: "💰", desc: "유산, 완성, 가정의 번영. 장기적인 관점에서 안정을 이룩하게 됩니다." },
+        { name: "Page of Pentacles", icon: "💰", desc: "신중함, 기회, 배움. 현실적인 목표를 세우고 차근차근 시작하세요." },
+        { name: "Knight of Pentacles", icon: "💰", desc: "성실함, 신뢰, 책임감. 서두르지 말고 꼼꼼하게 처리하는 것이 좋습니다." },
+        { name: "Queen of Pentacles", icon: "💰", desc: "현실적 조언, 풍요, 실질적 도움. 따뜻하고 든든한 지원군을 얻습니다." },
+        { name: "King of Pentacles", icon: "💰", desc: "부, 안정성, 실질적 성과. 노력의 대가로 큰 보상을 얻는 날입니다." }
     ],
     items: ["빨간색 펜", "노트북", "은색 반지", "향수", "작은 거울", "파란색 텀블러", "이어폰", "책"],
     colors: ["금색", "보라색", "에메랄드", "진분홍", "남색", "주황색", "흰색", "검은색"],
@@ -36,6 +117,7 @@ const data = {
 
 // State
 let globalBirthdate = "";
+let isTarotDrawn = false;
 
 // Helper Functions
 function seededRandom(seed) {
@@ -93,13 +175,11 @@ document.getElementById('home-btn').addEventListener('click', () => switchView('
 // Fortune Logic
 function updateFortune(type) {
     const seed = getSeed();
-    const rand = seededRandom(seed);
 
     if (type === 'constellation') {
         const birthMonth = parseInt(globalBirthdate.split('-')[1]);
         const birthDay = parseInt(globalBirthdate.split('-')[2]);
         let constIdx = 0;
-        // Simple Constellation Logic
         if ((birthMonth == 3 && birthDay >= 21) || (birthMonth == 4 && birthDay <= 19)) constIdx = 0;
         else if ((birthMonth == 4 && birthDay >= 20) || (birthMonth == 5 && birthDay <= 20)) constIdx = 1;
         else if ((birthMonth == 5 && birthDay >= 21) || (birthMonth == 6 && birthDay <= 21)) constIdx = 2;
@@ -142,23 +222,37 @@ function updateFortune(type) {
 }
 
 // Tarot Interaction
-document.getElementById('draw-tarot').addEventListener('click', function() {
-    const resultBox = document.getElementById('tarot-result');
-    const nameDisplay = document.getElementById('tarot-name');
-    const descDisplay = document.getElementById('tarot-desc');
+const tarotCard = document.getElementById('tarot-card');
+const tarotResult = document.getElementById('tarot-result');
+const tarotName = document.getElementById('tarot-name');
+const tarotIcon = document.getElementById('tarot-card-image');
+const tarotDesc = document.getElementById('tarot-desc');
+const resetBtn = document.getElementById('reset-tarot');
+
+tarotCard.addEventListener('click', function() {
+    if (isTarotDrawn) return;
     
-    this.style.transform = "rotateY(180deg)";
+    isTarotDrawn = true;
+    const seed = getSeed() + 777;
+    const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
+    const card = data.tarot[tarotIdx];
+
+    // Setup card content before flip completes
+    tarotName.innerText = card.name;
+    tarotIcon.innerText = card.icon;
+    tarotDesc.innerText = card.desc;
+
+    this.classList.add('flipped');
     
     setTimeout(() => {
-        const seed = getSeed() + 99; // Extra offset for tarot
-        const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
-        const card = data.tarot[tarotIdx];
-        
-        nameDisplay.innerText = card.name;
-        descDisplay.innerText = card.desc;
-        resultBox.classList.remove('hidden');
-        this.innerText = "🃏";
-    }, 500);
+        tarotResult.classList.remove('hidden');
+    }, 800);
+});
+
+resetBtn.addEventListener('click', () => {
+    isTarotDrawn = false;
+    tarotCard.classList.remove('flipped');
+    tarotResult.classList.add('hidden');
 });
 
 // Initial Background Stars

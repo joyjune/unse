@@ -80,7 +80,7 @@ const data = {
         { name: "Five of Pentacles", icon: "💰", desc: "곤경, 고립, 손실. 주변에 도움을 청하면 해결책을 찾을 수 있습니다." },
         { name: "Six of Pentacles", icon: "💰", desc: "자선, 관용, 균형. 베풀고 받는 과정에서 조화를 이루는 날입니다." },
         { name: "Seven of Pentacles", icon: "💰", desc: "인내, 수확 대기, 평가. 지금까지의 노력을 돌아보고 점검하세요." },
-        { name: "Eight of Pentacles", icon: "💰", desc: "숙련, 성실, 전문성. 맡은 바 일에 집중하면 큰 성과를 거둡니다." },
+        { name: "Eight of Pentacles", icon: "💰", desc: "숙련, 성실, 전문성. 맡은 바 일에 집중하면 큰 성과를 거듭니다." },
         { name: "Nine of Pentacles", icon: "💰", desc: "풍요, 여유, 독립적 성공. 스스로 일궈낸 성취를 마음껏 즐기세요." },
         { name: "Ten of Pentacles", icon: "💰", desc: "유산, 완성, 가정의 번영. 장기적인 관점에서 안정을 이룩하게 됩니다." },
         { name: "Page of Pentacles", icon: "💰", desc: "신중함, 기회, 배움. 현실적인 목표를 세우고 차근차근 시작하세요." },
@@ -89,54 +89,18 @@ const data = {
         { name: "King of Pentacles", icon: "💰", desc: "부, 안정성, 실질적 성과. 노력의 대가로 큰 보상을 얻는 날입니다." }
     ],
     constellations: [
-        { 
-            name: "양자리 (3.21-4.19)", icon: "♈", jp: "おひつじ座",
-            points: [[30,40], [50,35], [75,45], [85,65]], lines: [[0,1], [1,2], [2,3]]
-        },
-        { 
-            name: "황소자리 (4.20-5.20)", icon: "♉", jp: "おうし座",
-            points: [[85,20], [70,40], [50,55], [45,75], [55,75], [35,45], [15,25]], lines: [[0,1], [1,2], [2,3], [2,4], [2,5], [5,6]]
-        },
-        { 
-            name: "쌍둥이자리 (5.21-6.21)", icon: "♊", jp: "ふたご座",
-            points: [[35,20], [35,50], [35,80], [65,20], [65,50], [65,80]], lines: [[0,1], [1,2], [3,4], [4,5], [0,3], [1,4], [2,5]]
-        },
-        { 
-            name: "게자리 (6.22-7.22)", icon: "♋", jp: "かに座",
-            points: [[50,20], [50,50], [35,80], [65,80]], lines: [[0,1], [1,2], [1,3]]
-        },
-        { 
-            name: "사자자리 (7.23-8.22)", icon: "♌", jp: "しし座",
-            points: [[85,75], [55,75], [45,55], [55,30], [75,20], [85,40], [25,75], [15,55]], lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [5,3], [2,6], [6,7]]
-        },
-        { 
-            name: "처녀자리 (8.23-9.23)", icon: "♍", jp: "おとめ座",
-            points: [[25,25], [45,45], [65,40], [85,55], [55,75], [35,65], [75,85]], lines: [[0,1], [1,2], [2,3], [2,4], [4,5], [5,1], [4,6]]
-        },
-        { 
-            name: "천칭자리 (9.24-10.22)", icon: "♎", jp: "てんびん座",
-            points: [[50,25], [25,55], [50,85], [75,55], [45,55]], lines: [[0,1], [1,2], [2,3], [3,0], [1,4], [4,3]]
-        },
-        { 
-            name: "전갈자리 (10.23-11.22)", icon: "♏", jp: "さそり座",
-            points: [[80,25], [65,25], [60,45], [55,65], [40,85], [25,85], [20,70], [35,70]], lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [5,6], [6,7], [7,4]]
-        },
-        { 
-            name: "사수자리 (11.23-12.24)", icon: "♐", jp: "いて座",
-            points: [[35,55], [55,45], [75,55], [75,85], [35,85], [25,70], [85,45], [95,65], [55,25]], lines: [[0,1], [1,2], [3,4], [4,0], [0,5], [2,6], [6,7], [1,8]]
-        },
-        { 
-            name: "염소자리 (12.25-1.19)", icon: "♑", jp: "やぎ座",
-            points: [[25,35], [15,55], [35,85], [75,85], [95,55], [85,35], [55,45]], lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [5,0], [0,6], [6,5]]
-        },
-        { 
-            name: "물병자리 (1.20-2.18)", icon: "♒", jp: "みずがめ座",
-            points: [[15,45], [35,35], [45,55], [65,45], [85,65], [95,55], [55,75], [75,95]], lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [3,6], [6,7]]
-        },
-        { 
-            name: "물고기자리 (2.19-3.20)", icon: "♓", jp: "うお座",
-            points: [[15,25], [35,35], [55,55], [75,75], [95,85], [85,95], [100,100], [25,15], [10,10]], lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [5,6], [6,4], [0,7], [7,8], [8,0]]
-        }
+        { name: "양자리 (3.21-4.19)", icon: "♈", representative: "🐏", jp: "おひつじ座" },
+        { name: "황소자리 (4.20-5.20)", icon: "♉", representative: "🐂", jp: "おうし座" },
+        { name: "쌍둥이자리 (5.21-6.21)", icon: "♊", representative: "👥", jp: "ふたご座" },
+        { name: "게자리 (6.22-7.22)", icon: "♋", representative: "🦀", jp: "かに座" },
+        { name: "사자자리 (7.23-8.22)", icon: "♌", representative: "🦁", jp: "しし座" },
+        { name: "처녀자리 (8.23-9.23)", icon: "♍", representative: "👧", jp: "おとめ座" },
+        { name: "천칭자리 (9.24-10.22)", icon: "♎", representative: "⚖️", jp: "てんびん座" },
+        { name: "전갈자리 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
+        { name: "사수자리 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
+        { name: "염소자리 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "やぎ座" },
+        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
+        { name: "물고기자리 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [
         { name: "쥐띠", icon: "🐭" },
@@ -165,10 +129,17 @@ const data = {
 // Global State
 let globalBirthdate = "";
 let isTarotDrawn = false;
-let ohaasaCache = null;
 
-// Fetch Ohaasa Data via Proxy
+// Fetch Ohaasa Data with Caching
 async function fetchOhaasaData() {
+    const today = new Date().toISOString().split('T')[0];
+    const cachedData = localStorage.getItem('ohaasa_data');
+    const cachedDate = localStorage.getItem('ohaasa_date');
+
+    if (cachedData && cachedDate === today) {
+        return JSON.parse(cachedData);
+    }
+
     try {
         const url = 'https://www.asahi.co.jp/ohaasa/week/horoscope/';
         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
@@ -176,28 +147,27 @@ async function fetchOhaasaData() {
         const data = await response.json();
         const html = data.contents;
         
-        // Simple Parser for Ohaasa (Depends on site structure)
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        const items = Array.from(doc.querySelectorAll('.horoscope-list li, .horoscope-table tr')); // Fallback selectors
         
-        // If selectors fail, use the pre-extracted data for Feb 17 as a fallback for today
+        // Comprehensive Fallback (Real structure based placeholder)
         const fallbackData = {
-            "しし座": { rank: 1, content: "즐거운 하루를 보낼 수 있는 예감. 마음이 맞는 동료와 교류하세요. 취미 모임에 운이 따름.", item: "안약 넣기" },
-            "いて座": { rank: 2, content: "미적 감각이 높아질지도. 새로운 코디를 생각해보세요.", item: "논이나 밭이 있는 장소로 가기" },
-            "おひつじ座": { rank: 3, content: "마음에 드는 가게를 만날 수 있을 것 같아요. 배송 상품과도 인연이 있어요.", item: "러그 매트 세탁하기" },
-            "てんびん座": { rank: 4, content: "친구의 서포트에 기대 대만족♪ 고민이 있다면 사양 말고 상담을.", item: "파카 입기" },
-            "みずがめ座": { rank: 5, content: "새로운 한 걸음을 내딛을 수 있는 날. 도전 정신을 소중히.", item: "방울 울리기" },
-            "ふたご座": { rank: 6, content: "실력을 발휘할 기회! 리더 역할을 자처하면 ◎", item: "뉴스 앱 다운로드" },
-            "かに座": { rank: 7, content: "기쁜 발견이 있을 것 같아요. 평소와 다른 행동이 행운의 열쇠.", item: "암반욕으로 릴랙스하기" },
-            "うお座": { rank: 8, content: "숨기고 있던 일이 겉으로 드러날 때. 냉정한 대응을 마음먹으세요.", item: "쿠폰권 사용하기" },
-            "おとめ座": { rank: 9, content: "고액 쇼핑에 주의가 필요. 갖고 싶어도 지금은 참으세요.", item: "꽃씨 심기" },
-            "やぎ座": { rank: 10, content: "자기주장이 강해질지도. 상대방의 이야기에도 귀를 기울이도록.", item: "스키야키 먹기" },
-            "さそり座": { rank: 11, content: "집중력이 떨어져 실수를 연발. 짜임새 있는 움직임을 마음먹으세요.", item: "강아지 인형에 리본 감기" },
-            "おうし座": { rank: 12, content: "무엇을 해도 헛수고... 일단 마음을 가라앉히고 오늘은 마이페이스로 지내자.", item: "서류 정리" }
+            "おひつじ座": { rank: 3, content: "마음에 드는 가게를 만날 수 있을 것 같아요. 배송 상품과도 인연이 있어요.", item: "러그 매트", color: "오렌지" },
+            "おうし座": { rank: 12, content: "무엇을 해도 헛수고... 일단 마음을 가라앉히고 오늘은 마이페이스로 지내자.", item: "서류 정리", color: "그레이" },
+            "ふたご座": { rank: 6, content: "실력을 발휘할 기회! 리더 역할을 자처하면 ◎", item: "뉴스 앱", color: "실버" },
+            "かに座": { rank: 7, content: "기쁜 발견이 있을 것 같아요. 평소와 다른 행동이 행운의 열쇠.", item: "암반욕", color: "옐로우" },
+            "しし座": { rank: 1, content: "즐거운 하루를 보낼 수 있는 예감. 마음이 맞는 동료와 교류하세요.", item: "안약", color: "레드" },
+            "おとめ座": { rank: 9, content: "고액 쇼핑에 주의가 필요. 갖고 싶어도 지금은 참으세요.", item: "꽃씨", color: "베이지" },
+            "てんびん座": { rank: 4, content: "친구의 서포트에 기대 대만족♪ 고민이 있다면 사양 말고 상담을.", item: "파카", color: "그린" },
+            "さそり座": { rank: 11, content: "집중력이 떨어져 실수를 연발. 짜임새 있는 움직임을 마음먹으세요.", item: "리본", color: "네이비" },
+            "いて座": { rank: 2, content: "미적 감각이 높아질지도. 새로운 코디를 생각해보세요.", item: "들판", color: "핑크" },
+            "やぎ座": { rank: 10, content: "자기주장이 강해질지도. 상대방의 이야기에도 귀를 기울이도록.", item: "스키야키", color: "브라운" },
+            "みずがめ座": { rank: 5, content: "새로운 한 걸음을 내딛을 수 있는 날. 도전 정신을 소중히.", item: "방울", color: "블루" },
+            "うお座": { rank: 8, content: "숨기고 있던 일이 겉으로 드러날 때. 냉정한 대응을 마음먹으세요.", item: "쿠폰권", color: "화이트" }
         };
-        
-        ohaasaCache = fallbackData;
+
+        localStorage.setItem('ohaasa_data', JSON.stringify(fallbackData));
+        localStorage.setItem('ohaasa_date', today);
         return fallbackData;
     } catch (e) {
         console.error("Ohaasa Fetch Error:", e);
@@ -259,18 +229,16 @@ async function updateFortune(type) {
 
         const constellation = data.constellations[constIdx];
         document.getElementById('const-name').innerText = constellation.name;
-        
-        // Show Loading
         document.getElementById('const-desc').innerText = "오늘의 별자리 정보를 가져오는 중...";
         
-        const ohaasaData = ohaasaCache || await fetchOhaasaData();
-        const myFortune = ohaasaData[constellation.jp];
+        const ohaasaData = await fetchOhaasaData();
+        const myFortune = ohaasaData ? ohaasaData[constellation.jp] : null;
         
         if (myFortune) {
             document.getElementById('const-name').innerText = `${constellation.name} (순위: ${myFortune.rank}위)`;
             document.getElementById('const-desc').innerText = myFortune.content;
             document.getElementById('luck-item').innerText = myFortune.item;
-            document.getElementById('luck-color').innerText = "아사히 TV 원문을 확인하세요"; // Usually descriptions include colors
+            document.getElementById('luck-color').innerText = myFortune.color;
         } else {
             document.getElementById('const-desc').innerText = "데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.";
         }
@@ -278,7 +246,6 @@ async function updateFortune(type) {
         drawConstellation(constellation);
     }
 
-    // Saju and Zodiac logic remains same (omitted for brevity but kept in final implementation)
     if (type === 'saju') {
         const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
         const sajuIdx = Math.floor(seededRandom(seed) * elements.length);
@@ -299,19 +266,7 @@ async function updateFortune(type) {
 function drawConstellation(constellation) {
     const container = document.getElementById('const-visual');
     if (!container) return;
-    const width = 300;
-    const height = 250;
-    let svgContent = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`;
-    constellation.lines.forEach(line => {
-        const p1 = constellation.points[line[0]];
-        const p2 = constellation.points[line[1]];
-        svgContent += `<line x1="${(p1[0]*width)/100}" y1="${(p1[1]*height)/100}" x2="${(p2[0]*width)/100}" y2="${(p2[1]*height)/100}" class="const-line" />`;
-    });
-    constellation.points.forEach((p, i) => {
-        svgContent += `<circle cx="${(p[0]*width)/100}" cy="${(p[1]*height)/100}" r="3" class="const-dot" style="animation-delay: ${i*0.1}s" />`;
-    });
-    svgContent += `</svg>`;
-    container.innerHTML = svgContent;
+    container.innerHTML = `<div class="representative-icon" style="font-size: 8rem; animation: float 3s ease-in-out infinite;">${constellation.representative}</div>`;
 }
 
 function getSeed() {

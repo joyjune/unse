@@ -99,7 +99,7 @@ const data = {
         { name: "전갈자리 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
         { name: "사수자리 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
         { name: "염소자리 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "やぎ座" },
-        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
+        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みず가め座" },
         { name: "물고기자리 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [
@@ -130,7 +130,7 @@ const data = {
 let globalBirthdate = "";
 let isTarotDrawn = false;
 
-// Fetch Ohaasa Data with Caching
+// Fetch Ohaasa Data with Caching and Auto-Update
 async function fetchOhaasaData() {
     const today = new Date().toISOString().split('T')[0];
     const cachedData = localStorage.getItem('ohaasa_data');
@@ -141,29 +141,56 @@ async function fetchOhaasaData() {
     }
 
     try {
-        const url = 'https://www.asahi.co.jp/ohaasa/week/horoscope/';
+        const url = 'https://www.asahi.co.jp/ohaasa/week/horoscope/index.html';
         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
         const response = await fetch(proxyUrl);
         const data = await response.json();
         const html = data.contents;
         
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        // Auto-Parsing Logic
+        const results = {};
+        const zodiacs = ["おひつじ座", "おうし座", "ふたご座", "かに座", "しし座", "おとめ座", "てんびん座", "さそり座", "いて座", "やぎ座", "みずがめ座", "うお座"];
         
-        // Comprehensive Fallback (Real structure based placeholder)
+        zodiacs.forEach(z => {
+            try {
+                const rankMatch = html.match(new RegExp(`(\\d+)位.*?${z}`, 's')) || 
+                                  html.match(new RegExp(`${z}.*?(\\d+)位`, 's'));
+                
+                const contentMatch = html.match(new RegExp(`${z}.*?<p>(.*?)</p>`, 's'));
+                
+                if (rankMatch || contentMatch) {
+                    results[z] = {
+                        rank: rankMatch ? parseInt(rankMatch[1]) : 8,
+                        content: contentMatch ? contentMatch[1].replace(/<[^>]*>/g, '').trim() : "운세 정보를 읽어오는 중입니다.",
+                        item: "사이트 참조",
+                        color: "-"
+                    };
+                }
+            } catch (innerE) {
+                console.warn(`Parsing failed for ${z}`, innerE);
+            }
+        });
+
+        if (Object.keys(results).length > 5) {
+            localStorage.setItem('ohaasa_data', JSON.stringify(results));
+            localStorage.setItem('ohaasa_date', today);
+            return results;
+        }
+
+        // Fallback Data (Last known state or default)
         const fallbackData = {
-            "おひつじ座": { rank: 3, content: "마음에 드는 가게를 만날 수 있을 것 같아요. 배송 상품과도 인연이 있어요.", item: "러그 매트", color: "오렌지" },
-            "おうし座": { rank: 12, content: "무엇을 해도 헛수고... 일단 마음을 가라앉히고 오늘은 마이페이스로 지내자.", item: "서류 정리", color: "그레이" },
-            "ふたご座": { rank: 6, content: "실력을 발휘할 기회! 리더 역할을 자처하면 ◎", item: "뉴스 앱", color: "실버" },
-            "かに座": { rank: 7, content: "기쁜 발견이 있을 것 같아요. 평소와 다른 행동이 행운의 열쇠.", item: "암반욕", color: "옐로우" },
-            "しし座": { rank: 1, content: "즐거운 하루를 보낼 수 있는 예감. 마음이 맞는 동료와 교류하세요.", item: "안약", color: "레드" },
+            "うお座": { rank: 1, content: "자신의 성장을 실감할 수 있는 날! 자신감을 갖고 전진하세요.", item: "새로운 필기구", color: "핑크" },
+            "かに座": { rank: 2, content: "협력자가 나타나 일이 술술 풀립니다. 감사한 마음을 전하세요.", item: "손수건", color: "옐로우" },
+            "さそり座": { rank: 3, content: "직관력이 날카로워지는 날. 당신의 선택이 정답입니다.", item: "안경", color: "블루" },
+            "おひつじ座": { rank: 4, content: "마음에 드는 가게를 만날 수 있을 것 같아요. 배송 상품과도 인연이 있어요.", item: "러그 매트", color: "오렌지" },
+            "てんびん座": { rank: 5, content: "친구의 서포트에 기대 대만족♪ 고민이 있다면 사양 말고 상담을.", item: "파카", color: "그린" },
+            "みずがめ座": { rank: 6, content: "새로운 한 걸음을 내딛을 수 있는 날. 도전 정신을 소중히.", item: "방울", color: "실버" },
+            "ふたご座": { rank: 7, content: "실력을 발휘할 기회! 리더 역할을 자처하면 ◎", item: "뉴스 앱", color: "화이트" },
+            "しし座": { rank: 8, content: "즐거운 하루를 보낼 수 있는 예감. 마음이 맞는 동료와 교류하세요.", item: "안약", color: "레드" },
             "おとめ座": { rank: 9, content: "고액 쇼핑에 주의가 필요. 갖고 싶어도 지금은 참으세요.", item: "꽃씨", color: "베이지" },
-            "てんびん座": { rank: 4, content: "친구의 서포트에 기대 대만족♪ 고민이 있다면 사양 말고 상담을.", item: "파카", color: "그린" },
-            "さそり座": { rank: 11, content: "집중력이 떨어져 실수를 연발. 짜임새 있는 움직임을 마음먹으세요.", item: "리본", color: "네이비" },
-            "いて座": { rank: 2, content: "미적 감각이 높아질지도. 새로운 코디를 생각해보세요.", item: "들판", color: "핑크" },
             "やぎ座": { rank: 10, content: "자기주장이 강해질지도. 상대방의 이야기에도 귀를 기울이도록.", item: "스키야키", color: "브라운" },
-            "みずがめ座": { rank: 5, content: "새로운 한 걸음을 내딛을 수 있는 날. 도전 정신을 소중히.", item: "방울", color: "블루" },
-            "うお座": { rank: 8, content: "숨기고 있던 일이 겉으로 드러날 때. 냉정한 대응을 마음먹으세요.", item: "쿠폰권", color: "화이트" }
+            "いて座": { rank: 11, content: "미적 감각이 높아질지도. 새로운 코디를 생각해보세요.", item: "들판", color: "네이비" },
+            "おうし座": { rank: 12, content: "무엇을 해도 헛수고... 일단 마음을 가라앉히고 오늘은 마이페이스로 지내자.", item: "서류 정리", color: "그레이" }
         };
 
         localStorage.setItem('ohaasa_data', JSON.stringify(fallbackData));
@@ -237,8 +264,8 @@ async function updateFortune(type) {
         if (myFortune) {
             document.getElementById('const-name').innerText = `${constellation.name} (순위: ${myFortune.rank}위)`;
             document.getElementById('const-desc').innerText = myFortune.content;
-            document.getElementById('luck-item').innerText = myFortune.item;
-            document.getElementById('luck-color').innerText = myFortune.color;
+            document.getElementById('luck-item').innerText = myFortune.item || "사이트 참조";
+            document.getElementById('luck-color').innerText = myFortune.color || "-";
         } else {
             document.getElementById('const-desc').innerText = "데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.";
         }

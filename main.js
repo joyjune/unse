@@ -212,6 +212,14 @@ function updateFortune(type) {
         document.getElementById('const-desc').innerText = constellation.desc;
         document.getElementById('luck-item').innerText = data.items[Math.floor(seededRandom(seed) * data.items.length)];
         document.getElementById('luck-color').innerText = data.colors[Math.floor(seededRandom(seed + 1) * data.colors.length)];
+
+        // Sprite Position Logic (4 columns x 3 rows)
+        // Order in sprite: Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
+        const col = constIdx % 4;
+        const row = Math.floor(constIdx / 4);
+        const posX = col * -200; // width 200px
+        const posY = row * -150; // height 150px
+        document.getElementById('const-image').style.backgroundPosition = `${posX}px ${posY}px`;
     }
 
     if (type === 'saju') {

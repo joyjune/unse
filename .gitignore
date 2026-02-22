@@ -1,3 +1,6 @@
 firebase-debug.log
 .idx/
 .vscode/
+functions/node_modules/
+.secret.local
+*.local

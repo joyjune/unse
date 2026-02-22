@@ -410,7 +410,8 @@ async function updateFortune(type) {
         const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
         const sajuIdx = Math.floor(seededRandom(seed) * elements.length);
         document.getElementById('elem-main').innerHTML = `오늘의 기운: <span>${elements[sajuIdx]}</span>`;
-        document.getElementById('saju-desc').innerText = "당신의 생년월일과 오늘의 기운을 분석한 결과입니다.";
+        document.getElementById('saju-desc').innerText = "운세를 분석하는 중...";
+        await fetchAIFortune('saju', document.getElementById('saju-desc'));
     }
 
     if (type === 'zodiac') {
@@ -419,7 +420,8 @@ async function updateFortune(type) {
         const zodiac = data.zodiacs[zodiacIdx];
         document.getElementById('zodiac-icon').innerText = zodiac.icon;
         document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
-        document.getElementById('zodiac-desc').innerText = data.zodiacDesc[Math.floor(seededRandom(seed) * data.zodiacDesc.length)];
+        document.getElementById('zodiac-desc').innerText = "운세를 분석하는 중...";
+        await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
     }
 }
 
@@ -427,6 +429,36 @@ function drawConstellation(constellation) {
     const container = document.getElementById('const-visual');
     if (!container) return;
     container.innerHTML = `<div class="representative-icon" style="font-size: 8rem; animation: float 3s ease-in-out infinite;">${constellation.representative}</div>`;
+}
+
+// AI 운세 API 호출 (당일 캐싱 포함)
+async function fetchAIFortune(type, targetEl) {
+    const today = new Date().toISOString().split('T')[0];
+    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}`;
+    const cached = localStorage.getItem(cacheKey);
+
+    if (cached) {
+        targetEl.innerText = cached;
+        return;
+    }
+
+    try {
+        const resp = await fetch('/api/fortune', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type, birthdate: globalBirthdate, today })
+        });
+        const data = await resp.json();
+        if (data.fortune) {
+            localStorage.setItem(cacheKey, data.fortune);
+            targetEl.innerText = data.fortune;
+        } else {
+            targetEl.innerText = "운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.";
+        }
+    } catch (e) {
+        console.error("AI fortune fetch error:", e);
+        targetEl.innerText = "운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.";
+    }
 }
 
 function getSeed() {

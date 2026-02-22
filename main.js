@@ -99,7 +99,7 @@ const data = {
         { name: "전갈자리 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
         { name: "사수자리 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
         { name: "염소자리 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "やぎ座" },
-        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みず가め座" },
+        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
         { name: "물고기자리 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [

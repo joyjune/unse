@@ -89,18 +89,18 @@ const data = {
         { name: "King of Pentacles", icon: "💰", desc: "부, 안정성, 실질적 성과. 노력의 대가로 큰 보상을 얻는 날입니다." }
     ],
     constellations: [
-        { name: "양자리 (3.21-4.19)", icon: "♈", representative: "🐏", jp: "おひつじ座" },
-        { name: "황소자리 (4.20-5.20)", icon: "♉", representative: "🐂", jp: "おうし座" },
-        { name: "쌍둥이자리 (5.21-6.21)", icon: "♊", representative: "👥", jp: "ふたご座" },
-        { name: "게자리 (6.22-7.22)", icon: "♋", representative: "🦀", jp: "かに座" },
-        { name: "사자자리 (7.23-8.22)", icon: "♌", representative: "🦁", jp: "しし座" },
-        { name: "처녀자리 (8.23-9.23)", icon: "♍", representative: "👧", jp: "おとめ座" },
-        { name: "천칭자리 (9.24-10.22)", icon: "♎", representative: "⚖️", jp: "てんびん座" },
-        { name: "전갈자리 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
-        { name: "사수자리 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
-        { name: "염소자리 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "やぎ座" },
-        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
-        { name: "물고기자리 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
+        { name: "양자리 (3.21-4.19)", en: "Aries (3.21-4.19)", ja: "牡羊座 (3.21-4.19)", icon: "♈", representative: "🐏", jp: "おひつじ座" },
+        { name: "황소자리 (4.20-5.20)", en: "Taurus (4.20-5.20)", ja: "牡牛座 (4.20-5.20)", icon: "♉", representative: "🐂", jp: "おうし座" },
+        { name: "쌍둥이자리 (5.21-6.21)", en: "Gemini (5.21-6.21)", ja: "双子座 (5.21-6.21)", icon: "♊", representative: "👥", jp: "ふたご座" },
+        { name: "게자리 (6.22-7.22)", en: "Cancer (6.22-7.22)", ja: "蟹座 (6.22-7.22)", icon: "♋", representative: "🦀", jp: "かに座" },
+        { name: "사자자리 (7.23-8.22)", en: "Leo (7.23-8.22)", ja: "獅子座 (7.23-8.22)", icon: "♌", representative: "🦁", jp: "しし座" },
+        { name: "처녀자리 (8.23-9.23)", en: "Virgo (8.23-9.23)", ja: "乙女座 (8.23-9.23)", icon: "♍", representative: "👧", jp: "おとめ座" },
+        { name: "천칭자리 (9.24-10.22)", en: "Libra (9.24-10.22)", ja: "天秤座 (9.24-10.22)", icon: "♎", representative: "⚖️", jp: "てんびん座" },
+        { name: "전갈자리 (10.23-11.22)", en: "Scorpio (10.23-11.22)", ja: "蠍座 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
+        { name: "사수자리 (11.23-12.24)", en: "Sagittarius (11.23-12.24)", ja: "射手座 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
+        { name: "염소자리 (12.25-1.19)", en: "Capricorn (12.25-1.19)", ja: "山羊座 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "やぎ座" },
+        { name: "물병자리 (1.20-2.18)", en: "Aquarius (1.20-2.18)", ja: "水瓶座 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
+        { name: "물고기자리 (2.19-3.20)", en: "Pisces (2.19-3.20)", ja: "魚座 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [
         { name: "쥐띠", icon: "🐭" },
@@ -190,6 +190,12 @@ function t(key) {
     return (translations[currentLang] && translations[currentLang][key]) || translations.ko[key] || key;
 }
 
+function getConstellationDisplayName(constellation) {
+    if (currentLang === 'en') return constellation.en || constellation.name;
+    if (currentLang === 'ja') return constellation.ja || constellation.name;
+    return constellation.name;
+}
+
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
@@ -200,12 +206,21 @@ function setLanguage(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
+
+    if (isTarotDrawn) {
+        resetTarot();
+    }
+    if (currentView !== 'home' && globalBirthdate) {
+        updateFortune(currentView);
+    }
 }
 
 // Global State
 let globalBirthdate = "";
 let isTarotDrawn = false;
 let ohaasaUpdateTimer = null;
+let currentView = "home";
+let lastTarotIndex = null;
 
 // Fetch Ohaasa Data via Cloudflare Function (Caching + Auto-Update)
 async function fetchOhaasaData(forceRefresh = false) {
@@ -295,18 +310,18 @@ async function triggerOhaasaUpdate(slot) {
             console.log('[오하아사] 8시 데이터 업데이트 확인, 내일 예약');
             scheduleNextBroadcastDay();
         } else {
-            console.log('[오하아사] 8시 데이터 미변경, 8시 30분 재시도 예약');
+            console.log('[오하아사] 8시 데이터 미변경, 9시 재시도 예약');
             const now = new Date();
-            const eightThirtyAM = new Date(now);
-            eightThirtyAM.setHours(8, 30, 0, 0);
-            if (now < eightThirtyAM) {
-                scheduleOhaasaAt(8, 30, () => triggerOhaasaUpdate('830am'));
+            const nineAM = new Date(now);
+            nineAM.setHours(9, 0, 0, 0);
+            if (now < nineAM) {
+                scheduleOhaasaAt(9, 0, () => triggerOhaasaUpdate('9am'));
             } else {
-                await triggerOhaasaUpdate('830am');
+                await triggerOhaasaUpdate('9am');
             }
         }
     } else {
-        // 8:30 슬롯 완료 — 오늘 업데이트 종료
+        // 9:00 슬롯 완료 — 오늘 업데이트 종료
         scheduleNextBroadcastDay();
     }
 }
@@ -323,12 +338,12 @@ async function scheduleOhaasaAutoUpdate() {
         return;
     }
     const done8am = localStorage.getItem('ohaasa_done_8am') === today;
-    const done830am = localStorage.getItem('ohaasa_done_830am') === today;
+    const done9am = localStorage.getItem('ohaasa_done_9am') === today;
 
     const eightAM = new Date(now);
     eightAM.setHours(8, 0, 0, 0);
-    const eightThirtyAM = new Date(now);
-    eightThirtyAM.setHours(8, 30, 0, 0);
+    const nineAM = new Date(now);
+    nineAM.setHours(9, 0, 0, 0);
 
     if (now < eightAM) {
         // 8시 이전 → 8시에 예약
@@ -336,14 +351,14 @@ async function scheduleOhaasaAutoUpdate() {
     } else if (!done8am) {
         // 8시 이후이지만 오늘 8시 업데이트 미실행 → 즉시 실행
         await triggerOhaasaUpdate('8am');
-    } else if (!done830am) {
-        // 8시 업데이트 완료, 8:30 재시도 여부 확인
+    } else if (!done9am) {
+        // 8시 업데이트 완료, 9시 재시도 여부 확인
         const htmlChanged = localStorage.getItem('ohaasa_html_changed') === 'true';
         if (!htmlChanged) {
-            if (now < eightThirtyAM) {
-                scheduleOhaasaAt(8, 30, () => triggerOhaasaUpdate('830am'));
+            if (now < nineAM) {
+                scheduleOhaasaAt(9, 0, () => triggerOhaasaUpdate('9am'));
             } else {
-                await triggerOhaasaUpdate('830am');
+                await triggerOhaasaUpdate('9am');
             }
         } else {
             scheduleNextBroadcastDay();
@@ -362,6 +377,7 @@ function switchView(target) {
     views.forEach(v => v.classList.add('hidden'));
     const targetView = document.getElementById(`${target}-section`);
     if (targetView) targetView.classList.remove('hidden');
+    currentView = target;
     
     document.querySelectorAll('.nav-item').forEach(n => {
         n.classList.toggle('active', n.getAttribute('data-target') === target);
@@ -407,7 +423,8 @@ async function updateFortune(type) {
         else constIdx = 11;
 
         const constellation = data.constellations[constIdx];
-        document.getElementById('const-name').innerText = constellation.name;
+        const displayName = getConstellationDisplayName(constellation);
+        document.getElementById('const-name').innerText = displayName;
         document.getElementById('const-desc').innerText = t('loading_const');
 
         const ohaasaData = await fetchOhaasaData();
@@ -415,7 +432,7 @@ async function updateFortune(type) {
 
         if (myFortune) {
             const rankLabel = currentLang === 'en' ? `Rank ${myFortune.rank}` : `${myFortune.rank}${t('rank_suffix')}`;
-            document.getElementById('const-name').innerText = `${constellation.name} (${rankLabel})`;
+            document.getElementById('const-name').innerText = `${displayName} (${rankLabel})`;
             document.getElementById('const-desc').innerText = myFortune.content;
             document.getElementById('luck-item').innerText = myFortune.item || "-";
             document.getElementById('luck-color').innerText = myFortune.color || "-";
@@ -492,6 +509,21 @@ function seededRandom(seed) {
     return x - Math.floor(x);
 }
 
+function resetTarot() {
+    isTarotDrawn = false;
+    lastTarotIndex = null;
+    const cardEl = document.getElementById('tarot-card');
+    const resultEl = document.getElementById('tarot-result');
+    if (cardEl) cardEl.classList.remove('flipped');
+    if (resultEl) resultEl.classList.add('hidden');
+    const nameEl = document.getElementById('tarot-name');
+    const imageEl = document.getElementById('tarot-card-image');
+    const descEl = document.getElementById('tarot-desc');
+    if (nameEl) nameEl.innerText = "";
+    if (imageEl) imageEl.innerText = "";
+    if (descEl) descEl.innerText = "";
+}
+
 // Tarot
 const tarotCard = document.getElementById('tarot-card');
 const tarotResult = document.getElementById('tarot-result');
@@ -501,6 +533,7 @@ if (tarotCard) {
         isTarotDrawn = true;
         const seed = getSeed() + 777;
         const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
+        lastTarotIndex = tarotIdx;
         const card = data.tarot[tarotIdx];
         document.getElementById('tarot-name').innerText = card.name;
         document.getElementById('tarot-card-image').innerText = card.icon;

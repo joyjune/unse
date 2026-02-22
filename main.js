@@ -410,6 +410,12 @@ function switchView(target) {
     const targetView = document.getElementById(`${target}-section`);
     if (targetView) targetView.classList.remove('hidden');
     currentView = target;
+
+    if (target === 'home') {
+        history.replaceState(null, "", location.pathname);
+    } else if (location.hash !== `#${target}`) {
+        location.hash = target;
+    }
     
     document.querySelectorAll('.nav-item').forEach(n => {
         n.classList.toggle('active', n.getAttribute('data-target') === target);
@@ -418,15 +424,36 @@ function switchView(target) {
     if (target !== 'home') updateFortune(target);
 }
 
+function getTargetFromHash() {
+    const hash = location.hash.replace('#', '');
+    if (!hash) return 'home';
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac'];
+    return allowed.includes(hash) ? hash : 'home';
+}
+
+function handleHashChange() {
+    const target = getTargetFromHash();
+    const birthInput = document.getElementById('birthdate-global').value;
+    if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+        alert(t('alert_birthdate'));
+        history.replaceState(null, "", location.pathname);
+        switchView('home');
+        return;
+    }
+    if (target !== 'home') globalBirthdate = birthInput;
+    switchView(target);
+}
+
 navItems.forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
         const target = item.getAttribute('data-target');
         const birthInput = document.getElementById('birthdate-global').value;
         if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+            e.preventDefault();
             alert(t('alert_birthdate'));
             return;
         }
-        globalBirthdate = birthInput;
+        if (target !== 'home') globalBirthdate = birthInput;
         switchView(target);
     });
 });
@@ -613,6 +640,10 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 // 초기 언어 적용
 setLanguage(currentLang);
+
+// 해시 기반 접근 처리
+window.addEventListener('hashchange', handleHashChange);
+handleHashChange();
 
 // 오하아사 자동 업데이트 스케줄 시작
 scheduleOhaasaAutoUpdate();

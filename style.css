@@ -63,6 +63,8 @@ h1 {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .nav-item:hover, .nav-item.active {
@@ -111,6 +113,9 @@ h1 {
     cursor: pointer;
     transition: all 0.3s;
     border: 1px solid var(--glass-border);
+    text-decoration: none;
+    display: block;
+    color: inherit;
 }
 
 .menu-card:hover {
@@ -123,6 +128,13 @@ h1 {
     font-size: 2.5rem;
     display: block;
     margin-bottom: 1rem;
+}
+
+.seo-intro {
+    margin-top: 0.75rem;
+    color: #d9e2ff;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .icon.grayscale {

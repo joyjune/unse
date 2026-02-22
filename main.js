@@ -103,18 +103,18 @@ const data = {
         { name: "물고기자리 (2.19-3.20)", en: "Pisces (2.19-3.20)", ja: "魚座 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [
-        { name: "쥐띠", icon: "🐭" },
-        { name: "소띠", icon: "🐮" },
-        { name: "호랑이띠", icon: "🐯" },
-        { name: "토끼띠", icon: "🐰" },
-        { name: "용띠", icon: "🐲" },
-        { name: "뱀띠", icon: "🐍" },
-        { name: "말띠", icon: "🐴" },
-        { name: "양띠", icon: "🐑" },
-        { name: "원숭이띠", icon: "🐵" },
-        { name: "닭띠", icon: "🐔" },
-        { name: "개띠", icon: "🐶" },
-        { name: "돼지띠", icon: "🐷" }
+        { name: "쥐띠", en: "Rat", ja: "ねずみ年", icon: "🐭" },
+        { name: "소띠", en: "Ox", ja: "うし年", icon: "🐮" },
+        { name: "호랑이띠", en: "Tiger", ja: "とら年", icon: "🐯" },
+        { name: "토끼띠", en: "Rabbit", ja: "うさぎ年", icon: "🐰" },
+        { name: "용띠", en: "Dragon", ja: "たつ年", icon: "🐲" },
+        { name: "뱀띠", en: "Snake", ja: "へび年", icon: "🐍" },
+        { name: "말띠", en: "Horse", ja: "うま年", icon: "🐴" },
+        { name: "양띠", en: "Goat", ja: "ひつじ年", icon: "🐑" },
+        { name: "원숭이띠", en: "Monkey", ja: "さる年", icon: "🐵" },
+        { name: "닭띠", en: "Rooster", ja: "とり年", icon: "🐔" },
+        { name: "개띠", en: "Dog", ja: "いぬ年", icon: "🐶" },
+        { name: "돼지띠", en: "Pig", ja: "いのしし年", icon: "🐷" }
     ],
     zodiacDesc: [
         "오늘은 겸손한 태도가 행운을 불러옵니다.",
@@ -511,7 +511,12 @@ async function updateFortune(type) {
     }
 
     if (type === 'saju') {
-        const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
+        const elementsMap = {
+            ko: ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"],
+            en: ["🌳 Wood (木)", "🔥 Fire (火)", "⛰️ Earth (土)", "💎 Metal (金)", "💧 Water (水)"],
+            ja: ["🌳 木 (木)", "🔥 火 (火)", "⛰️ 土 (土)", "💎 金 (金)", "💧 水 (水)"]
+        };
+        const elements = elementsMap[currentLang] || elementsMap.ko;
         const sajuIdx = Math.floor(seededRandom(seed) * elements.length);
         document.getElementById('elem-value').innerText = elements[sajuIdx];
         document.getElementById('saju-desc').innerText = t('loading_fortune');
@@ -522,8 +527,9 @@ async function updateFortune(type) {
         const year = parseInt(globalBirthdate.split('-')[0]);
         const zodiacIdx = (year - 4) % 12;
         const zodiac = data.zodiacs[zodiacIdx];
+        const zodiacDisplayName = currentLang === 'en' ? zodiac.en : (currentLang === 'ja' ? zodiac.ja : zodiac.name);
         document.getElementById('zodiac-icon').innerText = zodiac.icon;
-        document.getElementById('zodiac-name').innerText = `${zodiac.name} (${t('zodiac_basis')})`;
+        document.getElementById('zodiac-name').innerText = `${zodiacDisplayName} (${t('zodiac_basis')})`;
         document.getElementById('zodiac-desc').innerText = t('loading_fortune');
         await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
     }

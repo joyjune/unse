@@ -1,14 +1,52 @@
-const ZODIACS = ["쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양", "원숭이", "닭", "개", "돼지"];
-const ELEMENTS = ["나무 (木)", "불 (火)", "흙 (土)", "금 (金)", "물 (水)"];
+const ZODIACS = {
+    ko: ["쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양", "원숭이", "닭", "개", "돼지"],
+    en: ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"],
+    ja: ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"],
+};
 
-function getElement(birthdate, today) {
+const ELEMENTS = {
+    ko: ["나무 (木)", "불 (火)", "흙 (土)", "금 (金)", "물 (水)"],
+    en: ["Wood (木)", "Fire (火)", "Earth (土)", "Metal (金)", "Water (水)"],
+    ja: ["木", "火", "土", "金", "水"],
+};
+
+function getElement(birthdate, today, lang) {
     const seed = parseInt(birthdate.replace(/-/g, "")) + parseInt(today.replace(/-/g, ""));
-    return ELEMENTS[Math.abs(seed) % 5];
+    return ELEMENTS[lang][Math.abs(seed) % 5];
 }
 
-function buildPrompt(type, birthdate, today) {
+function buildPrompt(type, birthdate, today, lang) {
     if (type === "saju") {
-        const element = getElement(birthdate, today);
+        const element = getElement(birthdate, today, lang);
+
+        if (lang === "en") return `You are an expert in Korean traditional Four Pillars of Destiny (Saju). Write today's fortune based on the information below.
+
+Date of birth: ${birthdate}
+Today: ${today}
+Today's elemental energy: ${element}
+
+Rules:
+- Write 2~3 natural English sentences
+- Reflect the Five Elements perspective in an accessible way
+- Include a specific piece of advice for today
+- Warm and realistic tone
+
+Output only the fortune text, no title or explanation.`;
+
+        if (lang === "ja") return `あなたは韓国伝統の四柱推命の専門家です。以下の情報をもとに、今日の運勢を書いてください。
+
+生年月日: ${birthdate}
+今日の日付: ${today}
+今日の五行の気: ${element}
+
+条件:
+- 2〜3文の自然な日本語で記述
+- 五行の観点を分かりやすく反映
+- 今日のための具体的なアドバイスを含める
+- 温かく現実的なトーン
+
+運勢の本文のみ出力してください。タイトルや説明は不要です。`;
+
         return `당신은 한국 전통 사주명리학 전문가입니다. 아래 정보를 바탕으로 오늘의 사주 운세를 작성해주세요.
 
 생년월일: ${birthdate}
@@ -26,7 +64,35 @@ function buildPrompt(type, birthdate, today) {
 
     if (type === "zodiac") {
         const year = parseInt(birthdate.split("-")[0]);
-        const zodiacName = ZODIACS[(year - 4) % 12];
+        const idx = (year - 4) % 12;
+        const zodiacName = ZODIACS[lang][idx];
+
+        if (lang === "en") return `You are an expert in Korean traditional zodiac fortune-telling. Write today's fortune for the zodiac animal below.
+
+Zodiac: ${zodiacName} (born ${year})
+Today: ${today}
+
+Rules:
+- Write 2~3 natural English sentences
+- Include today's overall fortune and practical advice
+- Naturally reflect the characteristics of the ${zodiacName}
+- Positive yet realistic
+
+Output only the fortune text, no title or explanation.`;
+
+        if (lang === "ja") return `あなたは韓国伝統の干支占いの専門家です。以下の干支に対する今日の運勢を書いてください。
+
+干支: ${zodiacName}年生まれ (${year}年)
+今日の日付: ${today}
+
+条件:
+- 2〜3文の自然な日本語で記述
+- 今日の全体的な運勢と実用的なアドバイスを含める
+- ${zodiacName}の特性を自然に反映
+- ポジティブで現実感のある内容
+
+運勢の本文のみ出力してください。タイトルや説明は不要です。`;
+
         return `당신은 한국 전통 운세 전문가입니다. 아래 띠에 대한 오늘의 운세를 작성해주세요.
 
 띠: ${zodiacName}띠 (${year}년생)
@@ -48,13 +114,13 @@ export async function onRequestPost(context) {
     const { request, env } = context;
 
     try {
-        const { type, birthdate, today } = await request.json();
+        const { type, birthdate, today, lang = "ko" } = await request.json();
 
         if (!type || !birthdate || !today) {
             return Response.json({ error: "Missing required fields" }, { status: 400 });
         }
 
-        const prompt = buildPrompt(type, birthdate, today);
+        const prompt = buildPrompt(type, birthdate, today, lang);
         if (!prompt) {
             return Response.json({ error: "Invalid type" }, { status: 400 });
         }
@@ -84,8 +150,7 @@ export async function onRequestPost(context) {
         }
 
         const data = await openaiRes.json();
-        const fortune = data.choices[0].message.content.trim();
-        return Response.json({ fortune });
+        return Response.json({ fortune: data.choices[0].message.content.trim() });
 
     } catch (err) {
         console.error("Function error:", err);

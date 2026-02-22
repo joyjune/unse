@@ -126,6 +126,82 @@ const data = {
     ]
 };
 
+// ---- 다국어 지원 ----
+const translations = {
+    ko: {
+        nav_home: "홈", nav_tarot: "타로", nav_ohaasa: "오하아사", nav_saju: "사주", nav_zodiac: "띠운세",
+        hero_title: "당신의 운명은 무엇을 말하고 있나요?",
+        hero_desc: "생년월일을 입력하고 다양한 운세를 확인해보세요.",
+        menu_tarot_sub: "오늘의 한 장", menu_ohaasa_sub: "별자리 행운", menu_saju_sub: "오행 분석", menu_zodiac_sub: "12지신 조언",
+        tarot_title: "오늘의 타로", tarot_desc: "마음을 가다듬고 카드 한 장을 선택하세요.",
+        const_title: "오하아사 별자리 운세",
+        luck_item_label: "🍀 행운의 아이템:", luck_color_label: "🎨 행운의 색상:",
+        saju_title: "사주 오행 분석", zodiac_title: "띠별 운세",
+        element_label: "오늘의 기운:",
+        footer: "© 2026 Cosmic Destiny. 모든 운세는 재미로만 봐주세요.",
+        loading_const: "오늘의 별자리 정보를 가져오는 중...",
+        loading_fortune: "운세를 분석하는 중...",
+        error_data: "데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.",
+        error_fortune: "운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.",
+        rank_suffix: "위", zodiac_basis: "출생연도 기준",
+        alert_birthdate: "올바른 생년월일을 입력해주세요!",
+    },
+    en: {
+        nav_home: "Home", nav_tarot: "Tarot", nav_ohaasa: "Ohaasa", nav_saju: "Saju", nav_zodiac: "Zodiac",
+        hero_title: "What does your destiny say?",
+        hero_desc: "Enter your birthdate and explore your fortune.",
+        menu_tarot_sub: "Today's Card", menu_ohaasa_sub: "Star Fortune", menu_saju_sub: "Five Elements", menu_zodiac_sub: "12 Animals",
+        tarot_title: "Today's Tarot", tarot_desc: "Calm your mind and draw a card.",
+        const_title: "Ohaasa Star Fortune",
+        luck_item_label: "🍀 Lucky Item:", luck_color_label: "🎨 Lucky Color:",
+        saju_title: "Saju Five Elements", zodiac_title: "Zodiac Fortune",
+        element_label: "Today's Energy:",
+        footer: "© 2026 Cosmic Destiny. For entertainment purposes only.",
+        loading_const: "Loading today's star fortune...",
+        loading_fortune: "Analyzing your fortune...",
+        error_data: "Failed to load data. Please try again later.",
+        error_fortune: "Failed to load fortune. Please try again later.",
+        rank_suffix: "", zodiac_basis: "Based on birth year",
+        alert_birthdate: "Please enter a valid birthdate!",
+    },
+    ja: {
+        nav_home: "ホーム", nav_tarot: "タロット", nav_ohaasa: "おは朝", nav_saju: "四柱推命", nav_zodiac: "干支占い",
+        hero_title: "あなたの運命は何を告げていますか？",
+        hero_desc: "生年月日を入力して、様々な運勢を確認しましょう。",
+        menu_tarot_sub: "今日の一枚", menu_ohaasa_sub: "星座運勢", menu_saju_sub: "五行分析", menu_zodiac_sub: "十二支の助言",
+        tarot_title: "今日のタロット", tarot_desc: "心を落ち着けて、カードを一枚選んでください。",
+        const_title: "おは朝 星座運勢",
+        luck_item_label: "🍀 ラッキーアイテム：", luck_color_label: "🎨 ラッキーカラー：",
+        saju_title: "四柱推命 五行分析", zodiac_title: "干支別運勢",
+        element_label: "今日の気：",
+        footer: "© 2026 Cosmic Destiny. 運勢はエンターテインメントとしてお楽しみください。",
+        loading_const: "今日の星座情報を取得中...",
+        loading_fortune: "運勢を分析中...",
+        error_data: "データの取得に失敗しました。しばらくしてから再試行してください。",
+        error_fortune: "運勢の取得に失敗しました。しばらくしてから再試行してください。",
+        rank_suffix: "位", zodiac_basis: "生まれ年基準",
+        alert_birthdate: "正しい生年月日を入力してください！",
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'ko';
+
+function t(key) {
+    return (translations[currentLang] && translations[currentLang][key]) || translations.ko[key] || key;
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+}
+
 // Global State
 let globalBirthdate = "";
 let isTarotDrawn = false;
@@ -299,7 +375,7 @@ navItems.forEach(item => {
         const target = item.getAttribute('data-target');
         const birthInput = document.getElementById('birthdate-global').value;
         if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
-            alert('올바른 생년월일을 입력해주세요!');
+            alert(t('alert_birthdate'));
             return;
         }
         globalBirthdate = birthInput;
@@ -332,18 +408,19 @@ async function updateFortune(type) {
 
         const constellation = data.constellations[constIdx];
         document.getElementById('const-name').innerText = constellation.name;
-        document.getElementById('const-desc').innerText = "오늘의 별자리 정보를 가져오는 중...";
-        
+        document.getElementById('const-desc').innerText = t('loading_const');
+
         const ohaasaData = await fetchOhaasaData();
         const myFortune = ohaasaData ? ohaasaData[constellation.jp] : null;
-        
+
         if (myFortune) {
-            document.getElementById('const-name').innerText = `${constellation.name} (순위: ${myFortune.rank}위)`;
+            const rankLabel = currentLang === 'en' ? `Rank ${myFortune.rank}` : `${myFortune.rank}${t('rank_suffix')}`;
+            document.getElementById('const-name').innerText = `${constellation.name} (${rankLabel})`;
             document.getElementById('const-desc').innerText = myFortune.content;
-            document.getElementById('luck-item').innerText = myFortune.item || "사이트 참조";
+            document.getElementById('luck-item').innerText = myFortune.item || "-";
             document.getElementById('luck-color').innerText = myFortune.color || "-";
         } else {
-            document.getElementById('const-desc').innerText = "데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.";
+            document.getElementById('const-desc').innerText = t('error_data');
         }
 
         drawConstellation(constellation);
@@ -352,8 +429,8 @@ async function updateFortune(type) {
     if (type === 'saju') {
         const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
         const sajuIdx = Math.floor(seededRandom(seed) * elements.length);
-        document.getElementById('elem-main').innerHTML = `오늘의 기운: <span>${elements[sajuIdx]}</span>`;
-        document.getElementById('saju-desc').innerText = "운세를 분석하는 중...";
+        document.getElementById('elem-value').innerText = elements[sajuIdx];
+        document.getElementById('saju-desc').innerText = t('loading_fortune');
         await fetchAIFortune('saju', document.getElementById('saju-desc'));
     }
 
@@ -362,8 +439,8 @@ async function updateFortune(type) {
         const zodiacIdx = (year - 4) % 12;
         const zodiac = data.zodiacs[zodiacIdx];
         document.getElementById('zodiac-icon').innerText = zodiac.icon;
-        document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
-        document.getElementById('zodiac-desc').innerText = "운세를 분석하는 중...";
+        document.getElementById('zodiac-name').innerText = `${zodiac.name} (${t('zodiac_basis')})`;
+        document.getElementById('zodiac-desc').innerText = t('loading_fortune');
         await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
     }
 }
@@ -374,10 +451,10 @@ function drawConstellation(constellation) {
     container.innerHTML = `<div class="representative-icon" style="font-size: 8rem; animation: float 3s ease-in-out infinite;">${constellation.representative}</div>`;
 }
 
-// AI 운세 API 호출 (당일 캐싱 포함)
+// AI 운세 API 호출 (당일 + 언어별 캐싱)
 async function fetchAIFortune(type, targetEl) {
     const today = new Date().toISOString().split('T')[0];
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}`;
+    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_${currentLang}`;
     const cached = localStorage.getItem(cacheKey);
 
     if (cached) {
@@ -389,18 +466,18 @@ async function fetchAIFortune(type, targetEl) {
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today })
+            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: currentLang })
         });
         const data = await resp.json();
         if (data.fortune) {
             localStorage.setItem(cacheKey, data.fortune);
             targetEl.innerText = data.fortune;
         } else {
-            targetEl.innerText = "운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.";
+            targetEl.innerText = t('error_fortune');
         }
     } catch (e) {
         console.error("AI fortune fetch error:", e);
-        targetEl.innerText = "운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.";
+        targetEl.innerText = t('error_fortune');
     }
 }
 
@@ -445,6 +522,14 @@ function createStars() {
     }
 }
 createStars();
+
+// 언어 버튼 이벤트
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+});
+
+// 초기 언어 적용
+setLanguage(currentLang);
 
 // 오하아사 자동 업데이트 스케줄 시작
 scheduleOhaasaAutoUpdate();

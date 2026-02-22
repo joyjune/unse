@@ -131,17 +131,7 @@ let globalBirthdate = "";
 let isTarotDrawn = false;
 let ohaasaUpdateTimer = null;
 
-// Simple hash for HTML change detection
-function simpleHash(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-    }
-    return hash.toString(36);
-}
-
-// Fetch Ohaasa Data with Caching and Auto-Update
+// Fetch Ohaasa Data via Cloudflare Function (Caching + Auto-Update)
 async function fetchOhaasaData(forceRefresh = false) {
     const today = new Date().toISOString().split('T')[0];
     const cachedData = localStorage.getItem('ohaasa_data');
@@ -157,70 +147,23 @@ async function fetchOhaasaData(forceRefresh = false) {
     }
 
     try {
-        const url = 'https://www.asahi.co.jp/ohaasa/week/horoscope/index.html';
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-        const response = await fetch(proxyUrl);
-        const responseData = await response.json();
-        const html = responseData.contents;
+        const res = await fetch('/api/ohaasa');
+        const json = await res.json();
 
-        // HTML 해시로 변경 감지
-        const newHash = simpleHash(html);
-        const prevHash = localStorage.getItem('ohaasa_html_hash');
-        localStorage.setItem('ohaasa_html_changed', newHash !== prevHash ? 'true' : 'false');
-        localStorage.setItem('ohaasa_html_hash', newHash);
+        if (json.error || !json.data) throw new Error(json.error);
 
-        // Auto-Parsing Logic
-        const results = {};
-        const zodiacs = ["おひつじ座", "おうし座", "ふたご座", "かに座", "しし座", "おとめ座", "てんびん座", "さそり座", "いて座", "やぎ座", "みずがめ座", "うお座"];
-        
-        zodiacs.forEach(z => {
-            try {
-                const rankMatch = html.match(new RegExp(`(\\d+)位.*?${z}`, 's')) || 
-                                  html.match(new RegExp(`${z}.*?(\\d+)位`, 's'));
-                
-                const contentMatch = html.match(new RegExp(`${z}.*?<p>(.*?)</p>`, 's'));
-                
-                if (rankMatch || contentMatch) {
-                    results[z] = {
-                        rank: rankMatch ? parseInt(rankMatch[1]) : 8,
-                        content: contentMatch ? contentMatch[1].replace(/<[^>]*>/g, '').trim() : "운세 정보를 읽어오는 중입니다.",
-                        item: "사이트 참조",
-                        color: "-"
-                    };
-                }
-            } catch (innerE) {
-                console.warn(`Parsing failed for ${z}`, innerE);
-            }
-        });
+        // onairDate로 변경 감지 (YYYYMMDD → YYYY-MM-DD)
+        const onairDate = `${json.onairDate.slice(0,4)}-${json.onairDate.slice(4,6)}-${json.onairDate.slice(6,8)}`;
+        const prevOnairDate = localStorage.getItem('ohaasa_onair_date');
+        localStorage.setItem('ohaasa_html_changed', onairDate !== prevOnairDate ? 'true' : 'false');
+        localStorage.setItem('ohaasa_onair_date', onairDate);
 
-        if (Object.keys(results).length > 5) {
-            localStorage.setItem('ohaasa_data', JSON.stringify(results));
-            localStorage.setItem('ohaasa_date', today);
-            return results;
-        }
-
-        // Fallback Data (Last known state or default)
-        const fallbackData = {
-            "うお座": { rank: 1, content: "자신의 성장을 실감할 수 있는 날! 자신감을 갖고 전진하세요.", item: "새로운 필기구", color: "핑크" },
-            "かに座": { rank: 2, content: "협력자가 나타나 일이 술술 풀립니다. 감사한 마음을 전하세요.", item: "손수건", color: "옐로우" },
-            "さそり座": { rank: 3, content: "직관력이 날카로워지는 날. 당신의 선택이 정답입니다.", item: "안경", color: "블루" },
-            "おひつじ座": { rank: 4, content: "마음에 드는 가게를 만날 수 있을 것 같아요. 배송 상품과도 인연이 있어요.", item: "러그 매트", color: "오렌지" },
-            "てんびん座": { rank: 5, content: "친구의 서포트에 기대 대만족♪ 고민이 있다면 사양 말고 상담을.", item: "파카", color: "그린" },
-            "みずがめ座": { rank: 6, content: "새로운 한 걸음을 내딛을 수 있는 날. 도전 정신을 소중히.", item: "방울", color: "실버" },
-            "ふたご座": { rank: 7, content: "실력을 발휘할 기회! 리더 역할을 자처하면 ◎", item: "뉴스 앱", color: "화이트" },
-            "しし座": { rank: 8, content: "즐거운 하루를 보낼 수 있는 예감. 마음이 맞는 동료와 교류하세요.", item: "안약", color: "레드" },
-            "おとめ座": { rank: 9, content: "고액 쇼핑에 주의가 필요. 갖고 싶어도 지금은 참으세요.", item: "꽃씨", color: "베이지" },
-            "やぎ座": { rank: 10, content: "자기주장이 강해질지도. 상대방의 이야기에도 귀를 기울이도록.", item: "스키야키", color: "브라운" },
-            "いて座": { rank: 11, content: "미적 감각이 높아질지도. 새로운 코디를 생각해보세요.", item: "들판", color: "네이비" },
-            "おうし座": { rank: 12, content: "무엇을 해도 헛수고... 일단 마음을 가라앉히고 오늘은 마이페이스로 지내자.", item: "서류 정리", color: "그레이" }
-        };
-
-        localStorage.setItem('ohaasa_data', JSON.stringify(fallbackData));
+        localStorage.setItem('ohaasa_data', JSON.stringify(json.data));
         localStorage.setItem('ohaasa_date', today);
-        return fallbackData;
+        return json.data;
     } catch (e) {
         console.error("Ohaasa Fetch Error:", e);
-        return null;
+        return cachedData ? JSON.parse(cachedData) : null;
     }
 }
 

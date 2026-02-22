@@ -147,6 +147,11 @@ async function fetchOhaasaData(forceRefresh = false) {
     const cachedData = localStorage.getItem('ohaasa_data');
     const cachedDate = localStorage.getItem('ohaasa_date');
 
+    // 일요일은 방송 없음 → 토요일 데이터 그대로 반환
+    if (new Date().getDay() === 0 && cachedData) {
+        return JSON.parse(cachedData);
+    }
+
     if (!forceRefresh && cachedData && cachedDate === today) {
         return JSON.parse(cachedData);
     }
@@ -233,14 +238,20 @@ function scheduleOhaasaAt(hour, minute, callback) {
     ohaasaUpdateTimer = setTimeout(callback, delay);
 }
 
-// 내일 오전 8시로 예약
-function scheduleOhaasaTomorrow() {
+// 다음 방송일(월~토) 오전 8시로 예약
+function scheduleNextBroadcastDay() {
     if (ohaasaUpdateTimer) clearTimeout(ohaasaUpdateTimer);
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(8, 0, 0, 0);
-    const delay = tomorrow - new Date();
-    console.log('[오하아사] 다음 업데이트: 내일 오전 8시');
+    const next = new Date();
+    next.setDate(next.getDate() + 1);
+    next.setHours(8, 0, 0, 0);
+    // 내일이 일요일이면 월요일로
+    if (next.getDay() === 0) {
+        next.setDate(next.getDate() + 1);
+        console.log('[오하아사] 내일은 일요일 (방송 없음), 월요일 오전 8시로 예약');
+    } else {
+        console.log('[오하아사] 다음 업데이트: 내일 오전 8시');
+    }
+    const delay = next - new Date();
     ohaasaUpdateTimer = setTimeout(() => triggerOhaasaUpdate('8am'), delay);
 }
 
@@ -263,7 +274,7 @@ async function triggerOhaasaUpdate(slot) {
     if (slot === '8am') {
         if (htmlChanged) {
             console.log('[오하아사] 8시 데이터 업데이트 확인, 내일 예약');
-            scheduleOhaasaTomorrow();
+            scheduleNextBroadcastDay();
         } else {
             console.log('[오하아사] 8시 데이터 미변경, 8시 30분 재시도 예약');
             const now = new Date();
@@ -277,7 +288,7 @@ async function triggerOhaasaUpdate(slot) {
         }
     } else {
         // 8:30 슬롯 완료 — 오늘 업데이트 종료
-        scheduleOhaasaTomorrow();
+        scheduleNextBroadcastDay();
     }
 }
 
@@ -285,6 +296,13 @@ async function triggerOhaasaUpdate(slot) {
 async function scheduleOhaasaAutoUpdate() {
     const now = new Date();
     const today = now.toISOString().split('T')[0];
+
+    // 일요일은 방송 없음 → 토요일 데이터 유지, 월요일 예약
+    if (now.getDay() === 0) {
+        console.log('[오하아사] 오늘은 일요일 (방송 없음), 토요일 데이터 유지');
+        scheduleNextBroadcastDay();
+        return;
+    }
     const done8am = localStorage.getItem('ohaasa_done_8am') === today;
     const done830am = localStorage.getItem('ohaasa_done_830am') === today;
 
@@ -309,11 +327,11 @@ async function scheduleOhaasaAutoUpdate() {
                 await triggerOhaasaUpdate('830am');
             }
         } else {
-            scheduleOhaasaTomorrow();
+            scheduleNextBroadcastDay();
         }
     } else {
         // 오늘 두 번 모두 완료 → 내일 예약
-        scheduleOhaasaTomorrow();
+        scheduleNextBroadcastDay();
     }
 }
 

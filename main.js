@@ -190,13 +190,45 @@ function t(key) {
     return (translations[currentLang] && translations[currentLang][key]) || translations.ko[key] || key;
 }
 
+function hashText(text) {
+    let hash = 0;
+    for (let i = 0; i < text.length; i++) {
+        hash = ((hash << 5) - hash) + text.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash;
+}
+
+async function translateText(text, lang) {
+    if (!text || text === '-' || lang === 'ko') return text;
+    const cacheKey = `translate_${lang}_${hashText(text)}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) return cached;
+
+    try {
+        const resp = await fetch('/api/translate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text, lang })
+        });
+        const data = await resp.json();
+        if (data.translated) {
+            localStorage.setItem(cacheKey, data.translated);
+            return data.translated;
+        }
+    } catch (e) {
+        console.error("Translate error:", e);
+    }
+    return text;
+}
+
 function getConstellationDisplayName(constellation) {
     if (currentLang === 'en') return constellation.en || constellation.name;
     if (currentLang === 'ja') return constellation.ja || constellation.name;
     return constellation.name;
 }
 
-function setLanguage(lang) {
+async function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
@@ -207,11 +239,11 @@ function setLanguage(lang) {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    if (isTarotDrawn) {
-        resetTarot();
+    if (isTarotDrawn && lastTarotIndex !== null) {
+        await renderTarot(data.tarot[lastTarotIndex]);
     }
     if (currentView !== 'home' && globalBirthdate) {
-        updateFortune(currentView);
+        await updateFortune(currentView);
     }
 }
 
@@ -433,9 +465,17 @@ async function updateFortune(type) {
         if (myFortune) {
             const rankLabel = currentLang === 'en' ? `Rank ${myFortune.rank}` : `${myFortune.rank}${t('rank_suffix')}`;
             document.getElementById('const-name').innerText = `${displayName} (${rankLabel})`;
-            document.getElementById('const-desc').innerText = myFortune.content;
-            document.getElementById('luck-item').innerText = myFortune.item || "-";
-            document.getElementById('luck-color').innerText = myFortune.color || "-";
+            let content = myFortune.content;
+            let item = myFortune.item || "-";
+            let color = myFortune.color || "-";
+            if (currentLang !== 'ja') {
+                content = await translateText(content, currentLang);
+                item = await translateText(item, currentLang);
+                color = await translateText(color, currentLang);
+            }
+            document.getElementById('const-desc').innerText = content;
+            document.getElementById('luck-item').innerText = item;
+            document.getElementById('luck-color').innerText = color;
         } else {
             document.getElementById('const-desc').innerText = t('error_data');
         }
@@ -509,6 +549,18 @@ function seededRandom(seed) {
     return x - Math.floor(x);
 }
 
+async function renderTarot(card) {
+    let name = card.name;
+    let desc = card.desc;
+    if (currentLang !== 'ko') {
+        name = await translateText(name, currentLang);
+        desc = await translateText(desc, currentLang);
+    }
+    document.getElementById('tarot-name').innerText = name;
+    document.getElementById('tarot-card-image').innerText = card.icon;
+    document.getElementById('tarot-desc').innerText = desc;
+}
+
 function resetTarot() {
     isTarotDrawn = false;
     lastTarotIndex = null;
@@ -528,16 +580,14 @@ function resetTarot() {
 const tarotCard = document.getElementById('tarot-card');
 const tarotResult = document.getElementById('tarot-result');
 if (tarotCard) {
-    tarotCard.addEventListener('click', function() {
+    tarotCard.addEventListener('click', async function() {
         if (isTarotDrawn) return;
         isTarotDrawn = true;
         const seed = getSeed() + 777;
         const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
         lastTarotIndex = tarotIdx;
         const card = data.tarot[tarotIdx];
-        document.getElementById('tarot-name').innerText = card.name;
-        document.getElementById('tarot-card-image').innerText = card.icon;
-        document.getElementById('tarot-desc').innerText = card.desc;
+        await renderTarot(card);
         this.classList.add('flipped');
         setTimeout(() => tarotResult.classList.remove('hidden'), 800);
     });

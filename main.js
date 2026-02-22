@@ -129,14 +129,25 @@ const data = {
 // Global State
 let globalBirthdate = "";
 let isTarotDrawn = false;
+let ohaasaUpdateTimer = null;
+
+// Simple hash for HTML change detection
+function simpleHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash.toString(36);
+}
 
 // Fetch Ohaasa Data with Caching and Auto-Update
-async function fetchOhaasaData() {
+async function fetchOhaasaData(forceRefresh = false) {
     const today = new Date().toISOString().split('T')[0];
     const cachedData = localStorage.getItem('ohaasa_data');
     const cachedDate = localStorage.getItem('ohaasa_date');
 
-    if (cachedData && cachedDate === today) {
+    if (!forceRefresh && cachedData && cachedDate === today) {
         return JSON.parse(cachedData);
     }
 
@@ -144,9 +155,15 @@ async function fetchOhaasaData() {
         const url = 'https://www.asahi.co.jp/ohaasa/week/horoscope/index.html';
         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
         const response = await fetch(proxyUrl);
-        const data = await response.json();
-        const html = data.contents;
-        
+        const responseData = await response.json();
+        const html = responseData.contents;
+
+        // HTML 해시로 변경 감지
+        const newHash = simpleHash(html);
+        const prevHash = localStorage.getItem('ohaasa_html_hash');
+        localStorage.setItem('ohaasa_html_changed', newHash !== prevHash ? 'true' : 'false');
+        localStorage.setItem('ohaasa_html_hash', newHash);
+
         // Auto-Parsing Logic
         const results = {};
         const zodiacs = ["おひつじ座", "おうし座", "ふたご座", "かに座", "しし座", "おとめ座", "てんびん座", "さそり座", "いて座", "やぎ座", "みずがめ座", "うお座"];
@@ -199,6 +216,104 @@ async function fetchOhaasaData() {
     } catch (e) {
         console.error("Ohaasa Fetch Error:", e);
         return null;
+    }
+}
+
+// ---- 오하아사 자동 업데이트 스케줄링 ----
+
+// 오늘 특정 시각으로 setTimeout 예약
+function scheduleOhaasaAt(hour, minute, callback) {
+    if (ohaasaUpdateTimer) clearTimeout(ohaasaUpdateTimer);
+    const now = new Date();
+    const target = new Date(now);
+    target.setHours(hour, minute, 0, 0);
+    const delay = Math.max(0, target - now);
+    const label = `${hour}:${String(minute).padStart(2, '0')}`;
+    console.log(`[오하아사] ${label} 업데이트 예약 (약 ${Math.round(delay / 60000)}분 후)`);
+    ohaasaUpdateTimer = setTimeout(callback, delay);
+}
+
+// 내일 오전 8시로 예약
+function scheduleOhaasaTomorrow() {
+    if (ohaasaUpdateTimer) clearTimeout(ohaasaUpdateTimer);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(8, 0, 0, 0);
+    const delay = tomorrow - new Date();
+    console.log('[오하아사] 다음 업데이트: 내일 오전 8시');
+    ohaasaUpdateTimer = setTimeout(() => triggerOhaasaUpdate('8am'), delay);
+}
+
+// 스케줄된 슬롯에서 강제 갱신 실행
+async function triggerOhaasaUpdate(slot) {
+    console.log(`[오하아사] ${slot} 업데이트 실행`);
+    const today = new Date().toISOString().split('T')[0];
+
+    await fetchOhaasaData(true);
+
+    const htmlChanged = localStorage.getItem('ohaasa_html_changed') === 'true';
+    localStorage.setItem(`ohaasa_done_${slot}`, today);
+
+    // 별자리 섹션이 열려 있으면 UI 갱신
+    const constSection = document.getElementById('constellation-section');
+    if (constSection && !constSection.classList.contains('hidden')) {
+        await updateFortune('constellation');
+    }
+
+    if (slot === '8am') {
+        if (htmlChanged) {
+            console.log('[오하아사] 8시 데이터 업데이트 확인, 내일 예약');
+            scheduleOhaasaTomorrow();
+        } else {
+            console.log('[오하아사] 8시 데이터 미변경, 8시 30분 재시도 예약');
+            const now = new Date();
+            const eightThirtyAM = new Date(now);
+            eightThirtyAM.setHours(8, 30, 0, 0);
+            if (now < eightThirtyAM) {
+                scheduleOhaasaAt(8, 30, () => triggerOhaasaUpdate('830am'));
+            } else {
+                await triggerOhaasaUpdate('830am');
+            }
+        }
+    } else {
+        // 8:30 슬롯 완료 — 오늘 업데이트 종료
+        scheduleOhaasaTomorrow();
+    }
+}
+
+// 페이지 로드 시 현재 시각 기준으로 스케줄 결정
+async function scheduleOhaasaAutoUpdate() {
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
+    const done8am = localStorage.getItem('ohaasa_done_8am') === today;
+    const done830am = localStorage.getItem('ohaasa_done_830am') === today;
+
+    const eightAM = new Date(now);
+    eightAM.setHours(8, 0, 0, 0);
+    const eightThirtyAM = new Date(now);
+    eightThirtyAM.setHours(8, 30, 0, 0);
+
+    if (now < eightAM) {
+        // 8시 이전 → 8시에 예약
+        scheduleOhaasaAt(8, 0, () => triggerOhaasaUpdate('8am'));
+    } else if (!done8am) {
+        // 8시 이후이지만 오늘 8시 업데이트 미실행 → 즉시 실행
+        await triggerOhaasaUpdate('8am');
+    } else if (!done830am) {
+        // 8시 업데이트 완료, 8:30 재시도 여부 확인
+        const htmlChanged = localStorage.getItem('ohaasa_html_changed') === 'true';
+        if (!htmlChanged) {
+            if (now < eightThirtyAM) {
+                scheduleOhaasaAt(8, 30, () => triggerOhaasaUpdate('830am'));
+            } else {
+                await triggerOhaasaUpdate('830am');
+            }
+        } else {
+            scheduleOhaasaTomorrow();
+        }
+    } else {
+        // 오늘 두 번 모두 완료 → 내일 예약
+        scheduleOhaasaTomorrow();
     }
 }
 
@@ -337,3 +452,6 @@ function createStars() {
     }
 }
 createStars();
+
+// 오하아사 자동 업데이트 스케줄 시작
+scheduleOhaasaAutoUpdate();

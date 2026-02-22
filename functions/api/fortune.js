@@ -80,7 +80,7 @@ export async function onRequestPost(context) {
         if (!openaiRes.ok) {
             const err = await openaiRes.json();
             console.error("OpenAI error:", err);
-            return Response.json({ error: "Failed to generate fortune", detail: err }, { status: 500 });
+            return Response.json({ error: "Failed to generate fortune" }, { status: 500 });
         }
 
         const data = await openaiRes.json();

@@ -495,7 +495,7 @@ async function updateFortune(type) {
             let content = myFortune.content;
             let item = myFortune.item || "-";
             let color = myFortune.color || "-";
-            if (currentLang !== 'ja') {
+            if (currentLang !== 'ko') {
                 content = await translateText(content, currentLang);
                 item = await translateText(item, currentLang);
                 color = await translateText(color, currentLang);

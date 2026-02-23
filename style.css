@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -41,11 +41,19 @@ header {
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 5.5rem;
     color: var(--accent-color);
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    /* 여러 방향으로 그림자를 겹쳐서 글씨를 두껍게 만듦 */
+    text-shadow: 
+        -1px -1px 0 rgba(255, 215, 0, 0.4),
+         1px -1px 0 rgba(255, 215, 0, 0.4),
+        -1px  1px 0 rgba(255, 215, 0, 0.4),
+         1px  1px 0 rgba(255, 215, 0, 0.4),
+         0 0 25px rgba(255, 215, 0, 0.7);
+    font-weight: 400;
+    letter-spacing: 0.05em;
 }
 
 .main-nav {
@@ -90,7 +98,6 @@ h1 {
     padding: 2.5rem;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin-bottom: 2rem;
-    
     text-align: center;
 }
 
@@ -130,16 +137,16 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.menu-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
 .seo-intro {
     margin-top: 0.75rem;
     color: #d9e2ff;
     font-size: 0.95rem;
     line-height: 1.6;
-}
-
-.icon.grayscale {
-    filter: grayscale(100%);
-    opacity: 0.8;
 }
 
 /* Tarot 3D Flip */
@@ -175,7 +182,6 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 15px;
     border: 2px solid var(--accent-color);
@@ -227,13 +233,6 @@ h1 {
     color: #e0e0e0;
 }
 
-.const-icon, .zodiac-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
 .const-visual {
     width: 300px;
     height: 250px;
@@ -258,7 +257,6 @@ h1 {
     100% { transform: translateY(0px); }
 }
 
-/* Oha-Asa */
 .luck-items {
     display: flex;
     justify-content: center;
@@ -285,7 +283,6 @@ h1 {
     cursor: pointer;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
     transition: all 0.2s;
 }
 
@@ -317,7 +314,6 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Service Guide (Home - always visible for SEO) */
 .service-guide {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -330,12 +326,10 @@ footer {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    text-align: left;
 }
 
 .service-card h3 {
     font-size: 0.95rem;
-    font-weight: 700;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
 }
@@ -343,10 +337,8 @@ footer {
 .service-card p {
     font-size: 0.82rem;
     color: #c8c8d8;
-    line-height: 1.65;
 }
 
-/* Info Cards */
 .info-card {
     margin-top: 1.5rem;
     padding: 1.5rem 2rem;
@@ -356,79 +348,17 @@ footer {
     text-align: left;
 }
 
-.info-card h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.6rem;
-}
-
-.info-card h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #c4b5fd;
-    margin: 1rem 0 0.5rem;
-}
-
-.info-card p {
-    font-size: 0.88rem;
-    color: #c8c8d8;
-    line-height: 1.7;
-}
-
-.feature-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
 .feature-list li {
     font-size: 0.85rem;
     color: #c0c0d0;
     padding: 0.45rem 0.6rem;
     background: rgba(255, 255, 255, 0.04);
     border-radius: 8px;
-    line-height: 1.5;
-}
-
-.element-desc-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
-}
-
-.element-desc-list p {
-    padding: 0.45rem 0.6rem;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 8px;
-    font-size: 0.85rem !important;
-}
-
-.zodiac-chars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-    margin-top: 0.5rem;
-}
-
-.zodiac-chars p {
-    padding: 0.4rem 0.5rem;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 8px;
-    font-size: 0.78rem !important;
-    line-height: 1.4;
-    text-align: center;
+    margin-bottom: 0.4rem;
 }
 
 @media (max-width: 600px) {
     h1 { font-size: 2rem; }
-    .nav-item { padding: 6px 12px; font-size: 0.9rem; }
     .menu-grid { grid-template-columns: 1fr 1fr; }
-    .zodiac-chars { grid-template-columns: repeat(2, 1fr); }
-    .info-card { padding: 1rem 1.2rem; }
     .service-guide { grid-template-columns: 1fr; }
 }

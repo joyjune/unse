@@ -138,7 +138,7 @@ const translations = {
         luck_item_label: "🍀 행운의 아이템:", luck_color_label: "🎨 행운의 색상:",
         saju_title: "사주 오행 분석", zodiac_title: "띠별 운세",
         element_label: "오늘의 기운:",
-        footer: "© 2026 Cosmic Destiny. 모든 운세는 재미로만 봐주세요.",
+        footer: "© 2026 매일운세. 모든 운세는 재미로만 봐주세요.",
         loading_const: "오늘의 별자리 정보를 가져오는 중...",
         loading_fortune: "운세를 분석하는 중...",
         error_data: "데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.",
@@ -146,7 +146,7 @@ const translations = {
         rank_suffix: "위", zodiac_basis: "출생연도 기준",
         alert_birthdate: "올바른 생년월일을 입력해주세요!",
         home_about_title: "생년월일로 보는 오늘의 운세",
-        home_about_body: "Cosmic Destiny는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.",
+        home_about_body: "매일운세는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.",
         home_f_tarot: "🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.",
         home_f_ohaasa: "🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.",
         home_f_saju: "☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.",
@@ -163,7 +163,7 @@ const translations = {
         tarot_how_title: "오늘의 타로 활용법",
         tarot_how_body: "눈을 감고 오늘 가장 신경 쓰이는 것을 떠올린 뒤 카드를 선택하세요. 카드를 뽑은 후에는 이미지를 직관적으로 느끼고, 그 메시지를 오늘 상황에 어떻게 적용할 수 있을지 생각해보세요. 타로는 미래를 예언하는 도구가 아니라 현재를 새로운 시각으로 바라보게 돕는 성찰의 도구입니다.",
         const_info_title: "오하아사 별자리 운세 안내",
-        const_info_body: "오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. Cosmic Destiny는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.",
+        const_info_body: "오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.",
         const_tips_title: "별자리 운세 보는 법",
         const_tip1: "🏆 순위는 오늘 하루의 전반적인 운 흐름을 나타냅니다. 1위라도 방심은 금물!",
         const_tip2: "🍀 행운의 아이템을 오늘 하루 몸에 지니거나 활용해보세요.",
@@ -195,7 +195,7 @@ const translations = {
         luck_item_label: "🍀 Lucky Item:", luck_color_label: "🎨 Lucky Color:",
         saju_title: "Saju Five Elements", zodiac_title: "Zodiac Fortune",
         element_label: "Today's Energy:",
-        footer: "© 2026 Cosmic Destiny. For entertainment purposes only.",
+        footer: "© 2026 Maeil Unse. For entertainment purposes only.",
         loading_const: "Loading today's star fortune...",
         loading_fortune: "Analyzing your fortune...",
         error_data: "Failed to load data. Please try again later.",
@@ -203,7 +203,7 @@ const translations = {
         rank_suffix: "", zodiac_basis: "Based on birth year",
         alert_birthdate: "Please enter a valid birthdate!",
         home_about_title: "Your Daily Fortune by Birthdate",
-        home_about_body: "Cosmic Destiny brings tarot, star fortune, saju five elements, and zodiac readings together in one place. Enter your birthdate to instantly discover what today holds for you.",
+        home_about_body: "Maeil Unse brings tarot, star fortune, saju five elements, and zodiac readings together in one place. Enter your birthdate to instantly discover what today holds for you.",
         home_f_tarot: "🃏 Tarot — Understand today's energy through the symbolism of 78 cards.",
         home_f_ohaasa: "🌌 Ohaasa — Live star fortune from Japan's popular Asahi morning TV program.",
         home_f_saju: "☯️ Saju — AI analyzes today's energy using Eastern five elements theory (Wood, Fire, Earth, Metal, Water).",
@@ -220,7 +220,7 @@ const translations = {
         tarot_how_title: "How to Use Your Daily Card",
         tarot_how_body: "Close your eyes and think about what's on your mind today, then draw a card. After drawing, let the imagery speak to you intuitively, then consider how its message applies to your current situation. Tarot is not a prediction tool — it's a mirror for reflection, helping you see the present from a fresh perspective.",
         const_info_title: "About Ohaasa Star Fortune",
-        const_info_body: "Ohaasa (おは朝) is a popular morning TV program on ABC Asahi in Japan, airing Monday through Saturday. Each day it reveals the star fortune ranking and lucky items for all 12 constellations. Cosmic Destiny delivers these results in real time.",
+        const_info_body: "Ohaasa (おは朝) is a popular morning TV program on ABC Asahi in Japan, airing Monday through Saturday. Each day it reveals the star fortune ranking and lucky items for all 12 constellations. Maeil Unse delivers these results in real time.",
         const_tips_title: "How to Read Your Fortune",
         const_tip1: "🏆 Your rank reflects today's overall energy flow — even #1 means staying mindful!",
         const_tip2: "🍀 Try carrying or using your lucky item throughout the day.",
@@ -252,7 +252,7 @@ const translations = {
         luck_item_label: "🍀 ラッキーアイテム：", luck_color_label: "🎨 ラッキーカラー：",
         saju_title: "四柱推命 五行分析", zodiac_title: "干支別運勢",
         element_label: "今日の気：",
-        footer: "© 2026 Cosmic Destiny. 運勢はエンターテインメントとしてお楽しみください。",
+        footer: "© 2026 毎日運勢. 運勢はエンターテインメントとしてお楽しみください。",
         loading_const: "今日の星座情報を取得中...",
         loading_fortune: "運勢を分析中...",
         error_data: "データの取得に失敗しました。しばらくしてから再試行してください。",
@@ -260,7 +260,7 @@ const translations = {
         rank_suffix: "位", zodiac_basis: "生まれ年基準",
         alert_birthdate: "正しい生年月日を入力してください！",
         home_about_title: "生年月日で見る今日の運勢",
-        home_about_body: "Cosmic Destinyは、タロット・星座・四柱推命・干支占いをひとつのプラットフォームでご提供します。生年月日を入力するだけで、あなただけの今日の運勢をすぐに確認できます。",
+        home_about_body: "毎日運勢は、タロット・星座・四柱推命・干支占いをひとつのプラットフォームでご提供します。生年月日を入力するだけで、あなただけの今日の運勢をすぐに確認できます。",
         home_f_tarot: "🃏 タロット — 78枚のカードの象徴で、今日のエネルギーと方向性を直感的に把握します。",
         home_f_ohaasa: "🌌 おは朝 — 人気番組「おはよう朝日です」の星座運勢をリアルタイムでお届けします。",
         home_f_saju: "☯️ 四柱推命 — 五行（木・火・土・金・水）理論でAIが今日の気を分析します。",
@@ -277,7 +277,7 @@ const translations = {
         tarot_how_title: "今日のタロット活用法",
         tarot_how_body: "目を閉じて今日気になっていることを思い浮かべてからカードを引きましょう。カードを引いたら、そのイメージを直感的に感じ取り、メッセージを今日の状況にどう活かせるか考えてみてください。タロットは未来を予言するツールではなく、現在を新しい視点で見つめ直すための省察のツールです。",
         const_info_title: "おは朝 星座運勢について",
-        const_info_body: "「おは朝」はABC朝日放送の人気朝番組で、月〜土に放送されています。毎日12星座の運勢ランキング・ラッキーアイテムを発表しています。Cosmic Destinyはその日のデータをリアルタイムで反映し、最新の運勢をお届けします。",
+        const_info_body: "「おは朝」はABC朝日放送の人気朝番組で、月〜土に放送されています。毎日12星座の運勢ランキング・ラッキーアイテムを発表しています。毎日運勢はその日のデータをリアルタイムで反映し、最新の運勢をお届けします。",
         const_tips_title: "運勢の見方",
         const_tip1: "🏆 順位は今日一日の全体的な運の流れを示します。1位でも油断は禁物！",
         const_tip2: "🍀 ラッキーアイテムを身につけたり、今日活用してみましょう。",
@@ -371,13 +371,12 @@ let ohaasaUpdateTimer = null;
 let currentView = "home";
 let lastTarotIndex = null;
 
-// Fetch Ohaasa Data via Cloudflare Function (Caching + Auto-Update)
+// Fetch Ohaasa Data via Direct Call (Firebase API bypass)
 async function fetchOhaasaData(forceRefresh = false) {
     const today = new Date().toISOString().split('T')[0];
     const cachedData = localStorage.getItem('ohaasa_data');
     const cachedDate = localStorage.getItem('ohaasa_date');
 
-    // 일요일은 방송 없음 → 토요일 데이터 그대로 반환
     if (new Date().getDay() === 0 && cachedData) {
         return JSON.parse(cachedData);
     }
@@ -387,20 +386,38 @@ async function fetchOhaasaData(forceRefresh = false) {
     }
 
     try {
-        const res = await fetch('/api/ohaasa');
+        const res = await fetch("https://www.asahi.co.jp/data/ohaasa2020/horoscope.json");
         const json = await res.json();
+        const entry = json[0];
+        
+        const ST_TO_ZODIAC = {
+            "01": "おひつじ座", "02": "おうし座", "03": "ふたご座", "04": "かに座",
+            "05": "しし座", "06": "おとめ座", "07": "てんびん座", "08": "さそ리座",
+            "09": "いて座", "10": "やぎ座", "11": "みずがめ座", "12": "うお座"
+        };
 
-        if (json.error || !json.data) throw new Error(json.error);
-
-        // onairDate로 변경 감지 (YYYYMMDD → YYYY-MM-DD)
-        const onairDate = `${json.onairDate.slice(0,4)}-${json.onairDate.slice(4,6)}-${json.onairDate.slice(6,8)}`;
+        const onairDate = entry.onair_date;
+        const formattedDate = `${onairDate.slice(0,4)}-${onairDate.slice(4,6)}-${onairDate.slice(6,8)}`;
         const prevOnairDate = localStorage.getItem('ohaasa_onair_date');
-        localStorage.setItem('ohaasa_html_changed', onairDate !== prevOnairDate ? 'true' : 'false');
-        localStorage.setItem('ohaasa_onair_date', onairDate);
+        localStorage.setItem('ohaasa_html_changed', formattedDate !== prevOnairDate ? 'true' : 'false');
+        localStorage.setItem('ohaasa_onair_date', formattedDate);
 
-        localStorage.setItem('ohaasa_data', JSON.stringify(json.data));
+        const data = {};
+        for (const detail of entry.detail) {
+            const zodiac = ST_TO_ZODIAC[detail.horoscope_st];
+            if (!zodiac) continue;
+            const parts = detail.horoscope_text.split("\t");
+            data[zodiac] = {
+                rank: parseInt(detail.ranking_no),
+                content: parts.slice(0, 3).filter(p => p.trim()).join(" "),
+                item: parts[3]?.trim() || "-",
+                color: "-"
+            };
+        }
+
+        localStorage.setItem('ohaasa_data', JSON.stringify(data));
         localStorage.setItem('ohaasa_date', today);
-        return json.data;
+        return data;
     } catch (e) {
         console.error("Ohaasa Fetch Error:", e);
         return cachedData ? JSON.parse(cachedData) : null;

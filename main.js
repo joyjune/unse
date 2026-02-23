@@ -200,7 +200,7 @@ function hashText(text) {
 }
 
 async function translateText(text, lang) {
-    if (!text || text === '-' || lang === 'ko') return text;
+    if (!text || text === '-') return text;
     const cacheKey = `translate_${lang}_${hashText(text)}`;
     const cached = localStorage.getItem(cacheKey);
     if (cached) return cached;
@@ -495,7 +495,7 @@ async function updateFortune(type) {
             let content = myFortune.content;
             let item = myFortune.item || "-";
             let color = myFortune.color || "-";
-            if (currentLang !== 'ko') {
+            if (currentLang !== 'ja') {
                 content = await translateText(content, currentLang);
                 item = await translateText(item, currentLang);
                 color = await translateText(color, currentLang);

@@ -317,6 +317,35 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Service Guide (Home - always visible for SEO) */
+.service-guide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.service-card {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-align: left;
+}
+
+.service-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 0.82rem;
+    color: #c8c8d8;
+    line-height: 1.65;
+}
+
 /* Info Cards */
 .info-card {
     margin-top: 1.5rem;
@@ -401,4 +430,5 @@ footer {
     .menu-grid { grid-template-columns: 1fr 1fr; }
     .zodiac-chars { grid-template-columns: repeat(2, 1fr); }
     .info-card { padding: 1rem 1.2rem; }
+    .service-guide { grid-template-columns: 1fr; }
 }

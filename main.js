@@ -187,131 +187,7 @@ const translations = {
         zodiac_monkey: "🐵 원숭이 — 재치·기민함·다재다능", zodiac_rooster: "🐔 닭 — 성실·자신감·꼼꼼함",
         zodiac_dog: "🐶 개 — 충직함·정의감·신뢰", zodiac_pig: "🐷 돼지 — 복·너그러움·성실",
     },
-    en: {
-        site_title: "Maeil Unse",
-        seo_intro: "Maeil Unse provides daily tarot, star, saju, and zodiac fortunes based on your birthdate.",
-        nav_home: "Home", nav_tarot: "Tarot", nav_ohaasa: "Ohaasa", nav_saju: "Saju", nav_zodiac: "Zodiac",
-        hero_title: "What does your destiny say?",
-        hero_desc: "Enter your birthdate and explore your fortune.",
-        menu_tarot_sub: "Today's Card", menu_ohaasa_sub: "Star Fortune", menu_saju_sub: "Five Elements", menu_zodiac_sub: "12 Animals",
-        tarot_title: "Today's Tarot", tarot_desc: "Calm your mind and draw a card.",
-        const_title: "Ohaasa Star Fortune",
-        luck_item_label: "🍀 Lucky Item:",
-        saju_title: "Saju Five Elements", zodiac_title: "Zodiac Fortune",
-        element_label: "Today's Energy:",
-        footer: "© 2026 Maeil Unse. For entertainment purposes only.",
-        loading_const: "Loading today's star fortune...",
-        loading_fortune: "Analyzing your fortune...",
-        error_data: "Failed to load data. Please try again later.",
-        error_fortune: "Failed to load fortune. Please try again later.",
-        rank_suffix: "", zodiac_basis: "Based on birth year",
-        alert_birthdate: "Please enter a valid birthdate!",
-        home_about_title: "Your Daily Fortune by Birthdate",
-        home_about_body: "Maeil Unse brings tarot, star fortune, saju five elements, and zodiac readings together in one place. Enter your birthdate to instantly discover what today holds for you.",
-        home_f_tarot: "🃏 Tarot — Understand today's energy through the symbolism of 78 cards.",
-        home_f_ohaasa: "🌌 Ohaasa — Live star fortune from Japan's popular Asahi morning TV program.",
-        home_f_saju: "☯️ Saju — AI analyzes today's energy using Eastern five elements theory (Wood, Fire, Earth, Metal, Water).",
-        home_f_zodiac: "🐉 Zodiac — AI-powered daily guidance based on your 12-animal zodiac sign.",
-        tarot_info_title: "What is Tarot?",
-        tarot_info_body: "Tarot is a 78-card symbolic system originating in 14th-century Europe, now used worldwide as a tool for self-reflection and divination. Through the symbols and imagery on each card, you can access messages from your subconscious and intuitively understand today's energy.",
-        tarot_major_title: "Major Arcana — 22 Cards",
-        tarot_major_body: "From The Fool (0) to The World (21). Cards 0–7 represent outer growth (identity, will, authority), 8–14 reflect inner wisdom (Strength, Justice, Temperance), and 15–21 signify transformation and completion (Devil, Tower, Star, Moon, Sun, Judgement, World). Drawing a Major Arcana card signals an important life turning point.",
-        tarot_suits_title: "Minor Arcana — 4 Suits (56 Cards)",
-        tarot_suit_wands: "🔥 Wands — Passion, willpower, creativity. Fire element. Work, goals, action.",
-        tarot_suit_cups: "🍷 Cups — Emotions, relationships, intuition. Water element. Love, feelings, dreams.",
-        tarot_suit_swords: "⚔️ Swords — Reason, conflict, truth. Air element. Thoughts, communication, conflict.",
-        tarot_suit_pentacles: "💰 Pentacles — Material, stability, reality. Earth element. Money, health, daily life.",
-        tarot_how_title: "How to Use Your Daily Card",
-        tarot_how_body: "Close your eyes and think about what's on your mind today, then draw a card. After drawing, let the imagery speak to you intuitively, then consider how its message applies to your current situation. Tarot is not a prediction tool — it's a mirror for reflection, helping you see the present from a fresh perspective.",
-        const_info_title: "About Ohaasa Star Fortune",
-        const_info_body: "Ohaasa (おは朝) is a popular morning TV program on ABC Asahi in Japan, airing Monday through Saturday. Each day it reveals the star fortune ranking and lucky items for all 12 constellations. Maeil Unse delivers these results in real time.",
-        const_tips_title: "How to Read Your Fortune",
-        const_tip1: "🏆 Your rank reflects today's overall energy flow — even #1 means staying mindful!",
-        const_tip2: "🍀 Try carrying or using your lucky item throughout the day.",
-        saju_info_title: "What is Saju & Five Elements?",
-        saju_info_body: "Saju (四柱) is an East Asian philosophical system that reads life's flow through four pillars based on your birth year, month, day, and hour. The Five Elements (五行) — Wood, Fire, Earth, Metal, Water — explain all phenomena in the universe. Knowing today's dominant energy helps you navigate the day wisely.",
-        saju_elements_title: "The Five Elements",
-        saju_wood_desc: "🌳 Wood (木) — Growth, creativity, flexibility. Energy of new beginnings.",
-        saju_fire_desc: "🔥 Fire (火) — Passion, vitality, communication. Bright and active energy.",
-        saju_earth_desc: "⛰️ Earth (土) — Stability, trust, balance. Grounded and practical energy.",
-        saju_metal_desc: "💎 Metal (金) — Decisiveness, precision, principle. Sharp and focused energy.",
-        saju_water_desc: "💧 Water (水) — Wisdom, adaptability, depth. Flexible and insightful energy.",
-        zodiac_info_title: "What is Zodiac Fortune?",
-        zodiac_info_body: "The 12 Zodiac animals (十二支) are symbolic animals representing time, direction, and destiny in East Asian tradition. Your birth year determines your sign and its unique energy. AI combines your zodiac characteristics with today's energy to deliver personalized guidance.",
-        zodiac_animals_title: "12 Zodiac Animals",
-        zodiac_rat: "🐭 Rat — Intelligence, adaptability", zodiac_ox: "🐮 Ox — Diligence, patience",
-        zodiac_tiger: "🐯 Tiger — Courage, leadership", zodiac_rabbit: "🐰 Rabbit — Gentleness, good luck",
-        zodiac_dragon: "🐲 Dragon — Charisma, ambition", zodiac_snake: "🐍 Snake — Wisdom, intuition",
-        zodiac_horse: "🐴 Horse — Vitality, freedom", zodiac_goat: "🐑 Goat — Creativity, empathy",
-        zodiac_monkey: "🐵 Monkey — Wit, versatility", zodiac_rooster: "🐔 Rooster — Diligence, precision",
-        zodiac_dog: "🐶 Dog — Loyalty, justice", zodiac_pig: "🐷 Pig — Fortune, generosity",
-    },
-    ja: {
-        site_title: "毎日運勢",
-        seo_intro: "毎日運勢は生年月日をもとに、タロット・星座・四柱推命・干支占いを提供する運勢サイトです。",
-        nav_home: "ホーム", nav_tarot: "タロット", nav_ohaasa: "おは朝", nav_saju: "四柱推命", nav_zodiac: "干支占い",
-        hero_title: "あなたの運命は何を告げていますか？",
-        hero_desc: "生年月日を入力して、様々な運勢を確認しましょう。",
-        menu_tarot_sub: "今日の一枚", menu_ohaasa_sub: "星座運勢", menu_saju_sub: "五行分析", menu_zodiac_sub: "十二支の助言",
-        tarot_title: "今日のタロット", tarot_desc: "心を落ち着けて、カードを一枚選んでください。",
-        const_title: "おは朝 星座運勢",
-        luck_item_label: "🍀 ラッキーアイテム：",
-        saju_title: "四柱推命 五行分析", zodiac_title: "干支別運勢",
-        element_label: "今日の気：",
-        footer: "© 2026 毎日運勢. 運勢はエンターテインメントとしてお楽しみください。",
-        loading_const: "今日の星座情報を取得中...",
-        loading_fortune: "運勢を分析中...",
-        error_data: "データの取得に失敗しました。しばらくしてから再試行してください。",
-        error_fortune: "運勢の取得に失敗しました。しばらくしてから再試行してください。",
-        rank_suffix: "位", zodiac_basis: "生まれ年基準",
-        alert_birthdate: "正しい生年月日を入力してください！",
-        home_about_title: "生年月日で見る今日の運勢",
-        home_about_body: "毎日運勢は、タロット・星座・四柱推命・干支占いをひとつのプラットフォームでご提供します。生年月日を入力するだけで、あなただけの今日の運勢をすぐに確認できます。",
-        home_f_tarot: "🃏 タロット — 78枚のカードの象徴で、今日のエネルギーと方向性を直感的に把握します。",
-        home_f_ohaasa: "🌌 おは朝 — 人気番組「おはよう朝日です」の星座運勢をリアルタイムでお届けします。",
-        home_f_saju: "☯️ 四柱推命 — 五行（木・火・土・金・水）理論でAIが今日の気を分析します。",
-        home_f_zodiac: "🐉 干支占い — 十二支の気をAIが解釈し、今日のアドバイスをお届けします。",
-        tarot_info_title: "タロットカードとは？",
-        tarot_info_body: "タロットは14世紀ヨーロッパで生まれた78枚のカード体系で、現在は世界中で自己省察と占いのツールとして活用されています。カードの象徴とイメージを通じて潜在意識のメッセージを引き出し、今日一日のエネルギーを直感的に把握できます。",
-        tarot_major_title: "メジャーアルカナ 22枚",
-        tarot_major_body: "愚者（0）から世界（21）まで22枚。0〜7番は外的成長（自我・意志・権威の形成）、8〜14番は内面の省察（力・正義・節制）、15〜21番は変容と完成（悪魔・塔・星・月・太陽・審判・世界）を象徴します。メジャーカードが出たときは人生の重要な転換点を示しています。",
-        tarot_suits_title: "マイナーアルカナ 4スート（56枚）",
-        tarot_suit_wands: "🔥 ワンド — 情熱・意志・創造力。火のエレメント。仕事・目標・行動の領域。",
-        tarot_suit_cups: "🍷 カップ — 感情・関係・直感。水のエレメント。愛・感性・夢の領域。",
-        tarot_suit_swords: "⚔️ ソード — 理性・葛藤・真実。風のエレメント。思考・コミュニケーション・葛藤の領域。",
-        tarot_suit_pentacles: "💰 ペンタクル — 物質・安定・現実。地のエレメント。お金・健康・日常の領域。",
-        tarot_how_title: "今日のタロット活用法",
-        tarot_how_body: "目を閉じて今日気になっていることを思い浮かべてからカードを引きましょう。カードを引いたら、そのイメージを直感的に感じ取り、メッセージを今日の状況にどう活かせるか考えてみてください。タロットは未来を予言するツールではなく、現在を新しい視点で見つめ直すための省察のツールです。",
-        const_info_title: "おは朝 星座運勢について",
-        const_info_body: "「おは朝」はABC朝日放送の人気朝番組で、月〜土に放送されています。毎日12星座の運勢ランキング・ラッキーアイテムを発表しています。毎日運勢はその日のデータをリアルタイムで反映し、最新の運勢をお届けします。",
-        const_tips_title: "運勢の見方",
-        const_tip1: "🏆 順位は今日一日の全体的な運の流れを示します。1位でも油断は禁物！",
-        const_tip2: "🍀 ラッキーアイテムを身につけたり、今日活用してみましょう。",
-        saju_info_title: "四柱推命と五行とは？",
-        saju_info_body: "四柱推命は、生まれた年・月・日・時の四柱をもとに人生の流れを読む東洋哲学です。五行（木・火・土・金・水）は宇宙のあらゆる現象を説明する5つのエネルギーで、今日の支配する気を知ることで一日をより賢く過ごせます。",
-        saju_elements_title: "五行のエネルギーと意味",
-        saju_wood_desc: "🌳 木 — 成長・創造力・柔軟性。新しい始まりと発展のエネルギー。",
-        saju_fire_desc: "🔥 火 — 情熱・活気・コミュニケーション。積極的で明るいエネルギー。",
-        saju_earth_desc: "⛰️ 土 — 安定・信頼・中庸。バランスのとれた現実的なエネルギー。",
-        saju_metal_desc: "💎 金 — 決断・正確さ・原則。鋭く集中したエネルギー。",
-        saju_water_desc: "💧 水 — 知恵・適応力・深さ。柔軟で洞察力あるエネルギー。",
-        zodiac_info_title: "干支占いとは？",
-        zodiac_info_body: "十二支は東アジアの伝統で時間・方位・運命を表す12の動物の象徴です。生まれた年によって固有のエネルギーを持ち、AIがあなたの干支の特性と今日のエネルギーを融合させて、オーダーメイドの運勢を分析します。",
-        zodiac_animals_title: "十二支と特性",
-        zodiac_rat: "🐭 子（ねずみ）— 賢さ・適応力", zodiac_ox: "🐮 丑（うし）— 勤勉・忍耐",
-        zodiac_tiger: "🐯 寅（とら）— 勇気・リーダーシップ", zodiac_rabbit: "🐰 卯（うさぎ）— 温和・幸運",
-        zodiac_dragon: "🐲 辰（たつ）— カリスマ・野心", zodiac_snake: "🐍 巳（へび）— 知恵・直感",
-        zodiac_horse: "🐴 午（うま）— 活気・自由", zodiac_goat: "🐑 未（ひつじ）— 温順・創作",
-        zodiac_monkey: "🐵 申（さる）— 機知・多才", zodiac_rooster: "🐔 酉（とり）— 勤勉・几帳面",
-        zodiac_dog: "🐶 戌（いぬ）— 忠実さ・正義", zodiac_pig: "🐷 亥（いのしし）— 福・寛大さ",
-    }
 };
-
-let currentLang = localStorage.getItem('lang') || 'ko';
-
-function t(key) {
-    return (translations[currentLang] && translations[currentLang][key]) || translations.ko[key] || key;
-}
 
 function hashText(text) {
     let hash = 0;
@@ -322,10 +198,9 @@ function hashText(text) {
     return hash;
 }
 
-async function translateText(text, lang) {
+async function translateText(text) {
     if (!text || text === '-') return text;
-    if (lang === 'ja') return text;
-    const cacheKey = `translate_v2_${lang}_${hashText(text)}`;
+    const cacheKey = `translate_ko_${hashText(text)}`;
     const cached = localStorage.getItem(cacheKey);
     if (cached) return cached;
 
@@ -333,7 +208,7 @@ async function translateText(text, lang) {
         const resp = await fetch('/api/translate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text, lang })
+            body: JSON.stringify({ text, lang: 'ko' })
         });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const data = await resp.json();
@@ -346,31 +221,6 @@ async function translateText(text, lang) {
         console.error("Translate error:", e);
     }
     return text;
-}
-
-function getConstellationDisplayName(constellation) {
-    if (currentLang === 'en') return constellation.en || constellation.name;
-    if (currentLang === 'ja') return constellation.ja || constellation.name;
-    return constellation.name;
-}
-
-async function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        el.textContent = t(el.getAttribute('data-i18n'));
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-
-    if (isTarotDrawn && lastTarotIndex !== null) {
-        await renderTarot(data.tarot[lastTarotIndex]);
-    }
-    if (currentView !== 'home' && globalBirthdate) {
-        await updateFortune(currentView);
-    }
 }
 
 // Global State
@@ -606,26 +456,20 @@ async function updateFortune(type) {
         else constIdx = 11;
 
         const constellation = data.constellations[constIdx];
-        const displayName = getConstellationDisplayName(constellation);
-        document.getElementById('const-name').innerText = displayName;
-        document.getElementById('const-desc').innerText = t('loading_const');
+        document.getElementById('const-name').innerText = constellation.name;
+        document.getElementById('const-desc').innerText = '오늘의 별자리 정보를 가져오는 중...';
 
         const ohaasaData = await fetchOhaasaData();
         const myFortune = ohaasaData ? ohaasaData[constellation.jp] : null;
 
         if (myFortune) {
-            const rankLabel = currentLang === 'en' ? `Rank ${myFortune.rank}` : `${myFortune.rank}${t('rank_suffix')}`;
-            document.getElementById('const-name').innerText = `${displayName} (${rankLabel})`;
-            let content = myFortune.content;
-            let item = myFortune.item || "-";
-            if (currentLang !== 'ja') {
-                content = await translateText(content, currentLang);
-                item = await translateText(item, currentLang);
-            }
+            document.getElementById('const-name').innerText = `${constellation.name} (${myFortune.rank}위)`;
+            let content = await translateText(myFortune.content);
+            let item = await translateText(myFortune.item || "-");
             document.getElementById('const-desc').innerText = content;
             document.getElementById('luck-item').innerText = item;
         } else {
-            document.getElementById('const-desc').innerText = t('error_data');
+            document.getElementById('const-desc').innerText = '데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.';
             document.getElementById('luck-item').innerText = '-';
         }
 
@@ -633,15 +477,10 @@ async function updateFortune(type) {
     }
 
     if (type === 'saju') {
-        const elementsMap = {
-            ko: ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"],
-            en: ["🌳 Wood (木)", "🔥 Fire (火)", "⛰️ Earth (土)", "💎 Metal (金)", "💧 Water (水)"],
-            ja: ["🌳 木 (木)", "🔥 火 (火)", "⛰️ 土 (土)", "💎 金 (金)", "💧 水 (水)"]
-        };
-        const elements = elementsMap[currentLang] || elementsMap.ko;
+        const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
         const sajuIdx = Math.floor(seededRandom(seed) * elements.length);
         document.getElementById('elem-value').innerText = elements[sajuIdx];
-        document.getElementById('saju-desc').innerText = t('loading_fortune');
+        document.getElementById('saju-desc').innerText = '운세를 분석하는 중...';
         await fetchAIFortune('saju', document.getElementById('saju-desc'));
     }
 
@@ -649,10 +488,9 @@ async function updateFortune(type) {
         const year = parseInt(globalBirthdate.split('-')[0]);
         const zodiacIdx = (year - 4) % 12;
         const zodiac = data.zodiacs[zodiacIdx];
-        const zodiacDisplayName = currentLang === 'en' ? zodiac.en : (currentLang === 'ja' ? zodiac.ja : zodiac.name);
         document.getElementById('zodiac-icon').innerText = zodiac.icon;
-        document.getElementById('zodiac-name').innerText = `${zodiacDisplayName} (${t('zodiac_basis')})`;
-        document.getElementById('zodiac-desc').innerText = t('loading_fortune');
+        document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
+        document.getElementById('zodiac-desc').innerText = '운세를 분석하는 중...';
         await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
     }
 }
@@ -666,7 +504,7 @@ function drawConstellation(constellation) {
 // AI 운세 API 호출 (당일 + 언어별 캐싱)
 async function fetchAIFortune(type, targetEl) {
     const today = new Date().toISOString().split('T')[0];
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_${currentLang}`;
+    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_ko`;
     const cached = localStorage.getItem(cacheKey);
 
     if (cached) {
@@ -678,18 +516,18 @@ async function fetchAIFortune(type, targetEl) {
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: currentLang })
+            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: 'ko' })
         });
         const data = await resp.json();
         if (data.fortune) {
             localStorage.setItem(cacheKey, data.fortune);
             targetEl.innerText = data.fortune;
         } else {
-            targetEl.innerText = t('error_fortune');
+            targetEl.innerText = '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
         }
     } catch (e) {
         console.error("AI fortune fetch error:", e);
-        targetEl.innerText = t('error_fortune');
+        targetEl.innerText = '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
     }
 }
 
@@ -704,16 +542,10 @@ function seededRandom(seed) {
     return x - Math.floor(x);
 }
 
-async function renderTarot(card) {
-    let name = card.name;
-    let desc = card.desc;
-    if (currentLang !== 'ko') {
-        name = await translateText(name, currentLang);
-        desc = await translateText(desc, currentLang);
-    }
-    document.getElementById('tarot-name').innerText = name;
+function renderTarot(card) {
+    document.getElementById('tarot-name').innerText = card.name;
     document.getElementById('tarot-card-image').innerText = card.icon;
-    document.getElementById('tarot-desc').innerText = desc;
+    document.getElementById('tarot-desc').innerText = card.desc;
 }
 
 function resetTarot() {
@@ -742,7 +574,7 @@ if (tarotCard) {
         const tarotIdx = Math.floor(seededRandom(seed) * data.tarot.length);
         lastTarotIndex = tarotIdx;
         const card = data.tarot[tarotIdx];
-        await renderTarot(card);
+        renderTarot(card);
         this.classList.add('flipped');
         setTimeout(() => tarotResult.classList.remove('hidden'), 800);
     });
@@ -760,14 +592,6 @@ function createStars() {
     }
 }
 createStars();
-
-// 언어 버튼 이벤트
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
-});
-
-// 초기 언어 적용
-setLanguage(currentLang);
 
 // 해시 기반 접근 처리
 window.addEventListener('hashchange', handleHashChange);

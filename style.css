@@ -266,31 +266,6 @@ h1 {
     font-weight: bold;
 }
 
-/* Language Switcher */
-.lang-switcher {
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-}
-
-.lang-btn {
-    background: transparent;
-    border: 1px solid var(--glass-border);
-    color: var(--secondary-text);
-    padding: 4px 10px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: 700;
-    transition: all 0.2s;
-}
-
-.lang-btn:hover, .lang-btn.active {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    border-color: var(--accent-color);
-}
 
 /* Stars Background */
 .stars {

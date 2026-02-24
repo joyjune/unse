@@ -101,6 +101,11 @@ h1 {
     text-align: center;
 }
 
+.hero-card {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+}
+
 .hidden {
     display: none !important;
 }
@@ -152,6 +157,14 @@ h1 {
 .input-group {
     margin-top: 1.5rem;
     width: min(430px, 100%);
+}
+
+.input-hint {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
 }
 
 .input-group input {

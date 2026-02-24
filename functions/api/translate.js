@@ -12,13 +12,14 @@ export async function onRequestPost(context) {
             return Response.json({ error: "API key not configured" }, { status: 500 });
         }
 
-        const prompt = `Translate the text below into Korean.
+        const prompt = `Translate the Japanese text below into natural Korean.
 
 Rules:
-- Keep it natural and concise.
+- Output ONLY the Korean translation.
+- NEVER include Japanese characters or sentence endings (like ね, よ, な) in the output.
+- Keep the tone polite but natural (e.g., "~하세요", "~입니다").
 - Preserve emojis and punctuation.
-- Do not add quotes or explanations.
-- If the text contains "|||", it is a delimiter. Preserve it exactly in the translated output to separate different parts.
+- If the text contains "|||", it is a delimiter. Preserve it exactly.
 
 Text:
 ${text}`;

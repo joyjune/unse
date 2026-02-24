@@ -398,7 +398,7 @@ async function fetchOhaasaData(forceRefresh = false) {
         
         const ST_TO_ZODIAC = {
             "01": "おひつじ座", "02": "おうし座", "03": "ふたご座", "04": "かに座",
-            "05": "しし座", "06": "おとめ座", "07": "てんびん座", "08": "さそ리座",
+            "05": "しし座", "06": "おとめ座", "07": "てんびん座", "08": "さそり座",
             "09": "いて座", "10": "やぎ座", "11": "みずがめ座", "12": "うお座"
         };
 
@@ -645,6 +645,8 @@ async function updateFortune(type) {
             document.getElementById('luck-color').innerText = color;
         } else {
             document.getElementById('const-desc').innerText = t('error_data');
+            document.getElementById('luck-item').innerText = '-';
+            document.getElementById('luck-color').innerText = '-';
         }
 
         drawConstellation(constellation);

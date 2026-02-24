@@ -1,16 +1,10 @@
-function getLangName(lang) {
-    if (lang === "en") return "English";
-    if (lang === "ja") return "Japanese";
-    return "Korean";
-}
-
 export async function onRequestPost(context) {
     const { request, env } = context;
 
     try {
-        const { text, lang } = await request.json();
+        const { text } = await request.json();
 
-        if (!text || !lang) {
+        if (!text) {
             return Response.json({ error: "Missing required fields" }, { status: 400 });
         }
 
@@ -18,13 +12,13 @@ export async function onRequestPost(context) {
             return Response.json({ error: "API key not configured" }, { status: 500 });
         }
 
-        const targetLang = getLangName(lang);
-        const prompt = `Translate the text below into ${targetLang}.
+        const prompt = `Translate the text below into Korean.
 
 Rules:
 - Keep it natural and concise.
 - Preserve emojis and punctuation.
 - Do not add quotes or explanations.
+- If the text contains "|||", it is a delimiter. Preserve it exactly in the translated output to separate different parts.
 
 Text:
 ${text}`;
@@ -38,7 +32,7 @@ ${text}`;
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [{ role: "user", content: prompt }],
-                max_tokens: 200,
+                max_tokens: 300,
                 temperature: 0.3,
             }),
         });

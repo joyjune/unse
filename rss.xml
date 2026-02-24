@@ -1,38 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>Cosmic Destiny - 오늘의 운세</title>
-    <link>https://unse-7wn.pages.dev/</link>
-    <description>생년월일 기반 타로·별자리·사주·띠운세 서비스 Cosmic Destiny. 매일 업데이트되는 오늘의 운세를 확인하세요.</description>
+    <title>매일운세 - 오늘의 운세</title>
+    <link>https://maeilunse.com/</link>
+    <description>생년월일 기반 타로·별자리·사주·띠운세 서비스 매일운세. 매일 업데이트되는 오늘의 운세를 확인하세요.</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    
     <item>
-      <title>오늘의 타로 카드 운세 - Cosmic Destiny</title>
-      <link>https://unse-7wn.pages.dev/#tarot</link>
-      <guid>https://unse-7wn.pages.dev/#tarot</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <description>타로는 78장의 카드로 구성된 상징 체계로, 22장의 메이저 아르카나(광대~세계)와 56장의 마이너 아르카나(지팡이·컵·검·펜타클 4수트)로 나뉩니다. 매일 한 장의 카드를 뽑아 오늘의 에너지와 방향을 직관적으로 파악하세요. 지팡이는 열정과 창조력, 컵은 감정과 관계, 검은 이성과 진실, 펜타클은 물질과 현실을 상징합니다.</description>
+      <title>오늘의 타로 카드 운세 - 매일운세</title>
+      <link>https://maeilunse.com/#tarot</link>
+      <description>오늘의 에너지를 타로 카드로 확인해보세요. 78장의 카드가 당신의 하루를 가이드합니다.</description>
     </item>
+    
     <item>
-      <title>오하아사 별자리 운세 - Cosmic Destiny</title>
-      <link>https://unse-7wn.pages.dev/#constellation</link>
-      <guid>https://unse-7wn.pages.dev/#constellation</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <description>오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 양자리·황소자리·쌍둥이자리·게자리·사자자리·처녀자리·천칭자리·전갈자리·사수자리·염소자리·물병자리·물고기자리 12별자리별 오늘의 운세 순위와 행운의 아이템을 발표합니다. Cosmic Destiny는 당일 데이터를 실시간으로 반영해 최신 별자리 운세를 제공합니다.</description>
+      <title>오하아사 별자리 운세 - 매일운세</title>
+      <link>https://maeilunse.com/#constellation</link>
+      <description>오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위와 행운의 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 별자리 운세를 제공합니다.</description>
     </item>
+    
     <item>
-      <title>사주 오행 분석 - Cosmic Destiny</title>
-      <link>https://unse-7wn.pages.dev/#saju</link>
-      <guid>https://unse-7wn.pages.dev/#saju</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <description>사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木(나무)·火(불)·土(흙)·金(금)·水(물) 다섯 기운으로 우주의 모든 현상을 설명합니다. 나무는 성장과 창의, 불은 열정과 활기, 흙은 안정과 신뢰, 금은 결단과 원칙, 물은 지혜와 적응력을 상징합니다. AI가 생년월일을 분석해 오늘 하루의 지배 기운과 맞춤 조언을 제공합니다.</description>
+      <title>사주 오행 분석 - 매일운세</title>
+      <link>https://maeilunse.com/#saju</link>
+      <description>동양 철학의 정수인 사주 오행 이론을 바탕으로 오늘 당신을 지배하는 기운과 조언을 분석해드립니다.</description>
     </item>
+    
     <item>
-      <title>12지 띠별 운세 - Cosmic Destiny</title>
-      <link>https://unse-7wn.pages.dev/#zodiac</link>
-      <guid>https://unse-7wn.pages.dev/#zodiac</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <description>12지신(十二支)은 동아시아 전통에서 시간과 운명을 나타내는 12가지 동물 상징입니다. 쥐(영리함)·소(성실함)·호랑이(용기)·토끼(온화함)·용(카리스마)·뱀(지혜)·말(활기)·양(온순함)·원숭이(재치)·닭(성실)·개(충직함)·돼지(복)로 구성됩니다. AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.</description>
+      <title>12지 띠별 운세 - 매일운세</title>
+      <link>https://maeilunse.com/#zodiac</link>
+      <description>당신의 띠와 오늘의 에너지를 융합하여 AI가 맞춤형 운세 조언을 제공합니다.</description>
     </item>
   </channel>
 </rss>

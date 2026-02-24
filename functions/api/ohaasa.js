@@ -37,8 +37,7 @@ export async function onRequestGet() {
             data[zodiac] = {
                 rank: parseInt(detail.ranking_no),
                 content,
-                item,
-                color: "-"
+                item
             };
         }
 

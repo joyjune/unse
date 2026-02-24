@@ -129,6 +129,7 @@ const data = {
 // ---- 다국어 지원 ----
 const translations = {
     ko: {
+        site_title: "매일운세",
         nav_home: "홈", nav_tarot: "타로", nav_ohaasa: "오하아사", nav_saju: "사주", nav_zodiac: "띠운세",
         hero_title: "당신의 운명은 무엇을 말하고 있나요?",
         hero_desc: "생년월일을 입력하고 다양한 운세를 확인해보세요.",
@@ -186,6 +187,7 @@ const translations = {
         zodiac_dog: "🐶 개 — 충직함·정의감·신뢰", zodiac_pig: "🐷 돼지 — 복·너그러움·성실",
     },
     en: {
+        site_title: "Maeil Unse",
         nav_home: "Home", nav_tarot: "Tarot", nav_ohaasa: "Ohaasa", nav_saju: "Saju", nav_zodiac: "Zodiac",
         hero_title: "What does your destiny say?",
         hero_desc: "Enter your birthdate and explore your fortune.",
@@ -243,6 +245,7 @@ const translations = {
         zodiac_dog: "🐶 Dog — Loyalty, justice", zodiac_pig: "🐷 Pig — Fortune, generosity",
     },
     ja: {
+        site_title: "毎日運勢",
         nav_home: "ホーム", nav_tarot: "タロット", nav_ohaasa: "おは朝", nav_saju: "四柱推命", nav_zodiac: "干支占い",
         hero_title: "あなたの運命は何を告げていますか？",
         hero_desc: "生年月日を入力して、様々な運勢を確認しましょう。",

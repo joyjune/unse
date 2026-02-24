@@ -380,6 +380,7 @@ const navItems = document.querySelectorAll('.nav-item, .menu-card');
 const views = document.querySelectorAll('.view');
 
 function switchView(target) {
+    const prevView = currentView;
     views.forEach(v => v.classList.add('hidden'));
     const targetView = document.getElementById(`${target}-section`);
     if (targetView) targetView.classList.remove('hidden');
@@ -390,12 +391,12 @@ function switchView(target) {
     } else if (location.hash !== `#${target}`) {
         location.hash = target;
     }
-    
+
     document.querySelectorAll('.nav-item').forEach(n => {
         n.classList.toggle('active', n.getAttribute('data-target') === target);
     });
 
-    if (target !== 'home') updateFortune(target);
+    if (target !== 'home' && prevView !== target) updateFortune(target);
 }
 
 function getTargetFromHash() {
@@ -501,7 +502,7 @@ function drawConstellation(constellation) {
     container.innerHTML = `<div class="representative-icon" style="font-size: 8rem; animation: float 3s ease-in-out infinite;">${constellation.representative}</div>`;
 }
 
-// AI 운세 API 호출 (당일 + 언어별 캐싱)
+// AI 운세 API 호출 (당일 캐싱)
 async function fetchAIFortune(type, targetEl) {
     const today = new Date().toISOString().split('T')[0];
     const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_ko`;
@@ -518,10 +519,11 @@ async function fetchAIFortune(type, targetEl) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: 'ko' })
         });
-        const data = await resp.json();
-        if (data.fortune) {
-            localStorage.setItem(cacheKey, data.fortune);
-            targetEl.innerText = data.fortune;
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const result = await resp.json();
+        if (result.fortune) {
+            targetEl.innerText = result.fortune;
+            try { localStorage.setItem(cacheKey, result.fortune); } catch (_) {}
         } else {
             targetEl.innerText = '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
         }

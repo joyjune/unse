@@ -324,7 +324,8 @@ function hashText(text) {
 
 async function translateText(text, lang) {
     if (!text || text === '-') return text;
-    const cacheKey = `translate_${lang}_${hashText(text)}`;
+    if (lang === 'ja') return text;
+    const cacheKey = `translate_v2_${lang}_${hashText(text)}`;
     const cached = localStorage.getItem(cacheKey);
     if (cached) return cached;
 
@@ -334,11 +335,13 @@ async function translateText(text, lang) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text, lang })
         });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const data = await resp.json();
         if (data.translated) {
             localStorage.setItem(cacheKey, data.translated);
             return data.translated;
         }
+        throw new Error(data.error || 'No translation returned');
     } catch (e) {
         console.error("Translate error:", e);
     }

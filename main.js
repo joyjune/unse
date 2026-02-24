@@ -409,7 +409,7 @@ function handleHashChange() {
     const target = getTargetFromHash();
     const birthInput = document.getElementById('birthdate-global').value;
     if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
-        alert(t('alert_birthdate'));
+        alert('올바른 생년월일을 입력해주세요!');
         history.replaceState(null, "", location.pathname);
         switchView('home');
         return;
@@ -424,7 +424,7 @@ navItems.forEach(item => {
         const birthInput = document.getElementById('birthdate-global').value;
         if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
             e.preventDefault();
-            alert(t('alert_birthdate'));
+            alert('올바른 생년월일을 입력해주세요!');
             return;
         }
         if (target !== 'home') globalBirthdate = birthInput;

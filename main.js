@@ -130,6 +130,7 @@ const data = {
 const translations = {
     ko: {
         site_title: "매일운세",
+        seo_intro: "매일운세는 생년월일 기반으로 타로, 별자리, 사주, 띠 운세를 제공하는 운세 사이트입니다.",
         nav_home: "홈", nav_tarot: "타로", nav_ohaasa: "오하아사", nav_saju: "사주", nav_zodiac: "띠운세",
         hero_title: "당신의 운명은 무엇을 말하고 있나요?",
         hero_desc: "생년월일을 입력하고 다양한 운세를 확인해보세요.",
@@ -188,6 +189,7 @@ const translations = {
     },
     en: {
         site_title: "Maeil Unse",
+        seo_intro: "Maeil Unse provides daily tarot, star, saju, and zodiac fortunes based on your birthdate.",
         nav_home: "Home", nav_tarot: "Tarot", nav_ohaasa: "Ohaasa", nav_saju: "Saju", nav_zodiac: "Zodiac",
         hero_title: "What does your destiny say?",
         hero_desc: "Enter your birthdate and explore your fortune.",
@@ -246,6 +248,7 @@ const translations = {
     },
     ja: {
         site_title: "毎日運勢",
+        seo_intro: "毎日運勢は生年月日をもとに、タロット・星座・四柱推命・干支占いを提供する運勢サイトです。",
         nav_home: "ホーム", nav_tarot: "タロット", nav_ohaasa: "おは朝", nav_saju: "四柱推命", nav_zodiac: "干支占い",
         hero_title: "あなたの運命は何を告げていますか？",
         hero_desc: "生年月日を入力して、様々な運勢を確認しましょう。",

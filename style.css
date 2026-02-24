@@ -149,6 +149,29 @@ h1 {
     line-height: 1.6;
 }
 
+.input-group {
+    margin-top: 1.5rem;
+    width: min(430px, 100%);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.18);
+}
+
 /* Tarot 3D Flip */
 .tarot-container {
     perspective: 1000px;
@@ -336,4 +359,10 @@ footer {
     h1 { font-size: 2rem; }
     .menu-grid { grid-template-columns: 1fr 1fr; }
     .service-guide { grid-template-columns: 1fr; }
+    .card {
+        padding: 1.75rem;
+    }
+    .input-group input {
+        font-size: 1.05rem;
+    }
 }

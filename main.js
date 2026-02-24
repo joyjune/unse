@@ -126,6 +126,107 @@ const data = {
     ]
 };
 
+// ---- 로컬 사주 운세 텍스트 (오행별 3개씩, 총 15개) ----
+const localSajuFortunes = {
+    ko: [
+        "오늘은 나무의 기운이 함께합니다. 새로운 아이디어가 싹트고 창의적인 활동에서 좋은 성과를 거둘 수 있습니다. 유연한 자세로 주변과 소통하면 더욱 큰 에너지를 얻을 것입니다.",
+        "성장과 발전의 기운이 오늘 하루를 이끕니다. 시작을 두려워하지 마세요. 작은 씨앗도 햇빛을 받으면 커다란 나무로 자랍니다.",
+        "창의력이 넘치는 하루입니다. 새로운 것을 배우거나 시도하기에 최적의 날입니다. 유연하게 상황을 받아들이면 좋은 흐름을 탈 수 있습니다.",
+        "열정과 활기가 넘치는 하루입니다. 적극적으로 자신을 표현하고 사람들과 소통하면 좋은 일들이 생겨납니다. 밝은 에너지가 주변을 환하게 비춥니다.",
+        "오늘은 불의 기운이 강합니다. 도전적인 상황에서도 두려움 없이 나아가세요. 당신의 열정이 주변 사람들에게 긍정적인 자극이 됩니다.",
+        "활력 넘치는 하루가 예상됩니다. 적극적인 행동이 좋은 결실을 맺습니다. 너무 앞서나가지 않도록 주변을 살피는 여유도 가져보세요.",
+        "안정과 균형의 기운이 함께하는 하루입니다. 현실적인 판단이 중요한 날로, 차분하게 상황을 분석하면 좋은 결과를 얻을 수 있습니다.",
+        "오늘은 흙의 기운이 지배합니다. 신중하고 꾸준한 노력이 빛을 발하는 날입니다. 주변 사람들과의 신뢰를 쌓는 것이 중요합니다.",
+        "균형 잡힌 하루를 보낼 수 있습니다. 급하게 서두르기보다 한 걸음씩 나아가면 더 탄탄한 기반을 만들 수 있습니다.",
+        "결단력과 집중력이 높아지는 하루입니다. 중요한 결정을 내리기에 좋은 시기입니다. 명확한 목표를 세우고 실행해보세요.",
+        "오늘은 금의 기운이 예리하게 작용합니다. 복잡한 상황에서도 핵심을 파악하고 원칙에 따라 행동하면 좋은 결과를 얻습니다.",
+        "정확성과 결단이 필요한 하루입니다. 우선순위를 명확히 하고 집중적으로 임하면 기대 이상의 성과를 낼 수 있습니다.",
+        "지혜와 통찰력이 빛나는 하루입니다. 상황의 흐름을 읽고 유연하게 대처하면 어떤 어려움도 헤쳐나갈 수 있습니다.",
+        "오늘은 물처럼 유연하게 흘러가는 것이 좋습니다. 억지로 밀어붙이기보다 자연스러운 흐름을 따라가면 뜻밖의 기회가 열립니다.",
+        "깊은 직관과 통찰력이 오늘을 이끕니다. 내면의 소리에 귀를 기울이고 신중하게 판단하면 현명한 선택을 할 수 있습니다."
+    ],
+    en: [
+        "The energy of Wood accompanies you today. Creative ideas are taking root and you can achieve great results in imaginative activities. Open communication with those around you will bring even greater energy.",
+        "Growth and progress guide your day. Don't fear new beginnings. Even the smallest seed can grow into a mighty tree when given sunlight and care.",
+        "A day full of creativity awaits. It's the perfect time to learn or try something new. Embrace situations with flexibility and you'll ride a wonderful wave of fortune.",
+        "A day full of passion and vitality. Express yourself boldly and connect with others to spark wonderful opportunities. Your bright energy illuminates everyone around you.",
+        "The Fire energy runs strong today. Move forward without fear even in challenging situations. Your enthusiasm provides positive inspiration to those around you.",
+        "An energetic day is ahead. Proactive actions lead to great results. Remember to look around and appreciate others so you don't rush too far ahead.",
+        "The energy of stability and balance is with you today. Practical judgment is key — analyze situations calmly and you'll achieve excellent results.",
+        "Today is governed by Earth energy. Careful and consistent effort shines brightly. Building trust with those around you is especially important now.",
+        "A well-balanced day awaits. Rather than rushing, taking one step at a time will create a more solid foundation for your success.",
+        "Your decisiveness and focus are heightened today. It's a great time to make important decisions. Set clear goals and take action.",
+        "Metal energy works with sharp precision today. Even in complex situations, grasp the core issues and act according to your principles for great results.",
+        "A day requiring accuracy and decisiveness. Clarify your priorities and approach tasks with focused concentration to achieve beyond your expectations.",
+        "Your wisdom and insight shine brightly today. Read the flow of situations and respond with flexibility to overcome any difficulty.",
+        "Today, flow freely like water. Rather than forcing things, following the natural current will open unexpected opportunities.",
+        "Deep intuition and insight guide your day. Listen to your inner voice and judge carefully to make wise choices that serve you well."
+    ],
+    ja: [
+        "今日は木の気があなたとともにあります。新しいアイデアが芽吹き、創造的な活動で良い成果を上げられます。柔軟な姿勢で周囲とコミュニケーションを取れば、さらに大きなエネルギーを得られるでしょう。",
+        "成長と発展の気が今日一日を導きます。新しい始まりを恐れないでください。小さな種でも日光を受ければ大きな木に育ちます。",
+        "創造力にあふれる一日です。新しいことを学んだり試したりするのに最適な日です。柔軟に状況を受け入れれば、良い流れに乗れるでしょう。",
+        "情熱と活気にあふれる一日です。積極的に自分を表現し、人々と交流すれば良いことが起こります。明るいエネルギーが周囲を照らします。",
+        "今日は火の気が強く働きます。挑戦的な状況でも恐れずに進んでください。あなたの情熱が周囲の人々にポジティブな刺激を与えます。",
+        "活力あふれる一日が予想されます。積極的な行動が良い結果をもたらします。周囲を見渡す余裕も忘れずに。",
+        "安定と均衡の気が今日とともにあります。現実的な判断が重要な日で、冷静に状況を分析すれば良い結果を得られます。",
+        "今日は土の気が支配します。慎重で着実な努力が輝く日です。周囲の人との信頼を築くことが大切です。",
+        "バランスのとれた一日を過ごせます。急がずに一歩一歩進めば、より強固な基盤を作ることができます。",
+        "決断力と集中力が高まる一日です。重要な決断を下すのに良い時期です。明確な目標を立てて実行しましょう。",
+        "今日は金の気が鋭く作用します。複雑な状況でも核心を把握し、原則に従って行動すれば良い結果を得られます。",
+        "正確さと決断が必要な一日です。優先順位を明確にして集中的に取り組めば、期待以上の成果を上げられます。",
+        "知恵と洞察力が輝く一日です。状況の流れを読んで柔軟に対処すれば、どんな困難も乗り越えられます。",
+        "今日は水のように柔軟に流れるのが良いでしょう。無理に押し進めるより自然な流れに従えば、思わぬチャンスが開けます。",
+        "深い直感と洞察力が今日を導きます。内なる声に耳を傾けて慎重に判断すれば、賢明な選択ができるでしょう。"
+    ]
+};
+
+// ---- 로컬 띠운세 템플릿 ({z}: 띠 이름) ----
+const localZodiacFortuneTemplates = {
+    ko: [
+        "{z}는 오늘 새로운 기회를 맞이할 수 있습니다. 용기 있게 첫 발을 내딛으면 좋은 결과가 따라옵니다.",
+        "오늘 {z}에게는 주변 사람들과의 따뜻한 소통이 행운을 가져다줍니다. 마음을 열고 교류해보세요.",
+        "{z}의 오늘은 집중력이 높아지는 날입니다. 중요한 일을 처리하기에 최적의 타이밍입니다.",
+        "오늘 {z}는 뜻밖의 좋은 소식을 들을 수 있습니다. 열린 마음으로 하루를 시작해보세요.",
+        "{z}에게 오늘은 인내가 필요한 날입니다. 서두르지 않고 꾸준히 나아가면 원하는 것을 얻을 수 있습니다.",
+        "오늘 {z}의 직관이 빛납니다. 마음이 이끄는 방향을 믿고 따르면 좋은 흐름이 생깁니다.",
+        "{z}는 오늘 주변을 돌아보는 것이 중요합니다. 작은 배려가 큰 행운으로 돌아올 수 있습니다.",
+        "오늘 {z}에게는 변화를 받아들이는 유연함이 필요합니다. 새로운 환경에 적응하면 더 큰 발전이 기다립니다.",
+        "{z}의 오늘은 긍정적인 에너지가 넘칩니다. 밝은 마음으로 하루를 보내면 주변도 함께 환해집니다.",
+        "오늘 {z}에게 좋은 인연이 다가올 수 있습니다. 만남의 자리를 소중히 여기고 진심으로 대해보세요.",
+        "{z}는 오늘 꼼꼼함이 빛을 발합니다. 디테일에 집중하면 실수를 줄이고 완성도 높은 결과를 얻습니다.",
+        "{z}의 오늘은 창의적인 발상이 효과적입니다. 고정관념을 벗어나 새로운 시각으로 접근해보세요."
+    ],
+    en: [
+        "The {z} may encounter new opportunities today. Taking courageous first steps will lead to great results.",
+        "Warm communication with those around the {z} brings good fortune today. Open your heart and connect with others.",
+        "Focus and concentration are heightened for the {z} today. It's the perfect timing to handle important matters.",
+        "The {z} may receive unexpected good news today. Start your day with an open and positive mindset.",
+        "Today calls for patience from the {z}. Steady progress without rushing will lead to achieving your goals.",
+        "The {z}'s intuition shines brightly today. Trust the direction your heart leads and good things will follow.",
+        "It's important for the {z} to look around today. Small acts of consideration can return as great fortune.",
+        "The {z} needs flexibility to embrace change today. Adapting to new environments opens doors to greater growth.",
+        "Positive energy overflows for the {z} today. A bright attitude will brighten everything around you too.",
+        "A meaningful connection may come to the {z} today. Value these encounters and approach others with sincerity.",
+        "Attention to detail shines for the {z} today. Focusing on the finer points reduces mistakes and improves results.",
+        "Creative thinking works well for the {z} today. Break free from fixed ideas and try a fresh new approach."
+    ],
+    ja: [
+        "{z}の今日は新しいチャンスに出会えます。勇気を持って踏み出せば、良い結果が伴います。",
+        "今日、{z}には周囲の人との温かいコミュニケーションが幸運をもたらします。心を開いて交流してみましょう。",
+        "{z}の今日は集中力が高まる日です。大切なことを処理するのに最適なタイミングです。",
+        "今日、{z}は思わぬ良い知らせを受けることができます。オープンな心で一日を始めましょう。",
+        "今日は{z}に忍耐が必要な日です。焦らず着実に進めば、望むものを手に入れることができます。",
+        "今日、{z}の直感が輝きます。心が導く方向を信じて従えば、良い流れが生まれます。",
+        "{z}には今日、周囲を見渡すことが大切です。小さな気遣いが大きな幸運として返ってくることもあります。",
+        "今日、{z}には変化を受け入れる柔軟さが必要です。新しい環境に適応すれば、さらなる発展が待っています。",
+        "{z}の今日はポジティブなエネルギーにあふれています。明るい心で過ごせば、周囲も一緒に明るくなります。",
+        "今日、{z}に素晴らしい縁が訪れるかもしれません。出会いの場を大切にし、誠実に接してみましょう。",
+        "{z}は今日、細かさが光ります。ディテールに集中すれば、ミスを減らし完成度の高い結果を得られます。",
+        "{z}の今日は創造的な発想が効果的です。固定観念を脱して、新しい視点でアプローチしてみましょう。"
+    ]
+};
+
 // ---- 다국어 지원 ----
 const translations = {
     ko: {
@@ -681,31 +782,28 @@ function drawConstellation(constellation) {
 
 // AI 운세 API 호출 (당일 + 언어별 캐싱)
 async function fetchAIFortune(type, targetEl) {
-    const today = new Date().toISOString().split('T')[0];
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_${currentLang}`;
-    const cached = localStorage.getItem(cacheKey);
+    const seed = getSeed();
 
-    if (cached) {
-        targetEl.innerText = cached;
+    if (type === 'saju') {
+        const sajuIdx = Math.floor(seededRandom(seed) * 5);
+        const groupStart = sajuIdx * 3;
+        const textOffset = Math.floor(seededRandom(seed + 999) * 3);
+        const textIdx = groupStart + textOffset;
+        const texts = localSajuFortunes[currentLang] || localSajuFortunes.ko;
+        targetEl.innerText = texts[textIdx] || texts[0];
         return;
     }
 
-    try {
-        const resp = await fetch('/api/fortune', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: currentLang })
-        });
-        const data = await resp.json();
-        if (data.fortune) {
-            localStorage.setItem(cacheKey, data.fortune);
-            targetEl.innerText = data.fortune;
-        } else {
-            targetEl.innerText = t('error_fortune');
-        }
-    } catch (e) {
-        console.error("AI fortune fetch error:", e);
-        targetEl.innerText = t('error_fortune');
+    if (type === 'zodiac') {
+        const year = parseInt(globalBirthdate.split('-')[0]);
+        const zodiacIdx = ((year - 4) % 12 + 12) % 12;
+        const zodiac = data.zodiacs[zodiacIdx];
+        const zodiacName = currentLang === 'en' ? zodiac.en : (currentLang === 'ja' ? zodiac.ja : zodiac.name);
+        const templates = localZodiacFortuneTemplates[currentLang] || localZodiacFortuneTemplates.ko;
+        const templateIdx = Math.abs(Math.floor(seededRandom(seed + zodiacIdx + 333) * templates.length));
+        const text = templates[templateIdx].replace('{z}', zodiacName);
+        targetEl.innerText = text;
+        return;
     }
 }
 

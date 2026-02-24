@@ -137,7 +137,7 @@ const translations = {
         menu_tarot_sub: "오늘의 한 장", menu_ohaasa_sub: "별자리 행운", menu_saju_sub: "오행 분석", menu_zodiac_sub: "12지신 조언",
         tarot_title: "오늘의 타로", tarot_desc: "마음을 가다듬고 카드 한 장을 선택하세요.",
         const_title: "오하아사 별자리 운세",
-        luck_item_label: "🍀 행운의 아이템:", luck_color_label: "🎨 행운의 색상:",
+        luck_item_label: "🍀 행운의 아이템:",
         saju_title: "사주 오행 분석", zodiac_title: "띠별 운세",
         element_label: "오늘의 기운:",
         footer: "© 2026 매일운세. 모든 운세는 재미로만 봐주세요.",
@@ -196,7 +196,7 @@ const translations = {
         menu_tarot_sub: "Today's Card", menu_ohaasa_sub: "Star Fortune", menu_saju_sub: "Five Elements", menu_zodiac_sub: "12 Animals",
         tarot_title: "Today's Tarot", tarot_desc: "Calm your mind and draw a card.",
         const_title: "Ohaasa Star Fortune",
-        luck_item_label: "🍀 Lucky Item:", luck_color_label: "🎨 Lucky Color:",
+        luck_item_label: "🍀 Lucky Item:",
         saju_title: "Saju Five Elements", zodiac_title: "Zodiac Fortune",
         element_label: "Today's Energy:",
         footer: "© 2026 Maeil Unse. For entertainment purposes only.",
@@ -255,7 +255,7 @@ const translations = {
         menu_tarot_sub: "今日の一枚", menu_ohaasa_sub: "星座運勢", menu_saju_sub: "五行分析", menu_zodiac_sub: "十二支の助言",
         tarot_title: "今日のタロット", tarot_desc: "心を落ち着けて、カードを一枚選んでください。",
         const_title: "おは朝 星座運勢",
-        luck_item_label: "🍀 ラッキーアイテム：", luck_color_label: "🎨 ラッキーカラー：",
+        luck_item_label: "🍀 ラッキーアイテム：",
         saju_title: "四柱推命 五行分析", zodiac_title: "干支別運勢",
         element_label: "今日の気：",
         footer: "© 2026 毎日運勢. 運勢はエンターテインメントとしてお楽しみください。",
@@ -634,19 +634,15 @@ async function updateFortune(type) {
             document.getElementById('const-name').innerText = `${displayName} (${rankLabel})`;
             let content = myFortune.content;
             let item = myFortune.item || "-";
-            let color = myFortune.color || "-";
             if (currentLang !== 'ja') {
                 content = await translateText(content, currentLang);
                 item = await translateText(item, currentLang);
-                color = await translateText(color, currentLang);
             }
             document.getElementById('const-desc').innerText = content;
             document.getElementById('luck-item').innerText = item;
-            document.getElementById('luck-color').innerText = color;
         } else {
             document.getElementById('const-desc').innerText = t('error_data');
             document.getElementById('luck-item').innerText = '-';
-            document.getElementById('luck-color').innerText = '-';
         }
 
         drawConstellation(constellation);

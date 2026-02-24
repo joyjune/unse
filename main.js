@@ -392,34 +392,15 @@ async function fetchOhaasaData(forceRefresh = false) {
     }
 
     try {
-        const res = await fetch("https://www.asahi.co.jp/data/ohaasa2020/horoscope.json");
+        const res = await fetch("/api/ohaasa");
         const json = await res.json();
-        const entry = json[0];
-        
-        const ST_TO_ZODIAC = {
-            "01": "おひつじ座", "02": "おうし座", "03": "ふたご座", "04": "かに座",
-            "05": "しし座", "06": "おとめ座", "07": "てんびん座", "08": "さそり座",
-            "09": "いて座", "10": "やぎ座", "11": "みずがめ座", "12": "うお座"
-        };
+        if (json.error) throw new Error(json.error);
 
-        const onairDate = entry.onair_date;
+        const { onairDate, data } = json;
         const formattedDate = `${onairDate.slice(0,4)}-${onairDate.slice(4,6)}-${onairDate.slice(6,8)}`;
         const prevOnairDate = localStorage.getItem('ohaasa_onair_date');
         localStorage.setItem('ohaasa_html_changed', formattedDate !== prevOnairDate ? 'true' : 'false');
         localStorage.setItem('ohaasa_onair_date', formattedDate);
-
-        const data = {};
-        for (const detail of entry.detail) {
-            const zodiac = ST_TO_ZODIAC[detail.horoscope_st];
-            if (!zodiac) continue;
-            const parts = detail.horoscope_text.split("\t");
-            data[zodiac] = {
-                rank: parseInt(detail.ranking_no),
-                content: parts.slice(0, 3).filter(p => p.trim()).join(" "),
-                item: parts[3]?.trim() || "-",
-                color: "-"
-            };
-        }
 
         localStorage.setItem('ohaasa_data', JSON.stringify(data));
         localStorage.setItem('ohaasa_date', today);

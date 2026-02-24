@@ -43,11 +43,11 @@ const data = {
         // Cups (컵)
         { name: "Ace of Cups", icon: "🍷", desc: "풍부한 감정과 새로운 사랑의 시작을 의미하는 축복의 카드입니다. 마음속에 사랑과 행복이 가득 차오르는 평온한 하루가 예상됩니다. 새로운 인연이 시작되거나 기존의 관계가 더욱 깊어질 수 있습니다. 당신의 감수성이 예민해지는 날이니 예술적인 활동을 하거나 진심 어린 대화를 나눠보세요. 마음의 문을 열면 더 큰 행복이 찾아옵니다." },
         { name: "Two of Cups", icon: "🍷", desc: "마음이 통하는 사람과의 완벽한 소통과 결합을 의미합니다. 파트너와의 신뢰가 깊어지거나 비즈니스에서 아주 좋은 협력자를 만나게 될 것입니다. 서로의 가치를 인정하고 존중할 때 최고의 시너지가 발생합니다. 오늘은 화해와 용서, 그리고 사랑을 나누기에 더없이 좋은 날입니다. 진실한 마음이 모든 문제를 해결하는 열쇠가 됩니다." },
-        { name: "Three of Cups", icon: "🍷", desc: "축하와 우정, 그리고 공동체의 즐거움이 가득한 날입니다. 마음 맞는 친구들과 즐거운 시간을 보내거나 함께 성과를 축하할 일이 생길 수 있습니다. 당신의 밝은 사회성이 돋보이며 사람들과의 관계에서 큰 에너지를 얻게 될 것입니다. 행복을 나누면 배가 됩니다. 오늘 하루는 사람들과 어울리며 유쾌한 기분을 만끽하세요." },
+        { name: "Three of Cups", icon: "🍷", desc: "축하와 우정, 그리고 공동체의 즐거움이 가득한 날입니다. 마음 맞는 친구들과 즐거운 시간을 보내거나 함께 성과를 축하할 일이 생길 수 있습니다. 당신의 밝은 사회성이 돋보이며 사람들의 관계에서 큰 에너지를 얻게 될 것입니다. 행복을 나누면 배가 됩니다. 오늘 하루는 사람들과 어울리며 유쾌한 기분을 만끽하세요." },
         { name: "Four of Cups", icon: "🍷", desc: "현재의 상황에 권태로움을 느끼거나 내면에 침잠해 있는 모습입니다. 누군가 내미는 새로운 기회의 손길을 보지 못하고 있을 수 있습니다. 잠시 휴식을 취하며 마음을 정돈하는 것은 좋지만, 무기력함에 빠져 소중한 것을 놓치지 않도록 주의하세요. 마음의 눈을 뜨고 주변을 살핀다면 생각지 못한 해결책이 이미 당신 곁에 있음을 알게 될 것입니다." },
         { name: "Five of Cups", icon: "🍷", desc: "실망감이나 상실감으로 인해 슬픔에 잠겨 있는 시기입니다. 하지만 무너진 컵 세 개만 바라보지 마세요. 당신 뒤에는 여전히 채워져 있는 두 개의 컵이 남아 있습니다. 과거의 아픔이나 실패에 매몰되지 말고 남은 가능성에 집중해야 합니다. 이 슬픔을 딛고 일어선다면 당신은 한층 더 성숙하고 깊은 내면을 갖게 될 것입니다." },
         { name: "Six of Cups", icon: "🍷", desc: "과거의 소중한 추억이나 순수했던 어린 시절의 감정이 힘이 되어주는 날입니다. 예전 친구로부터 소식이 오거나 우연히 추억의 장소를 방문하게 될 수도 있습니다. 누군가에게 순수한 호의를 베풀거나 받게 되는 따뜻한 하루가 예상됩니다. 과거의 긍정적인 경험을 발판 삼아 현재의 긴장을 풀고 마음의 안식을 찾아보세요." },
-        { name: "Seven of Cups", icon: "🍷", desc: "수많은 선택지와 화려한 환상들 사이에서 고민이 깊어지는 날입니다. 이것저것 하고 싶은 일은 많지만 현실적인 근거가 부족할 수 있습니다. 오늘은 막연한 상상보다는 우선순위를 정하고 실현 가능한 것에 집중하는 명확함이 필요합니다. 겉모습에 현혹되지 말고 자신의 진심이 무엇을 원하는지 냉정하게 들여다보세요." },
+        { name: "Seven of Cups", icon: "🍷", desc: "수많은 선택지가 화려한 환상들 사이에서 고민이 깊어지는 날입니다. 이것저것 하고 싶은 일은 많지만 현실적인 근거가 부족할 수 있습니다. 오늘은 막연한 상상보다는 우선순위를 정하고 실현 가능한 것에 집중하는 명확함이 필요합니다. 겉모습에 현혹되지 말고 자신의 진심이 무엇을 원하는지 냉정하게 들여다보세요." },
         { name: "Eight of Cups", icon: "🍷", desc: "익숙하고 안정적이었던 것을 뒤로하고 더 높은 가치를 찾아 떠나야 하는 시점입니다. 당장은 아쉽고 허전할 수 있지만 이 떠남은 당신의 영적 성장을 위해 필수적인 선택입니다. 현실적인 안주보다는 진정한 자아를 찾기 위한 여정을 시작해 보세요. 당신이 용기 있게 내디딘 발걸음은 결국 더 깊은 평화와 완성으로 인도할 것입니다." },
         { name: "Nine of Cups", icon: "🍷", desc: "소원 성취와 정서적 만족감이 정점에 달하는 기분 좋은 날입니다. 당신이 노력해온 결과에 스스로 만족하며 안락함을 누리게 될 것입니다. '행복한 상상'이 현실이 되는 놀라운 경험을 할 수도 있습니다. 현재 누리고 있는 풍요로움에 감사하며 자신을 위한 작은 선물을 해보는 건 어떨까요? 당신은 충분히 그럴 자격이 있습니다." },
         { name: "Ten of Cups", icon: "🍷", desc: "가정의 평화와 완벽한 감정적 행복을 의미하는 최고의 카드입니다. 주변 사람들, 특히 가족과의 관계에서 더할 나위 없는 안락함과 조화를 느끼게 될 것입니다. 당신의 사랑이 결실을 맺고 평온한 일상이 축복처럼 느껴지는 날입니다. 진정한 행복은 가장 가까운 사람들과의 조화로운 관계에서 시작됨을 잊지 마세요." },
@@ -82,7 +82,7 @@ const data = {
         { name: "Seven of Pentacles", icon: "💰", desc: "지금까지 달려온 길을 잠시 멈추고 거둔 수확물을 바라보며 점검해야 하는 시간입니다. 노력이 헛되지 않았는지, 목표를 향해 올바르게 가고 있는지 신중하게 평가해 보세요. 당장 눈에 보이는 결과가 작더라도 조급해할 필요는 없습니다. 인내심을 가지고 마지막 결실이 맺힐 때까지 차분히 기다리는 지혜가 필요한 때입니다." },
         { name: "Eight of Pentacles", icon: "💰", desc: "성실함과 꾸준함이 최고의 미덕인 날입니다. 자신의 분야에서 묵묵히 실력을 닦고 완성도를 높이는 데 집중하세요. 요행을 바라기보다 정직한 노력으로 승부할 때 당신의 가치는 더욱 높아질 것입니다. 장인 정신을 가지고 맡은 바 소임을 다한다면, 당신은 곧 그 분야의 대체 불가능한 전문가로 인정받게 될 것입니다." },
         { name: "Nine of Pentacles", icon: "💰", desc: "스스로 일궈낸 성공과 독립적인 풍요로움을 만끽하는 여유로운 날입니다. 타인에게 의존하지 않고 자신의 능력으로 안락한 생활과 품위를 유지하게 될 것입니다. 주변의 시선에 흔들리지 않는 내적인 평화와 자신감이 돋보이는 시기입니다. 당신의 아름답고 풍요로운 현재를 마음껏 즐기며 우아한 휴식을 취해 보세요." },
-        { name: "Ten of Pentacles", icon: "💰", desc: "가정의 평화와 완벽한 감정적 행복을 의미하는 최고의 카드입니다. 주변 사람들, 특히 가족과의 관계에서 더할 나위 없는 안락함과 조화를 느끼게 될 것입니다. 당신의 사랑이 결실을 맺고 평온한 일상이 축복처럼 느껴지는 날입니다. 진정한 행복은 가장 가까운 사람들과의 조화로운 관계에서 시작됨을 잊지 마세요." },
+        { name: "Ten of Pentacles", icon: "💰", desc: "가정의 평화와 물질적인 완성, 그리고 안정적인 유산을 상징하는 카드입니다. 장기적인 관점에서 추진해온 일들이 견고한 성공의 토대를 마련하게 될 것입니다. 가족 혹은 동료들과의 유대가 깊어지고 공동의 이익이 극대화되는 날입니다. 전통과 경험을 소중히 여기며 현재의 풍요를 지속 가능한 성공으로 이어가려는 노력이 필요합니다." },
         { name: "Page of Pentacles", icon: "💰", desc: "새로운 배움이나 현실적인 목표를 향해 첫발을 내딛는 신중한 시작입니다. 아직 서툴 수 있지만 당신의 학구열과 성실함은 성공적인 미래를 보장합니다. 구체적인 계획을 세우고 차근차근 실력을 쌓아 나가세요. 작은 소식이나 기회라도 소중히 여기며 정직하게 대처할 때 당신의 잠재력은 현실적인 부와 성공으로 꽃피울 것입니다." },
         { name: "Knight of Pentacles", icon: "💰", desc: "느리지만 가장 확실하고 신뢰할 수 있는 전진입니다. 서두르지 않고 꼼꼼하게 계획을 실행하며 맡은 일을 완수하는 책임감 있는 기운입니다. 오늘은 요령을 피우기보다 기본에 충실하며 성실한 태도를 유지하는 것이 중요합니다. 당신의 인내심과 끈기는 결국 누구보다 견고하고 확실한 성공의 목적지에 도달하게 해줄 것입니다." },
         { name: "Queen of Pentacles", icon: "💰", desc: "현실적인 지혜와 풍요로움으로 주변을 풍성하게 만드는 안주인 같은 기운입니다. 당신의 실무 능력과 따뜻한 배려심이 조화를 이루어 주변 사람들에게 큰 안정감을 줄 것입니다. 자원을 효율적으로 관리하고 실질적인 성과를 내기에 아주 좋은 날입니다. 내면의 평화와 외부의 풍요가 조화를 이루는 안정적인 하루를 보내세요." },
@@ -159,7 +159,6 @@ let ohaasaUpdateTimer = null;
 let currentView = "home";
 let lastTarotIndex = null;
 
-// Fetch Ohaasa Data via Direct Call
 async function fetchOhaasaData(forceRefresh = false) {
     const today = new Date().toISOString().split('T')[0];
     const cachedData = localStorage.getItem('ohaasa_data');
@@ -178,15 +177,15 @@ async function fetchOhaasaData(forceRefresh = false) {
         const json = await res.json();
         if (json.error) throw new Error(json.error);
 
-        const { onairDate, data } = json;
+        const { onairDate, data: resultData } = json;
         const formattedDate = `${onairDate.slice(0,4)}-${onairDate.slice(4,6)}-${onairDate.slice(6,8)}`;
         const prevOnairDate = localStorage.getItem('ohaasa_onair_date');
         localStorage.setItem('ohaasa_html_changed', formattedDate !== prevOnairDate ? 'true' : 'false');
         localStorage.setItem('ohaasa_onair_date', formattedDate);
 
-        localStorage.setItem('ohaasa_data', JSON.stringify(data));
+        localStorage.setItem('ohaasa_data', JSON.stringify(resultData));
         localStorage.setItem('ohaasa_date', today);
-        return data;
+        return resultData;
     } catch (e) {
         console.error("Ohaasa Fetch Error:", e);
         return cachedData ? JSON.parse(cachedData) : null;
@@ -374,9 +373,18 @@ async function updateFortune(type) {
             document.getElementById('const-name').innerText = `${constellation.name} (${myFortune.rank}위)`;
             const combinedText = `${myFortune.content}|||${myFortune.item || "-"}`;
             const translated = await translateText(combinedText);
-            const [content, item] = translated.split("|||");
-            document.getElementById('const-desc').innerText = (content || "").trim();
-            document.getElementById('luck-item').innerText = (item || "-").trim();
+            
+            // 구분자 주변의 공백을 고려한 분리
+            let content = translated;
+            let item = "-";
+            if (translated.includes("|||")) {
+                const parts = translated.split("|||");
+                content = parts[0].trim();
+                item = parts[1].trim();
+            }
+            
+            document.getElementById('const-desc').innerText = content;
+            document.getElementById('luck-item').innerText = item;
         } else {
             document.getElementById('const-desc').innerText = '데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.';
             document.getElementById('luck-item').innerText = '-';
@@ -423,7 +431,7 @@ async function fetchAIFortune(type, targetEl) {
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today })
+            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: 'ko' })
         });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const result = await resp.json();

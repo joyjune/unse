@@ -55,11 +55,12 @@
         <header>
             <h1 id="home-btn" style="cursor: pointer;">매일운세</h1>
             <nav class="main-nav">
-                <a class="nav-item active" href="#home" data-target="home">홈</a>
-                <a class="nav-item" href="#tarot" data-target="tarot">타로</a>
-                <a class="nav-item" href="#constellation" data-target="constellation">오하아사</a>
-                <a class="nav-item" href="#saju" data-target="saju">사주</a>
-                <a class="nav-item" href="#zodiac" data-target="zodiac">띠운세</a>
+                <a class="nav-item active" href="#home" data-target="home" data-i18n="nav_home">홈</a>
+                <a class="nav-item" href="#tarot" data-target="tarot" data-i18n="nav_tarot">타로</a>
+                <a class="nav-item" href="#constellation" data-target="constellation" data-i18n="nav_constellation">오하아사</a>
+                <a class="nav-item" href="#saju" data-target="saju" data-i18n="nav_saju">사주</a>
+                <a class="nav-item" href="#zodiac" data-target="zodiac" data-i18n="nav_zodiac">띠운세</a>
+                <button id="lang-toggle" class="lang-toggle">EN</button>
             </nav>
         </header>
 
@@ -68,61 +69,61 @@
             <section id="home-section" class="view">
                 <div id="home"></div>
                 <div class="hero-card card">
-                    <h2>당신의 운명은 무엇을 말하고 있나요?</h2>
-                    <p class="seo-intro">매일운세는 생년월일 기반으로 타로, 별자리, 사주, 띠 운세를 제공하는 운세 사이트입니다.</p>
+                    <h2 data-i18n="hero_title">당신의 운명은 무엇을 말하고 있나요?</h2>
+                    <p class="seo-intro" data-i18n="hero_intro">매일운세는 생년월일 기반으로 타로, 별자리, 사주, 띠 운세를 제공하는 운세 사이트입니다.</p>
                     <div class="input-group">
                         <input type="date" id="birthdate-global" min="1900-01-01" max="2099-12-31" required>
                     </div>
-                    <p class="input-hint">생년월일을 넣고 아래 메뉴에서 원하는 운세를 눌러보세요.</p>
+                    <p class="input-hint" data-i18n="hero_hint">생년월일을 넣고 아래 메뉴에서 원하는 운세를 눌러보세요.</p>
                     <div class="menu-grid">
                         <a class="menu-card" href="#tarot" data-target="tarot">
                             <span class="icon">🃏</span>
-                            <h3>타로</h3>
-                            <p>오늘의 한 장</p>
+                            <h3 data-i18n="menu_tarot">타로</h3>
+                            <p data-i18n="menu_tarot_sub">오늘의 한 장</p>
                         </a>
                         <a class="menu-card" href="#constellation" data-target="constellation">
                             <span class="icon">🌌</span>
-                            <h3>오하아사</h3>
-                            <p>별자리 행운</p>
+                            <h3 data-i18n="menu_constellation">오하아사</h3>
+                            <p data-i18n="menu_constellation_sub">별자리 행운</p>
                         </a>
                         <a class="menu-card" href="#saju" data-target="saju">
                             <span class="icon grayscale">☯️</span>
-                            <h3>사주</h3>
-                            <p>오행 분석</p>
+                            <h3 data-i18n="menu_saju">사주</h3>
+                            <p data-i18n="menu_saju_sub">오행 분석</p>
                         </a>
                         <a class="menu-card" href="#zodiac" data-target="zodiac">
                             <span class="icon">🐉</span>
-                            <h3>띠운세</h3>
-                            <p>12지신 조언</p>
+                            <h3 data-i18n="menu_zodiac">띠운세</h3>
+                            <p data-i18n="menu_zodiac_sub">12지신 조언</p>
                         </a>
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3>생년월일로 보는 오늘의 운세</h3>
-                    <p>매일운세는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
+                    <h3 data-i18n="info_home_h3">생년월일로 보는 오늘의 운세</h3>
+                    <p data-i18n="info_home_p">매일운세는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
                     <ul class="feature-list">
-                        <li>🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.</li>
-                        <li>🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.</li>
-                        <li>☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.</li>
-                        <li>🐉 띠운세 — 12지신의 동물 기운을 AI가 해석해 오늘의 맞춤 조언을 드립니다.</li>
+                        <li data-i18n="info_home_li1">🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.</li>
+                        <li data-i18n="info_home_li2">🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.</li>
+                        <li data-i18n="info_home_li3">☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.</li>
+                        <li data-i18n="info_home_li4">🐉 띠운세 — 12지신의 동물 기운을 AI가 해석해 오늘의 맞춤 조언을 드립니다.</li>
                     </ul>
                 </div>
                 <div class="service-guide">
                     <article class="service-card">
-                        <h3>타로 카드란?</h3>
-                        <p>타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.</p>
+                        <h3 data-i18n="guide_tarot_h3">타로 카드란?</h3>
+                        <p data-i18n="guide_tarot_p">타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.</p>
                     </article>
                     <article class="service-card">
-                        <h3>오하아사 별자리 운세 안내</h3>
-                        <p>오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.</p>
+                        <h3 data-i18n="guide_ohaasa_h3">오하아사 별자리 운세 안내</h3>
+                        <p data-i18n="guide_ohaasa_p">오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.</p>
                     </article>
                     <article class="service-card">
-                        <h3>사주와 오행이란?</h3>
-                        <p>사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.</p>
+                        <h3 data-i18n="guide_saju_h3">사주와 오행이란?</h3>
+                        <p data-i18n="guide_saju_p">사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.</p>
                     </article>
                     <article class="service-card">
-                        <h3>12지 띠운세란?</h3>
-                        <p>12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.</p>
+                        <h3 data-i18n="guide_zodiac_h3">12지 띠운세란?</h3>
+                        <p data-i18n="guide_zodiac_p">12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.</p>
                     </article>
                 </div>
             </section>
@@ -131,8 +132,8 @@
             <section id="tarot-section" class="view hidden">
                 <div id="tarot"></div>
                 <div class="card">
-                    <h2>오늘의 타로</h2>
-                    <p>마음을 가다듬고 카드 한 장을 선택하세요.</p>
+                    <h2 data-i18n="tarot_h2">오늘의 타로</h2>
+                    <p data-i18n="tarot_subtitle">마음을 가다듬고 카드 한 장을 선택하세요.</p>
                     <div class="tarot-container">
                         <div class="tarot-card" id="tarot-card">
                             <div class="tarot-card-inner">
@@ -151,19 +152,19 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3>타로 카드란?</h3>
-                    <p>타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.</p>
-                    <h4>메이저 아르카나 22장</h4>
-                    <p>광대(0)부터 세계(21)까지 22장으로 구성됩니다. 0~7번은 외적 성장(자아·의지·권위 형성), 8~14번은 내면 성찰(힘·정의·절제), 15~21번은 변화와 완성(악마·탑·별·달·태양·심판·세계)을 상징합니다. 메이저 카드가 나오면 삶의 중요한 전환점을 암시합니다.</p>
-                    <h4>마이너 아르카나 4수트 (56장)</h4>
+                    <h3 data-i18n="tarot_info_h3">타로 카드란?</h3>
+                    <p data-i18n="tarot_info_p1">타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.</p>
+                    <h4 data-i18n="tarot_major_h4">메이저 아르카나 22장</h4>
+                    <p data-i18n="tarot_major_p">광대(0)부터 세계(21)까지 22장으로 구성됩니다. 0~7번은 외적 성장(자아·의지·권위 형성), 8~14번은 내면 성찰(힘·정의·절제), 15~21번은 변화와 완성(악마·탑·별·달·태양·심판·세계)을 상징합니다. 메이저 카드가 나오면 삶의 중요한 전환점을 암시합니다.</p>
+                    <h4 data-i18n="tarot_minor_h4">마이너 아르카나 4수트 (56장)</h4>
                     <ul class="feature-list">
-                        <li>🔥 지팡이(Wands) — 열정·의지·창조력. 불의 원소. 일·목표·행동 영역.</li>
-                        <li>🍷 컵(Cups) — 감정·관계·직관. 물의 원소. 사랑·감성·꿈 영역.</li>
-                        <li>⚔️ 검(Swords) — 이성·갈등·진실. 공기의 원소. 생각·소통·갈등 영역.</li>
-                        <li>💰 펜타클(Pentacles) — 물질·안정·현실. 땅의 원소. 돈·건강·일상 영역.</li>
+                        <li data-i18n="tarot_li_wands">🔥 지팡이(Wands) — 열정·의지·창조력. 불의 원소. 일·목표·행동 영역.</li>
+                        <li data-i18n="tarot_li_cups">🍷 컵(Cups) — 감정·관계·직관. 물의 원소. 사랑·감성·꿈 영역.</li>
+                        <li data-i18n="tarot_li_swords">⚔️ 검(Swords) — 이성·갈등·진실. 공기의 원소. 생각·소통·갈등 영역.</li>
+                        <li data-i18n="tarot_li_pentacles">💰 펜타클(Pentacles) — 물질·안정·현실. 땅의 원소. 돈·건강·일상 영역.</li>
                     </ul>
-                    <h4>오늘의 타로 활용법</h4>
-                    <p>눈을 감고 오늘 가장 신경 쓰이는 것을 떠올린 뒤 카드를 선택하세요. 카드를 뽑은 후에는 이미지를 직관적으로 느끼고, 그 메시지를 오늘 상황에 어떻게 적용할 수 있을지 생각해보세요. 타로는 미래를 예언하는 도구가 아니라 현재를 새로운 시각으로 바라보게 돕는 성찰의 도구입니다.</p>
+                    <h4 data-i18n="tarot_how_h4">오늘의 타로 활용법</h4>
+                    <p data-i18n="tarot_how_p">눈을 감고 오늘 가장 신경 쓰이는 것을 떠올린 뒤 카드를 선택하세요. 카드를 뽑은 후에는 이미지를 직관적으로 느끼고, 그 메시지를 오늘 상황에 어떻게 적용할 수 있을지 생각해보세요. 타로는 미래를 예언하는 도구가 아니라 현재를 새로운 시각으로 바라보게 돕는 성찰의 도구입니다.</p>
                 </div>
             </section>
 
@@ -171,23 +172,23 @@
             <section id="constellation-section" class="view hidden">
                 <div id="constellation"></div>
                 <div class="card">
-                    <h2>오하아사 별자리 운세</h2>
+                    <h2 data-i18n="constellation_h2">오하아사 별자리 운세</h2>
                     <div id="const-result" class="result-box">
                         <div id="const-visual" class="const-visual"></div>
                         <h3 id="const-name"></h3>
                         <div class="luck-items">
-                            <p><span>🍀 행운의 아이템:</span> <span id="luck-item"></span></p>
+                            <p><span data-i18n="luck_label">🍀 행운의 아이템:</span> <span id="luck-item"></span></p>
                         </div>
                         <p id="const-desc" class="desc-box"></p>
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3>오하아사 별자리 운세 안내</h3>
-                    <p>오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.</p>
-                    <h4>별자리 운세 보는 법</h4>
+                    <h3 data-i18n="const_info_h3">오하아사 별자리 운세 안내</h3>
+                    <p data-i18n="const_info_p">오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.</p>
+                    <h4 data-i18n="const_how_h4">별자리 운세 보는 법</h4>
                     <ul class="feature-list">
-                        <li>🏆 순위는 오늘 하루의 전반적인 운 흐름을 나타냅니다. 1위라도 방심은 금물!</li>
-                        <li>🍀 행운의 아이템을 오늘 하루 몸에 지니거나 활용해보세요.</li>
+                        <li data-i18n="const_li1">🏆 순위는 오늘 하루의 전반적인 운 흐름을 나타냅니다. 1위라도 방심은 금물!</li>
+                        <li data-i18n="const_li2">🍀 행운의 아이템을 오늘 하루 몸에 지니거나 활용해보세요.</li>
                     </ul>
                 </div>
             </section>
@@ -196,24 +197,24 @@
             <section id="saju-section" class="view hidden">
                 <div id="saju"></div>
                 <div class="card">
-                    <h2>사주 오행 분석</h2>
+                    <h2 data-i18n="saju_h2">사주 오행 분석</h2>
                     <div id="saju-result" class="result-box">
                         <div class="element-grid">
-                            <div class="element-item" id="elem-main"><span>오늘의 기운:</span> <span id="elem-value">-</span></div>
+                            <div class="element-item" id="elem-main"><span data-i18n="saju_elem_label">오늘의 기운:</span> <span id="elem-value">-</span></div>
                         </div>
                         <p id="saju-desc" class="desc-box"></p>
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3>사주와 오행이란?</h3>
-                    <p>사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.</p>
-                    <h4>오행의 기운과 의미</h4>
+                    <h3 data-i18n="saju_info_h3">사주와 오행이란?</h3>
+                    <p data-i18n="saju_info_p">사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.</p>
+                    <h4 data-i18n="saju_elem_h4">오행의 기운과 의미</h4>
                     <div class="element-desc-list">
-                        <p>🌳 木(나무) — 성장·창의력·유연성. 새로운 시작과 발전의 기운.</p>
-                        <p>🔥 火(불) — 열정·활기·소통. 적극적이고 밝은 에너지.</p>
-                        <p>⛰️ 土(흙) — 안정·신뢰·중용. 균형 잡힌 현실적인 기운.</p>
-                        <p>💎 金(금) — 결단·정확·원칙. 날카롭고 집중적인 에너지.</p>
-                        <p>💧 水(물) — 지혜·적응력·깊이. 유연하고 통찰력 있는 기운.</p>
+                        <p data-i18n="saju_wood">🌳 木(나무) — 성장·창의력·유연성. 새로운 시작과 발전의 기운.</p>
+                        <p data-i18n="saju_fire">🔥 火(불) — 열정·활기·소통. 적극적이고 밝은 에너지.</p>
+                        <p data-i18n="saju_earth">⛰️ 土(흙) — 안정·신뢰·중용. 균형 잡힌 현실적인 기운.</p>
+                        <p data-i18n="saju_metal">💎 金(금) — 결단·정확·원칙. 날카롭고 집중적인 에너지.</p>
+                        <p data-i18n="saju_water">💧 水(물) — 지혜·적응력·깊이. 유연하고 통찰력 있는 기운.</p>
                     </div>
                 </div>
             </section>
@@ -222,7 +223,7 @@
             <section id="zodiac-section" class="view hidden">
                 <div id="zodiac"></div>
                 <div class="card">
-                    <h2>띠별 운세</h2>
+                    <h2 data-i18n="zodiac_h2">띠별 운세</h2>
                     <div id="zodiac-result" class="result-box">
                         <div id="zodiac-icon" class="zodiac-icon"></div>
                         <h3 id="zodiac-name"></h3>
@@ -230,29 +231,29 @@
                     </div>
                 </div>
                 <div class="info-card">
-                    <h3>12지 띠운세란?</h3>
-                    <p>12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.</p>
-                    <h4>12지 동물과 특성</h4>
+                    <h3 data-i18n="zodiac_info_h3">12지 띠운세란?</h3>
+                    <p data-i18n="zodiac_info_p">12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.</p>
+                    <h4 data-i18n="zodiac_chars_h4">12지 동물과 특성</h4>
                     <div class="zodiac-chars">
-                        <p>🐭 쥐 — 영리함·적응력·기민함</p>
-                        <p>🐮 소 — 성실함·인내·신뢰</p>
-                        <p>🐯 호랑이 — 용기·패기·리더십</p>
-                        <p>🐰 토끼 — 온화함·예민함·행운</p>
-                        <p>🐲 용 — 카리스마·창의·야망</p>
-                        <p>🐍 뱀 — 지혜·신중·직관</p>
-                        <p>🐴 말 — 활기·자유·독립심</p>
-                        <p>🐑 양 — 온순함·창작·공감</p>
-                        <p>🐵 원숭이 — 재치·기민함·다재다능</p>
-                        <p>🐔 닭 — 성실·자신감·꼼꼼함</p>
-                        <p>🐶 개 — 충직함·정의감·신뢰</p>
-                        <p>🐷 돼지 — 복·너그러움·성실</p>
+                        <p data-i18n="zodiac_rat">🐭 쥐 — 영리함·적응력·기민함</p>
+                        <p data-i18n="zodiac_ox">🐮 소 — 성실함·인내·신뢰</p>
+                        <p data-i18n="zodiac_tiger">🐯 호랑이 — 용기·패기·리더십</p>
+                        <p data-i18n="zodiac_rabbit">🐰 토끼 — 온화함·예민함·행운</p>
+                        <p data-i18n="zodiac_dragon">🐲 용 — 카리스마·창의·야망</p>
+                        <p data-i18n="zodiac_snake">🐍 뱀 — 지혜·신중·직관</p>
+                        <p data-i18n="zodiac_horse">🐴 말 — 활기·자유·독립심</p>
+                        <p data-i18n="zodiac_goat">🐑 양 — 온순함·창작·공감</p>
+                        <p data-i18n="zodiac_monkey">🐵 원숭이 — 재치·기민함·다재다능</p>
+                        <p data-i18n="zodiac_rooster">🐔 닭 — 성실·자신감·꼼꼼함</p>
+                        <p data-i18n="zodiac_dog">🐶 개 — 충직함·정의감·신뢰</p>
+                        <p data-i18n="zodiac_pig">🐷 돼지 — 복·너그러움·성실</p>
                     </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 매일운세. 모든 운세는 재미로만 봐주세요.</p>
+            <p data-i18n="footer">&copy; 2026 매일운세. 모든 운세는 재미로만 봐주세요.</p>
         </footer>
     </div>
     <script src="main.js?v=20260224-9"></script>

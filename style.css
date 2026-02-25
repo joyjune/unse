@@ -370,92 +370,74 @@ footer {
     margin-bottom: 0.4rem;
 }
 
-/* Mini Contact Form on Home */
-.mini-contact-wrapper {
+/* Minimalist Feedback Footer */
+.feedback-footer {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 5rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: center;
 }
 
-.mini-contact-card {
-    width: min(500px, 100%);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.8rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.contact-header {
-    text-align: center;
-    margin-bottom: 1.2rem;
-}
-
-.contact-header h3 {
-    font-size: 1.1rem;
-    color: var(--accent-color);
-    margin-bottom: 0.3rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-}
-
-.contact-header p {
-    font-size: 0.85rem;
-    color: var(--secondary-text);
-}
-
-.mini-contact-form {
+.feedback-form {
     display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem;
+    align-items: center;
+    width: min(600px, 100%);
 }
 
-.mini-contact-form input, 
-.mini-contact-form textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
+.feedback-form input[type="email"] {
+    flex: 1;
+    min-width: 120px;
+}
+
+.feedback-form input[type="text"] {
+    flex: 2;
+}
+
+.feedback-form input {
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
     color: white;
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    transition: all 0.3s;
 }
 
-.mini-contact-form input::placeholder, 
-.mini-contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.mini-contact-form input:focus, 
-.mini-contact-form textarea:focus {
+.feedback-form input:focus {
     outline: none;
-    border-color: rgba(255, 215, 0, 0.5);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.06);
 }
 
-.mini-contact-form button {
+.feedback-form button {
     background: transparent;
-    color: var(--accent-color);
     border: 1px solid var(--accent-color);
-    padding: 0.8rem;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 500;
+    color: var(--accent-color);
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: all 0.3s;
 }
 
-.mini-contact-form button:hover {
+.feedback-form button:hover {
     background: var(--accent-color);
     color: var(--bg-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .feedback-form {
+        flex-direction: column;
+        width: 100%;
+    }
+    .feedback-form input, .feedback-form button {
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {

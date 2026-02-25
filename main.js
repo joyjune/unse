@@ -309,14 +309,14 @@ function switchView(target) {
 function getTargetFromHash() {
     const hash = location.hash.replace('#', '');
     if (!hash) return 'home';
-    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac'];
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'contact'];
     return allowed.includes(hash) ? hash : 'home';
 }
 
 function handleHashChange() {
     const target = getTargetFromHash();
     const birthInput = document.getElementById('birthdate-global').value;
-    if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+    if (target !== 'home' && target !== 'contact' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
         history.replaceState(null, "", location.pathname);
         switchView('home');
         return;
@@ -330,7 +330,7 @@ navItems.forEach(item => {
         e.preventDefault();
         const target = item.getAttribute('data-target');
         const birthInput = document.getElementById('birthdate-global').value;
-        if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+        if (target !== 'home' && target !== 'contact' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
             alert('올바른 생년월일을 입력해주세요!');
             return;
         }

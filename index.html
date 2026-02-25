@@ -126,13 +126,29 @@
                     </article>
                 </div>
 
-                <!-- Minimalist Feedback Section -->
-                <div class="feedback-footer">
-                    <form action="https://formspree.io/f/xzdayjwv" method="POST" class="feedback-form">
-                        <input type="email" name="email" placeholder="이메일 (선택)">
-                        <input type="text" name="message" placeholder="건의사항이나 응원을 남겨주세요" required>
-                        <button type="submit">보내기</button>
-                    </form>
+                <!-- Chef Contact Section -->
+                <div class="chef-contact-wrapper">
+                    <div class="chef-contact-card">
+                        <div class="chef-contact-header">
+                            <h3>📩 요리사에게 연락하기</h3>
+                            <p>서비스 개선 아이디어나 버그 제보, 혹은 따뜻한 응원을 보내주세요!</p>
+                        </div>
+                        <form action="https://formspree.io/f/xzdayjwv" method="POST" class="chef-contact-form">
+                            <div class="chef-form-group">
+                                <label>성함 / 닉네임</label>
+                                <input type="text" name="name" placeholder="이름을 알려주세요" required>
+                            </div>
+                            <div class="chef-form-group">
+                                <label>이메일 주소</label>
+                                <input type="email" name="email" placeholder="답장을 받으실 이메일" required>
+                            </div>
+                            <div class="chef-form-group">
+                                <label>문의 내용</label>
+                                <textarea name="message" rows="4" placeholder="무엇이든 자유롭게 적어주세요" required></textarea>
+                            </div>
+                            <button type="submit" class="chef-submit-btn">메시지 보내기 ✨</button>
+                        </form>
+                    </div>
                 </div>
             </section>
 

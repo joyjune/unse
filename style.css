@@ -370,74 +370,121 @@ footer {
     margin-bottom: 0.4rem;
 }
 
-/* Minimalist Feedback Footer */
-.feedback-footer {
+/* Chef Contact Section */
+.chef-contact-wrapper {
     width: 100%;
     margin-top: 5rem;
-    padding: 2rem 0;
+    padding-top: 4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: center;
 }
 
-.feedback-form {
+.chef-contact-card {
+    width: min(500px, 100%);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.chef-contact-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.chef-contact-header h3 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.chef-contact-header p {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.chef-contact-form {
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    width: min(600px, 100%);
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.feedback-form input[type="email"] {
-    flex: 1;
-    min-width: 120px;
+.chef-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.feedback-form input[type="text"] {
-    flex: 2;
-}
-
-.feedback-form input {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    color: white;
+.chef-form-group label {
     font-size: 0.85rem;
-    transition: all 0.3s;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-left: 0.2rem;
+    opacity: 0.9;
 }
 
-.feedback-form input:focus {
+.chef-form-group input, 
+.chef-form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.chef-form-group input::placeholder, 
+.chef-form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chef-form-group input:focus, 
+.chef-form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
 }
 
-.feedback-form button {
-    background: transparent;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    padding: 0.7rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: all 0.3s;
-}
-
-.feedback-form button:hover {
+.chef-submit-btn {
     background: var(--accent-color);
     color: var(--bg-color);
+    border: none;
+    padding: 1.1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chef-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+    filter: brightness(1.1);
+}
+
+.chef-submit-btn:active {
+    transform: translateY(-1px);
 }
 
 @media (max-width: 600px) {
-    .feedback-form {
-        flex-direction: column;
-        width: 100%;
+    .chef-contact-card {
+        padding: 1.8rem;
+        border-radius: 20px;
     }
-    .feedback-form input, .feedback-form button {
-        width: 100%;
-    }
+    .chef-contact-header h3 { font-size: 1.15rem; }
 }
 
 @media (max-width: 600px) {

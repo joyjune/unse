@@ -370,8 +370,8 @@ footer {
     margin-bottom: 0.4rem;
 }
 
-/* Chef Contact Section */
-.chef-contact-wrapper {
+/* Developer Contact Section */
+.dev-contact-wrapper {
     width: 100%;
     margin-top: 5rem;
     padding-top: 4rem;
@@ -380,7 +380,7 @@ footer {
     justify-content: center;
 }
 
-.chef-contact-card {
+.dev-contact-card {
     width: min(500px, 100%);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -390,38 +390,38 @@ footer {
     backdrop-filter: blur(10px);
 }
 
-.chef-contact-header {
+.dev-contact-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.chef-contact-header h3 {
+.dev-contact-header h3 {
     font-size: 1.3rem;
     color: var(--accent-color);
     margin-bottom: 0.6rem;
     font-weight: 700;
 }
 
-.chef-contact-header p {
+.dev-contact-header p {
     font-size: 0.9rem;
     color: var(--secondary-text);
     line-height: 1.5;
     word-break: keep-all;
 }
 
-.chef-contact-form {
+.dev-contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.chef-form-group {
+.dev-form-group {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
 }
 
-.chef-form-group label {
+.dev-form-group label {
     font-size: 0.85rem;
     color: var(--accent-color);
     font-weight: 700;
@@ -429,8 +429,8 @@ footer {
     opacity: 0.9;
 }
 
-.chef-form-group input, 
-.chef-form-group textarea {
+.dev-form-group input, 
+.dev-form-group textarea {
     width: 100%;
     padding: 0.9rem 1.1rem;
     border-radius: 12px;
@@ -442,20 +442,20 @@ footer {
     transition: all 0.3s ease;
 }
 
-.chef-form-group input::placeholder, 
-.chef-form-group textarea::placeholder {
+.dev-form-group input::placeholder, 
+.dev-form-group textarea::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
 
-.chef-form-group input:focus, 
-.chef-form-group textarea:focus {
+.dev-form-group input:focus, 
+.dev-form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
     background: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
 }
 
-.chef-submit-btn {
+.dev-submit-btn {
     background: var(--accent-color);
     color: var(--bg-color);
     border: none;
@@ -469,22 +469,22 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.chef-submit-btn:hover {
+.dev-submit-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
     filter: brightness(1.1);
 }
 
-.chef-submit-btn:active {
+.dev-submit-btn:active {
     transform: translateY(-1px);
 }
 
 @media (max-width: 600px) {
-    .chef-contact-card {
+    .dev-contact-card {
         padding: 1.8rem;
         border-radius: 20px;
     }
-    .chef-contact-header h3 { font-size: 1.15rem; }
+    .dev-contact-header h3 { font-size: 1.15rem; }
 }
 
 @media (max-width: 600px) {

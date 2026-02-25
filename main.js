@@ -118,255 +118,6 @@ const data = {
     ]
 };
 
-// ---- English Tarot Data ----
-const tarotEn = [
-    // Major Arcana
-    { name: "0. The Fool", desc: "A new journey begins with pure potential. Step forward with an open heart, free from fear. The unfamiliar path ahead holds far more wonderful opportunities than you imagine." },
-    { name: "I. The Magician", desc: "Your creativity and willpower are at their peak. You already have everything you need to succeed. Start that idea you've been holding back — your strong will can create something out of nothing." },
-    { name: "II. The High Priestess", desc: "Listen to your inner voice. Hidden truths lie beneath the surface. Step back and observe before making important decisions. Wisdom comes from stillness today." },
-    { name: "III. The Empress", desc: "Abundance and creativity surround you. You will reap satisfying results from your efforts. It's a wonderful day for creative activities. Self-love is the key that attracts good fortune." },
-    { name: "IV. The Emperor", desc: "Lead with structure and determination. Set your plans in motion with logic and authority. Responsibility builds trust — show a steady, unwavering presence today." },
-    { name: "V. The Hierophant", desc: "Seek guidance from tradition and experience. A mentor's advice could prove invaluable. Staying true to principles and the basics will lead you to the safest and most certain path." },
-    { name: "VI. The Lovers", desc: "A moment of meaningful choice approaches. True connection and open communication light your way. Follow your heart's deepest truth and choose what makes it soar." },
-    { name: "VII. The Chariot", desc: "Harness your willpower to overcome all obstacles. Keep your focus and drive forward without hesitation. Victory is within your reach — speed and concentration are key." },
-    { name: "VIII. Strength", desc: "True power comes from compassion and patience. Face difficulties with gentle control rather than force. Your inner resilience will carry you through any trial." },
-    { name: "IX. The Hermit", desc: "Step back from the noise and seek inner wisdom. There is no need to rush. The answers you seek are already within you — follow the light of your inner voice." },
-    { name: "X. Wheel of Fortune", desc: "A positive turning point arrives. Unexpected opportunities or fortunate encounters may come your way. Embrace change and trust the flow of life's great cycles." },
-    { name: "XI. Justice", desc: "Act with fairness and clear judgment. Your honest efforts will receive their due recognition. Balance logic with integrity — your past work is being properly evaluated." },
-    { name: "XII. The Hanged Man", desc: "Pause and shift your perspective. What feels like stagnation is a necessary time of waiting. A new insight is on its way that will broaden your vision." },
-    { name: "XIII. Death", desc: "An important cycle ends, clearing the way for renewal. Release what no longer serves you. Though the change may be painful, it is a purification process guiding you to a better future." },
-    { name: "XIV. Temperance", desc: "Seek balance and moderation in all things. Blend patience with action, feeling with reason. Your calm and flexible approach brings peaceful and harmonious results today." },
-    { name: "XV. The Devil", desc: "Examine what may be limiting your freedom. Material temptations or negative patterns could be holding you back. The chains can be broken with willpower — reclaim your inner strength." },
-    { name: "XVI. The Tower", desc: "A sudden shake-up clears away what was built on shaky ground. Though disruptive, this upheaval frees you to build something far more authentic and enduring." },
-    { name: "XVII. The Star", desc: "Hope and healing light your path after darkness. Trust in the future, let your creativity flourish. When you believe with a positive heart, the universe's blessings flow toward you." },
-    { name: "XVIII. The Moon", desc: "Uncertainty may cloud your vision, but fears are illusions of the mind. Trust your intuition and avoid major decisions until the mist clears and truth reveals itself." },
-    { name: "XIX. The Sun", desc: "Success and pure joy radiate around you. Your talents shine brightly, and your positive energy uplifts everyone. A wonderful day filled with vitality and achievement." },
-    { name: "XX. Judgement", desc: "Past efforts are being recognized and a new calling arrives. Listen to the awakening call of the universe. A profound change comes when you set out with a fresh heart." },
-    { name: "XXI. The World", desc: "A cycle reaches its magnificent completion. Celebrate your achievements and prepare for new horizons. Total fulfillment and wholeness are yours — a new, higher journey begins." },
-    // Wands
-    { name: "Ace of Wands", desc: "An exciting burst of creative energy and new passion ignites within you. Act on your ideas now — this surge of vitality can open powerful new doors." },
-    { name: "Two of Wands", desc: "Look beyond the horizon and plan your next great step. Your current achievements are just the foundation for even bigger ambitions ahead." },
-    { name: "Three of Wands", desc: "Your early efforts are bearing fruit. Expand your vision and embrace partnerships. An opportunity involving distant horizons or broader reach is near." },
-    { name: "Four of Wands", desc: "Celebrate harmony and stability with those around you. A period of joyful community and shared achievement brings warmth and happiness to your day." },
-    { name: "Five of Wands", desc: "Minor conflicts or healthy competition may arise. Use this friction as fuel for growth. Stay open to other views and find new order within the chaos." },
-    { name: "Six of Wands", desc: "Recognition and success are yours today. Your achievements inspire others. Accept the praise with confidence and keep moving forward with momentum." },
-    { name: "Seven of Wands", desc: "Hold your ground against challenges. You have the strength to defend your position. Perseverance and conviction will see you through — don't give up." },
-    { name: "Eight of Wands", desc: "Events accelerate rapidly. Long-awaited news may arrive and blocked situations begin to move. Act quickly and stay focused when the opportunity presents itself." },
-    { name: "Nine of Wands", desc: "You're nearly at the finish line — keep your guard up for one last challenge. Your resilience and accumulated experience are your greatest shields right now." },
-    { name: "Ten of Wands", desc: "Are you carrying too much alone? Release some burdens and set priorities. Asking for help is wisdom, not weakness — your goal is almost within reach." },
-    { name: "Page of Wands", desc: "An exciting new spark of inspiration arrives. Embrace your enthusiasm and curiosity. New beginnings hold great promise — even without experience, your potential is boundless." },
-    { name: "Knight of Wands", desc: "Rush forward with passion and confidence, but check your impulsiveness. Bold action brings adventure and excitement — let your fiery energy lead the way today." },
-    { name: "Queen of Wands", desc: "Your vibrant energy and warm confidence attract people and success. Lead with creativity and enthusiasm — your positive influence is undeniable today." },
-    { name: "King of Wands", desc: "Your bold vision and charismatic leadership inspire those around you. Take command of a big goal and drive it forward with your passionate authority." },
-    // Cups
-    { name: "Ace of Cups", desc: "A wave of love, joy, and emotional renewal fills your heart. Open yourself to new connections and let your feelings flow freely and honestly." },
-    { name: "Two of Cups", desc: "A deep, mutual connection deepens with trust and understanding. Whether in love or partnership, true harmony and synergy are within reach today." },
-    { name: "Three of Cups", desc: "Celebrate with friends and loved ones. Joy, laughter, and community energy surround you. Sharing your happiness multiplies it for everyone around you." },
-    { name: "Four of Cups", desc: "You may feel restless or withdrawn. Look up — a new opportunity may be right in front of you. Rest is fine, but don't miss what's being offered." },
-    { name: "Five of Cups", desc: "Disappointment lingers, but two cups still stand. Shift your focus from what was lost to what remains. Healing begins when you choose to move forward." },
-    { name: "Six of Cups", desc: "Warm nostalgia and simple kindness bring comfort today. A reconnection with the past or an act of pure generosity creates a heartfelt, healing moment." },
-    { name: "Seven of Cups", desc: "Too many options create confusion. Ground yourself in reality and prioritize what truly matters. Don't let fantasy distract you from what's actually achievable." },
-    { name: "Eight of Cups", desc: "Something important is calling you away from the familiar. The journey toward deeper meaning requires leaving comfort behind — trust the path forward." },
-    { name: "Nine of Cups", desc: "Your wishes are coming true. A sense of deep contentment and emotional satisfaction fills you today. Enjoy the abundance you've created — you deserve it." },
-    { name: "Ten of Cups", desc: "True happiness and lasting harmony with loved ones bring fulfillment. The warmth of genuine connection makes this a truly blessed day." },
-    { name: "Page of Cups", desc: "Emotional messages and creative intuitions spark your imagination. Stay open to unexpected inspiration — a sincere gesture may touch your heart deeply." },
-    { name: "Knight of Cups", desc: "A romantic or heartfelt offer arrives with charm and sincerity. Respond with openness but stay grounded. Let your feelings guide you thoughtfully." },
-    { name: "Queen of Cups", desc: "Your deep empathy and intuition comfort and guide those around you. Trust your inner wisdom today — it is at its most powerful and healing." },
-    { name: "King of Cups", desc: "Lead with emotional wisdom and calm. Your ability to balance heart and mind makes you a trusted anchor for others in any challenging situation." },
-    // Swords
-    { name: "Ace of Swords", desc: "Cut through confusion with clarity and truth. A breakthrough in thought or communication arrives. Your sharp intellect is your greatest tool today." },
-    { name: "Two of Swords", desc: "You're at a standoff, delaying a difficult choice. Remove the blindfold of avoidance — facing the truth, however uncomfortable, leads to the right path." },
-    { name: "Three of Swords", desc: "Heartache or difficult news may arrive today. Allow yourself to feel the pain — it's part of the healing process. Growth and strength follow this storm." },
-    { name: "Four of Swords", desc: "Rest and recovery are essential right now. Step back from the conflict and recharge your spirit. Strategic retreat is the wisest action today." },
-    { name: "Five of Swords", desc: "A hollow victory may leave everyone feeling worse. Consider whether winning this argument is worth the cost — sometimes retreat is the wiser choice." },
-    { name: "Six of Swords", desc: "Moving away from turmoil toward calmer waters. Though not fully healed, things are steadily improving. Accept help and trust this transition." },
-    { name: "Seven of Swords", desc: "Clever strategy and careful planning are needed. Act with discretion but avoid deception — shortcuts have consequences. Stay honest in all dealings." },
-    { name: "Eight of Swords", desc: "The mental prison you feel is largely self-created. The way out is closer than you think — challenge your limiting beliefs with courage and one small step." },
-    { name: "Nine of Swords", desc: "Anxiety and sleepless worry weigh heavily, but they are often greater than reality. Share your fears with a trusted person to significantly lighten the load." },
-    { name: "Ten of Swords", desc: "A painful ending marks the absolute lowest point — meaning the only way is up. Accept the closure, release the past, and look toward a hopeful new dawn." },
-    { name: "Page of Swords", desc: "Your mind is sharp and curious, gathering information. Be careful not to act rashly with what you learn — think carefully before speaking or deciding." },
-    { name: "Knight of Swords", desc: "Act decisively and swiftly, but be mindful of those in your path. Your mental speed and determination are powerful — use them with awareness today." },
-    { name: "Queen of Swords", desc: "Cut through illusion with your keen intellect and honest judgment. Your directness commands respect — speak truth with compassion and clarity." },
-    { name: "King of Swords", desc: "Your analytical authority and clear principles lead the way. Make decisions based on logic and fairness. Your intellectual leadership shapes the outcome." },
-    // Pentacles
-    { name: "Ace of Pentacles", desc: "A golden opportunity for material or financial growth arrives. Plant the seed carefully today and watch it grow into lasting prosperity." },
-    { name: "Two of Pentacles", desc: "Balance multiple responsibilities with flexibility and good humor. Juggling demands is possible — stay adaptable and prioritize what matters most." },
-    { name: "Three of Pentacles", desc: "Collaborate with experts and show your skill. Teamwork and craftsmanship create results greater than any individual effort — your work is recognized." },
-    { name: "Four of Pentacles", desc: "Financial security matters, but don't hold on too tightly. True abundance flows when you trust and share appropriately — open your hands a little." },
-    { name: "Five of Pentacles", desc: "A period of hardship feels isolating. Help is nearby if you ask — don't let pride keep you from the warmth and support that awaits you." },
-    { name: "Six of Pentacles", desc: "Generosity flows both ways today. Whether giving or receiving, the balance of sharing creates good karma and deepens meaningful connections." },
-    { name: "Seven of Pentacles", desc: "Pause to assess your progress. Patience is required — your efforts are growing beneath the surface. Trust the process and refine your approach." },
-    { name: "Eight of Pentacles", desc: "Dedicated practice and focused effort are your greatest assets. Master your craft step by step and your expertise will bring lasting rewards." },
-    { name: "Nine of Pentacles", desc: "Self-made abundance and graceful independence are yours to enjoy. Appreciate the comfort you've created through your own skill and determination." },
-    { name: "Ten of Pentacles", desc: "Long-term security and a lasting legacy are within reach. Strong bonds contribute to enduring success that spans beyond the immediate moment." },
-    { name: "Page of Pentacles", desc: "A new opportunity for learning or practical achievement arrives. Approach it with diligence and patience — your steady effort will build real foundations." },
-    { name: "Knight of Pentacles", desc: "Slow and steady wins the race. Reliability and thoroughness distinguish your work. Your dedicated consistency will carry you to a dependable destination." },
-    { name: "Queen of Pentacles", desc: "Practical wisdom and nurturing care create a warm, abundant environment. Your resourcefulness supports both yourself and those who depend on you." },
-    { name: "King of Pentacles", desc: "Masterful leadership in material and financial matters is your strength. Your experience and stability inspire confidence — take pride in your solid achievements." }
-];
-
-const constellationNamesEn = [
-    "Aries (Mar.21-Apr.19)",
-    "Taurus (Apr.20-May.20)",
-    "Gemini (May.21-Jun.21)",
-    "Cancer (Jun.22-Jul.22)",
-    "Leo (Jul.23-Aug.22)",
-    "Virgo (Aug.23-Sep.23)",
-    "Libra (Sep.24-Oct.22)",
-    "Scorpio (Oct.23-Nov.22)",
-    "Sagittarius (Nov.23-Dec.24)",
-    "Capricorn (Dec.25-Jan.19)",
-    "Aquarius (Jan.20-Feb.18)",
-    "Pisces (Feb.19-Mar.20)"
-];
-
-const zodiacNamesEn = [
-    "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake",
-    "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"
-];
-
-// ---- i18n Translations ----
-const i18n = {
-    ko: {
-        nav_home: '홈', nav_tarot: '타로', nav_constellation: '오하아사', nav_saju: '사주', nav_zodiac: '띠운세',
-        hero_title: '당신의 운명은 무엇을 말하고 있나요?',
-        hero_intro: '매일운세는 생년월일 기반으로 타로, 별자리, 사주, 띠 운세를 제공하는 운세 사이트입니다.',
-        hero_hint: '생년월일을 넣고 아래 메뉴에서 원하는 운세를 눌러보세요.',
-        menu_tarot: '타로', menu_tarot_sub: '오늘의 한 장',
-        menu_constellation: '오하아사', menu_constellation_sub: '별자리 행운',
-        menu_saju: '사주', menu_saju_sub: '오행 분석',
-        menu_zodiac: '띠운세', menu_zodiac_sub: '12지신 조언',
-        info_home_h3: '생년월일로 보는 오늘의 운세',
-        info_home_p: '매일운세는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.',
-        info_home_li1: '🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.',
-        info_home_li2: '🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.',
-        info_home_li3: '☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.',
-        info_home_li4: '🐉 띠운세 — 12지신의 동물 기운을 AI가 해석해 오늘의 맞춤 조언을 드립니다.',
-        guide_tarot_h3: '타로 카드란?',
-        guide_tarot_p: '타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.',
-        guide_ohaasa_h3: '오하아사 별자리 운세 안내',
-        guide_ohaasa_p: '오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.',
-        guide_saju_h3: '사주와 오행이란?',
-        guide_saju_p: '사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.',
-        guide_zodiac_h3: '12지 띠운세란?',
-        guide_zodiac_p: '12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.',
-        tarot_h2: '오늘의 타로', tarot_subtitle: '마음을 가다듬고 카드 한 장을 선택하세요.',
-        tarot_info_h3: '타로 카드란?',
-        tarot_info_p1: '타로는 14세기 유럽에서 시작된 78장의 카드 체계로, 오늘날 전 세계에서 자기성찰과 운세 도구로 활용됩니다. 카드에 담긴 상징과 이미지를 통해 무의식의 메시지를 끌어내고 오늘 하루의 방향을 직관적으로 파악할 수 있습니다.',
-        tarot_major_h4: '메이저 아르카나 22장',
-        tarot_major_p: '광대(0)부터 세계(21)까지 22장으로 구성됩니다. 0~7번은 외적 성장(자아·의지·권위 형성), 8~14번은 내면 성찰(힘·정의·절제), 15~21번은 변화와 완성(악마·탑·별·달·태양·심판·세계)을 상징합니다. 메이저 카드가 나오면 삶의 중요한 전환점을 암시합니다.',
-        tarot_minor_h4: '마이너 아르카나 4수트 (56장)',
-        tarot_li_wands: '🔥 지팡이(Wands) — 열정·의지·창조력. 불의 원소. 일·목표·행동 영역.',
-        tarot_li_cups: '🍷 컵(Cups) — 감정·관계·직관. 물의 원소. 사랑·감성·꿈 영역.',
-        tarot_li_swords: '⚔️ 검(Swords) — 이성·갈등·진실. 공기의 원소. 생각·소통·갈등 영역.',
-        tarot_li_pentacles: '💰 펜타클(Pentacles) — 물질·안정·현실. 땅의 원소. 돈·건강·일상 영역.',
-        tarot_how_h4: '오늘의 타로 활용법',
-        tarot_how_p: '눈을 감고 오늘 가장 신경 쓰이는 것을 떠올린 뒤 카드를 선택하세요. 카드를 뽑은 후에는 이미지를 직관적으로 느끼고, 그 메시지를 오늘 상황에 어떻게 적용할 수 있을지 생각해보세요. 타로는 미래를 예언하는 도구가 아니라 현재를 새로운 시각으로 바라보게 돕는 성찰의 도구입니다.',
-        constellation_h2: '오하아사 별자리 운세', luck_label: '🍀 행운의 아이템:',
-        const_info_h3: '오하아사 별자리 운세 안내',
-        const_info_p: '오하아사(おは朝)는 일본 ABC 아사히 방송의 인기 아침 프로그램입니다. 매주 월~토 방영되며 12별자리별 오늘의 운세 순위·행운 아이템을 발표합니다. 매일운세는 당일 데이터를 실시간으로 반영해 최신 운세를 제공합니다.',
-        const_how_h4: '별자리 운세 보는 법',
-        const_li1: '🏆 순위는 오늘 하루의 전반적인 운 흐름을 나타냅니다. 1위라도 방심은 금물!',
-        const_li2: '🍀 행운의 아이템을 오늘 하루 몸에 지니거나 활용해보세요.',
-        saju_h2: '사주 오행 분석', saju_elem_label: '오늘의 기운:',
-        saju_info_h3: '사주와 오행이란?',
-        saju_info_p: '사주(四柱)는 태어난 연·월·일·시의 네 기둥으로 삶의 흐름을 읽는 동양 철학입니다. 오행(五行)은 木·火·土·金·水 다섯 기운으로 우주의 모든 현상을 설명하며, 오늘 지배하는 기운을 알면 하루를 더 지혜롭게 이끌 수 있습니다.',
-        saju_elem_h4: '오행의 기운과 의미',
-        saju_wood: '🌳 木(나무) — 성장·창의력·유연성. 새로운 시작과 발전의 기운.',
-        saju_fire: '🔥 火(불) — 열정·활기·소통. 적극적이고 밝은 에너지.',
-        saju_earth: '⛰️ 土(흙) — 안정·신뢰·중용. 균형 잡힌 현실적인 기운.',
-        saju_metal: '💎 金(금) — 결단·정확·원칙. 날카롭고 집중적인 에너지.',
-        saju_water: '💧 水(물) — 지혜·적응력·깊이. 유연하고 통찰력 있는 기운.',
-        zodiac_h2: '띠별 운세', zodiac_birth_label: '출생연도 기준',
-        zodiac_info_h3: '12지 띠운세란?',
-        zodiac_info_p: '12지신(十二支)은 동아시아 전통에서 시간·방위·운명을 나타내는 12가지 동물 상징입니다. 태어난 해에 따라 고유한 기운을 지니며, AI가 당신의 띠 특성과 오늘의 에너지를 융합하여 맞춤 운세를 분석합니다.',
-        zodiac_chars_h4: '12지 동물과 특성',
-        zodiac_rat: '🐭 쥐 — 영리함·적응력·기민함', zodiac_ox: '🐮 소 — 성실함·인내·신뢰',
-        zodiac_tiger: '🐯 호랑이 — 용기·패기·리더십', zodiac_rabbit: '🐰 토끼 — 온화함·예민함·행운',
-        zodiac_dragon: '🐲 용 — 카리스마·창의·야망', zodiac_snake: '🐍 뱀 — 지혜·신중·직관',
-        zodiac_horse: '🐴 말 — 활기·자유·독립심', zodiac_goat: '🐑 양 — 온순함·창작·공감',
-        zodiac_monkey: '🐵 원숭이 — 재치·기민함·다재다능', zodiac_rooster: '🐔 닭 — 성실·자신감·꼼꼼함',
-        zodiac_dog: '🐶 개 — 충직함·정의감·신뢰', zodiac_pig: '🐷 돼지 — 복·너그러움·성실',
-        footer: '© 2026 매일운세. 모든 운세는 재미로만 봐주세요.',
-        alert_birthdate: '올바른 생년월일을 입력해주세요!',
-        loading_constellation: '오늘의 별자리 정보를 가져오는 중...',
-        loading_fortune: '운세를 분석하는 중...',
-        error_constellation: '데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.',
-        error_fortune: '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.',
-        elements: ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"],
-        rank_suffix: '위'
-    },
-    en: {
-        nav_home: 'Home', nav_tarot: 'Tarot', nav_constellation: 'Ohaasa', nav_saju: 'Saju', nav_zodiac: 'Zodiac',
-        hero_title: 'What is your destiny telling you?',
-        hero_intro: 'Daily Fortune provides tarot, constellation, saju, and zodiac readings based on your birthdate.',
-        hero_hint: 'Enter your birthdate and choose a fortune type from the menu below.',
-        menu_tarot: 'Tarot', menu_tarot_sub: "Today's Card",
-        menu_constellation: 'Ohaasa', menu_constellation_sub: 'Star Fortune',
-        menu_saju: 'Saju', menu_saju_sub: 'Five Elements',
-        menu_zodiac: 'Zodiac', menu_zodiac_sub: '12 Zodiac Advice',
-        info_home_h3: "Today's Fortune by Birthdate",
-        info_home_p: 'Daily Fortune is an all-in-one fortune platform providing Tarot card readings, constellation horoscopes, Saju Five Elements analysis, and 12 Zodiac fortunes. Enter your birthdate to instantly receive your personalized fortune for today.',
-        info_home_li1: "🃏 Tarot — Gain intuitive insight into today's energy and direction through the rich symbolism of 78 cards.",
-        info_home_li2: "🌌 Ohaasa — Real-time horoscope rankings and lucky items from Japan's popular Asahi TV morning program.",
-        info_home_li3: '☯️ Saju — AI analyzes today\'s energy through the Five Elements (Wood, Fire, Earth, Metal, Water) of Eastern philosophy.',
-        info_home_li4: "🐉 Zodiac — AI interprets your Chinese zodiac's unique energy to give you tailored advice for today.",
-        guide_tarot_h3: 'What is Tarot?',
-        guide_tarot_p: 'Tarot originated in 14th-century Europe as a system of 78 cards and is used worldwide today as a tool for self-reflection and fortune-telling. Through the symbols and imagery on the cards, you can draw out messages from the subconscious and gain intuitive clarity on the direction of your day.',
-        guide_ohaasa_h3: 'About the Ohaasa Constellation Horoscope',
-        guide_ohaasa_p: "Ohaasa (おは朝) is a popular morning program on Japan's ABC Asahi Broadcasting. Airing Monday to Saturday, it reveals daily horoscope rankings and lucky items for all 12 zodiac signs. Daily Fortune reflects the day's data in real time to deliver the latest horoscope.",
-        guide_saju_h3: 'What is Saju & the Five Elements?',
-        guide_saju_p: 'Saju (四柱) is an Eastern philosophy that reads the flow of life through the four pillars of birth year, month, day, and hour. The Five Elements (五行) — Wood, Fire, Earth, Metal, Water — explain all phenomena in the universe. Knowing the energy that governs today helps you navigate the day with greater wisdom.',
-        guide_zodiac_h3: 'What is the 12 Zodiac Fortune?',
-        guide_zodiac_p: "The 12 Earthly Branches (十二支) are 12 animal symbols representing time, direction, and destiny in East Asian tradition. Each person carries a unique energy based on their birth year, and AI analyzes your zodiac's characteristics alongside today's energy to deliver your personalized fortune.",
-        tarot_h2: "Today's Tarot", tarot_subtitle: 'Calm your mind and choose one card.',
-        tarot_info_h3: 'What is Tarot?',
-        tarot_info_p1: 'Tarot originated in 14th-century Europe as a system of 78 cards and is used worldwide today as a tool for self-reflection and fortune-telling. Through the symbols and imagery on the cards, you can draw out messages from the subconscious and gain intuitive clarity on the direction of your day.',
-        tarot_major_h4: 'The 22 Major Arcana',
-        tarot_major_p: 'Composed of 22 cards from the Fool (0) to the World (21). Cards 0–7 represent outward growth (self, will, authority), 8–14 represent inner reflection (strength, justice, temperance), and 15–21 represent transformation and completion (Devil, Tower, Star, Moon, Sun, Judgement, World). A Major Arcana card signals an important turning point in life.',
-        tarot_minor_h4: 'The 4 Suits of the Minor Arcana (56 cards)',
-        tarot_li_wands: '🔥 Wands — Passion, willpower, creativity. Fire element. Realm of work, goals, and action.',
-        tarot_li_cups: '🍷 Cups — Emotion, relationships, intuition. Water element. Realm of love, feeling, and dreams.',
-        tarot_li_swords: '⚔️ Swords — Intellect, conflict, truth. Air element. Realm of thought, communication, and tension.',
-        tarot_li_pentacles: '💰 Pentacles — Material wealth, stability, reality. Earth element. Realm of money, health, and daily life.',
-        tarot_how_h4: "How to Use Today's Tarot",
-        tarot_how_p: "Close your eyes, think of what's on your mind most today, then choose a card. After drawing it, feel the image intuitively and reflect on how its message applies to your current situation. Tarot is not a tool of prophecy, but a tool of reflection that helps you see the present from a new perspective.",
-        constellation_h2: 'Ohaasa Constellation Fortune', luck_label: '🍀 Lucky Item:',
-        const_info_h3: 'About the Ohaasa Constellation Horoscope',
-        const_info_p: "Ohaasa (おは朝) is a popular morning program on Japan's ABC Asahi Broadcasting. Airing Monday to Saturday, it reveals daily horoscope rankings and lucky items for all 12 zodiac signs. Daily Fortune reflects the day's data in real time to deliver the latest horoscope.",
-        const_how_h4: 'How to Read Your Horoscope',
-        const_li1: '🏆 The ranking reflects the overall flow of fortune for the day. Even rank 1 is no reason to be careless!',
-        const_li2: '🍀 Try to carry or use your lucky item throughout the day for extra fortune.',
-        saju_h2: 'Saju Five Elements Analysis', saju_elem_label: "Today's Energy:",
-        saju_info_h3: 'What is Saju & the Five Elements?',
-        saju_info_p: 'Saju (四柱) is an Eastern philosophy that reads the flow of life through the four pillars of birth year, month, day, and hour. The Five Elements (五行) — Wood, Fire, Earth, Metal, Water — explain all phenomena in the universe. Knowing the energy that governs today helps you navigate the day with greater wisdom.',
-        saju_elem_h4: 'The Five Elements and Their Meanings',
-        saju_wood: '🌳 Wood (木) — Growth, creativity, flexibility. The energy of new beginnings and development.',
-        saju_fire: '🔥 Fire (火) — Passion, vitality, communication. An active and bright energy.',
-        saju_earth: '⛰️ Earth (土) — Stability, trust, balance. A grounded and practical energy.',
-        saju_metal: '💎 Metal (金) — Decisiveness, precision, principle. A sharp and focused energy.',
-        saju_water: '💧 Water (水) — Wisdom, adaptability, depth. A flexible and insightful energy.',
-        zodiac_h2: 'Zodiac Fortune', zodiac_birth_label: 'Based on birth year',
-        zodiac_info_h3: 'What is the 12 Zodiac Fortune?',
-        zodiac_info_p: "The 12 Earthly Branches (十二支) are 12 animal symbols representing time, direction, and destiny in East Asian tradition. Each person carries a unique energy based on their birth year, and AI analyzes your zodiac's characteristics alongside today's energy to deliver your personalized fortune.",
-        zodiac_chars_h4: 'The 12 Zodiac Animals and Their Traits',
-        zodiac_rat: '🐭 Rat — Clever, adaptable, agile', zodiac_ox: '🐮 Ox — Diligent, patient, reliable',
-        zodiac_tiger: '🐯 Tiger — Courageous, bold, a natural leader', zodiac_rabbit: '🐰 Rabbit — Gentle, sensitive, lucky',
-        zodiac_dragon: '🐲 Dragon — Charismatic, creative, ambitious', zodiac_snake: '🐍 Snake — Wise, cautious, intuitive',
-        zodiac_horse: '🐴 Horse — Energetic, free-spirited, independent', zodiac_goat: '🐑 Goat — Gentle, artistic, empathetic',
-        zodiac_monkey: '🐵 Monkey — Witty, agile, versatile', zodiac_rooster: '🐔 Rooster — Diligent, confident, meticulous',
-        zodiac_dog: '🐶 Dog — Loyal, just, trustworthy', zodiac_pig: '🐷 Pig — Lucky, generous, sincere',
-        footer: '© 2026 Daily Fortune. All fortunes are for entertainment only.',
-        alert_birthdate: 'Please enter a valid birthdate!',
-        loading_constellation: "Loading today's constellation data...",
-        loading_fortune: 'Analyzing your fortune...',
-        error_constellation: 'Failed to load data. Please try again later.',
-        error_fortune: 'Failed to load fortune. Please try again later.',
-        elements: ["🌳 Wood (木)", "🔥 Fire (火)", "⛰️ Earth (土)", "💎 Metal (金)", "💧 Water (水)"],
-        rank_suffix: ''
-    }
-};
-
 function hashText(text) {
     let hash = 0;
     for (let i = 0; i < text.length; i++) {
@@ -402,7 +153,6 @@ async function translateText(text) {
 }
 
 // Global State
-let currentLang = localStorage.getItem('lang') || 'ko';
 let globalBirthdate = "";
 let isTarotDrawn = false;
 let ohaasaUpdateTimer = null;
@@ -581,7 +331,7 @@ navItems.forEach(item => {
         const target = item.getAttribute('data-target');
         const birthInput = document.getElementById('birthdate-global').value;
         if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
-            alert(i18n[currentLang].alert_birthdate);
+            alert('올바른 생년월일을 입력해주세요!');
             return;
         }
         if (target !== 'home') globalBirthdate = birthInput;
@@ -613,19 +363,17 @@ async function updateFortune(type) {
         else constIdx = 11;
 
         const constellation = data.constellations[constIdx];
-        const constNameDisplay = currentLang === 'en' ? constellationNamesEn[constIdx] : constellation.name;
-        document.getElementById('const-name').innerText = constNameDisplay;
-        document.getElementById('const-desc').innerText = i18n[currentLang].loading_constellation;
+        document.getElementById('const-name').innerText = constellation.name;
+        document.getElementById('const-desc').innerText = '오늘의 별자리 정보를 가져오는 중...';
 
         const ohaasaData = await fetchOhaasaData();
         const myFortune = ohaasaData ? ohaasaData[constellation.jp] : null;
 
         if (myFortune) {
-            const rankLabel = currentLang === 'en' ? `Rank ${myFortune.rank}` : `${myFortune.rank}위`;
-            document.getElementById('const-name').innerText = `${constNameDisplay} (${rankLabel})`;
+            document.getElementById('const-name').innerText = `${constellation.name} (${myFortune.rank}위)`;
             const combinedText = `${myFortune.content}|||${myFortune.item || "-"}`;
             const translated = await translateText(combinedText);
-
+            
             // 구분자 주변의 공백을 고려한 분리
             let content = translated;
             let item = "-";
@@ -634,20 +382,21 @@ async function updateFortune(type) {
                 content = parts[0].trim();
                 item = parts[1].trim();
             }
-
+            
             document.getElementById('const-desc').innerText = content;
             document.getElementById('luck-item').innerText = item;
         } else {
-            document.getElementById('const-desc').innerText = i18n[currentLang].error_constellation;
+            document.getElementById('const-desc').innerText = '데이터를 가져오지 못했습니다. 잠시 후 다시 시도해주세요.';
             document.getElementById('luck-item').innerText = '-';
         }
         drawConstellation(constellation);
     }
 
     if (type === 'saju') {
+        const elements = ["🌳 나무 (木)", "🔥 불 (火)", "⛰️ 흙 (土)", "💎 금 (金)", "💧 물 (水)"];
         const sajuIdx = Math.abs(seed) % 5;
-        document.getElementById('elem-value').innerText = i18n[currentLang].elements[sajuIdx];
-        document.getElementById('saju-desc').innerText = i18n[currentLang].loading_fortune;
+        document.getElementById('elem-value').innerText = elements[sajuIdx];
+        document.getElementById('saju-desc').innerText = '운세를 분석하는 중...';
         await fetchAIFortune('saju', document.getElementById('saju-desc'));
     }
 
@@ -655,10 +404,9 @@ async function updateFortune(type) {
         const year = parseInt(globalBirthdate.split('-')[0]);
         const zodiacIdx = (year - 4) % 12;
         const zodiac = data.zodiacs[zodiacIdx];
-        const zodiacName = currentLang === 'en' ? zodiacNamesEn[zodiacIdx] : zodiac.name;
         document.getElementById('zodiac-icon').innerText = zodiac.icon;
-        document.getElementById('zodiac-name').innerText = `${zodiacName} (${i18n[currentLang].zodiac_birth_label})`;
-        document.getElementById('zodiac-desc').innerText = i18n[currentLang].loading_fortune;
+        document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
+        document.getElementById('zodiac-desc').innerText = '운세를 분석하는 중...';
         await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
     }
 }
@@ -671,7 +419,7 @@ function drawConstellation(constellation) {
 
 async function fetchAIFortune(type, targetEl) {
     const today = new Date().toISOString().split('T')[0];
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_${currentLang}`;
+    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_ko`;
     const cached = localStorage.getItem(cacheKey);
 
     if (cached) {
@@ -683,7 +431,7 @@ async function fetchAIFortune(type, targetEl) {
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: currentLang })
+            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: 'ko' })
         });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const result = await resp.json();
@@ -691,11 +439,11 @@ async function fetchAIFortune(type, targetEl) {
             targetEl.innerText = result.fortune;
             try { localStorage.setItem(cacheKey, result.fortune); } catch (_) {}
         } else {
-            targetEl.innerText = i18n[currentLang].error_fortune;
+            targetEl.innerText = '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
         }
     } catch (e) {
         console.error("AI fortune fetch error:", e);
-        targetEl.innerText = i18n[currentLang].error_fortune;
+        targetEl.innerText = '운세를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
     }
 }
 
@@ -715,11 +463,9 @@ function seededRandom(seed) {
 }
 
 function renderTarot(card) {
-    const idx = lastTarotIndex;
-    const en = (currentLang === 'en' && idx !== null && tarotEn[idx]);
-    document.getElementById('tarot-name').innerText = en ? tarotEn[idx].name : card.name;
+    document.getElementById('tarot-name').innerText = card.name;
     document.getElementById('tarot-card-image').innerText = card.icon;
-    document.getElementById('tarot-desc').innerText = en ? tarotEn[idx].desc : card.desc;
+    document.getElementById('tarot-desc').innerText = card.desc;
 }
 
 const tarotCard = document.getElementById('tarot-card');
@@ -749,35 +495,6 @@ function createStars() {
 }
 createStars();
 
-// ---- Language Switching ----
-function applyLang() {
-    const t = i18n[currentLang];
-    document.documentElement.lang = currentLang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.textContent = t[key];
-    });
-    const btn = document.getElementById('lang-toggle');
-    if (btn) btn.textContent = currentLang === 'ko' ? 'EN' : '한국어';
-}
-
-function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    applyLang();
-    if (currentView !== 'home') {
-        updateFortune(currentView);
-    }
-    if (isTarotDrawn && lastTarotIndex !== null) {
-        renderTarot(data.tarot[lastTarotIndex]);
-    }
-}
-
-document.getElementById('lang-toggle').addEventListener('click', () => {
-    setLang(currentLang === 'ko' ? 'en' : 'ko');
-});
-
 window.addEventListener('hashchange', handleHashChange);
-applyLang();
 handleHashChange();
 scheduleOhaasaAutoUpdate();

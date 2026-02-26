@@ -109,6 +109,16 @@
                             <h3>재물운</h3>
                             <p>금전 흐름</p>
                         </a>
+                        <a class="menu-card" href="#career" data-target="career">
+                            <span class="icon">💼</span>
+                            <h3>직장/학업</h3>
+                            <p>성과와 능률</p>
+                        </a>
+                        <a class="menu-card" href="#compatibility" data-target="compatibility">
+                            <span class="icon">🎎</span>
+                            <h3>궁합</h3>
+                            <p>관계의 조화</p>
+                        </a>
                         <a class="menu-card" href="#saju" data-target="saju">
                             <span class="icon grayscale">☯️</span>
                             <h3>사주</h3>
@@ -123,12 +133,14 @@
                 </div>
                 <div class="info-card">
                     <h3>생년월일로 보는 오늘의 운세</h3>
-                    <p>매일운세는 타로 카드·별자리·연애운·재물운·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
+                    <p>매일운세는 타로 카드·별자리·연애운·재물운·직장운·궁합·사주 오행·12지 띠운세를 한 곳에서 제공하는 종합 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
                     <ul class="feature-list">
                         <li>🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.</li>
                         <li>🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.</li>
                         <li>💖 연애운 — 도화살과 합의 원리로 오늘의 인연과 관계의 흐름을 분석합니다.</li>
                         <li>💰 재물운 — 사주 재성(財星)의 기운을 분석하여 투자와 소비에 대한 조언을 드립니다.</li>
+                        <li>💼 직장/학업 — 관성과 인성의 기운을 통해 오늘 하루의 업무 효율과 성과를 예측합니다.</li>
+                        <li>🎎 궁합 — 두 사람의 생년월일 조화를 분석하여 오늘의 케미와 관계 지침을 알려드립니다.</li>
                         <li>☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.</li>
                         <li>🐉 띠운세 — 12지신의 동물 기운을 AI가 해석해 오늘의 맞춤 조언을 드립니다.</li>
                     </ul>
@@ -272,6 +284,62 @@
                 <div class="info-card">
                     <h3>재물운 분석 안내</h3>
                     <p>오늘의 천간과 지지가 본인의 사주 속 재성(財星)에 어떻게 작용하는지 분석합니다. 금전의 유입과 유출, 투자에 적합한 시기 등을 파악하여 실질적인 경제 활동에 도움을 드리는 조언을 제공합니다.</p>
+                </div>
+            </section>
+
+            <!-- Career Section -->
+            <section id="career-section" class="view hidden">
+                <div id="career"></div>
+                <div class="card">
+                    <h2>오늘의 직장/학업운</h2>
+                    <div id="career-result" class="result-box">
+                        <div class="luck-icon" style="font-size: 5rem; margin-bottom: 1rem;">💼</div>
+                        <p id="career-desc" class="desc-box">업무와 학업 기운을 분석하고 있습니다...</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>직장/학업운 분석 안내</h3>
+                    <p>사주 상의 관성(직장/명예)과 인성(학문/문서)의 흐름을 분석합니다. 오늘의 집중도와 성과 가능성, 그리고 대인 관계에서의 조화를 예측하여 성공적인 하루를 위한 전략을 제시합니다.</p>
+                </div>
+            </section>
+
+            <!-- Compatibility Section -->
+            <section id="compatibility-section" class="view hidden">
+                <div id="compatibility"></div>
+                <div class="card">
+                    <h2>오늘의 궁합</h2>
+                    <p>상대방의 정보를 입력하면 오늘 두 사람의 조화를 분석합니다.</p>
+                    
+                    <div class="compatibility-input-area" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+                        <h3 style="margin-bottom: 1rem; color: var(--accent-color);">상대방 정보 입력</h3>
+                        <div class="input-group birthdate-inputs">
+                            <input type="number" id="partner-birth-year" placeholder="년도" inputmode="numeric" min="1900" max="2099">
+                            <span class="date-sep">.</span>
+                            <input type="number" id="partner-birth-month" placeholder="월" inputmode="numeric" min="1" max="12">
+                            <span class="date-sep">.</span>
+                            <input type="number" id="partner-birth-day" placeholder="일" inputmode="numeric" min="1" max="31">
+                        </div>
+                        <div class="calendar-type-selector">
+                            <label class="radio-label">
+                                <input type="radio" name="partner-calendar-type" value="solar" checked>
+                                <span>양력</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="partner-calendar-type" value="lunar">
+                                <span>음력</span>
+                            </label>
+                        </div>
+                        <button id="check-compat-btn" class="dev-submit-btn" style="width: 100%; max-width: 430px; margin-top: 1.5rem;">궁합 분석하기 ✨</button>
+                    </div>
+
+                    <div id="compatibility-result" class="hidden result-box" style="margin-top: 2rem;">
+                        <div class="luck-icon" style="font-size: 5rem; margin-bottom: 1rem;">🎎</div>
+                        <p id="compatibility-desc" class="desc-box"></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>오늘의 궁합 분석 안내</h3>
+                    <p>두 사람의 일간(日干)과 오행의 상생 관계, 그리고 오늘의 일진이 각자의 사주에 미치는 영향을 종합적으로 분석합니다. 오늘 유독 잘 통하는 부분과 서로 배려해야 할 점을 콕 짚어 드립니다.</p>
                 </div>
             </section>
 

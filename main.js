@@ -99,7 +99,7 @@ const data = {
         { name: "전갈자리 (10.23-11.22)", icon: "♏", representative: "🦂", jp: "さそり座" },
         { name: "사수자리 (11.23-12.24)", icon: "♐", representative: "🏹", jp: "いて座" },
         { name: "염소자리 (12.25-1.19)", icon: "♑", representative: "🐐", jp: "야기座" },
-        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みずがめ座" },
+        { name: "물병자리 (1.20-2.18)", icon: "♒", representative: "🏺", jp: "みず가め座" },
         { name: "물고기자리 (2.19-3.20)", icon: "♓", representative: "🐟", jp: "うお座" }
     ],
     zodiacs: [
@@ -300,6 +300,17 @@ document.getElementById('birth-month').addEventListener('input', function() {
     }
 });
 
+// 상대방 연→월→일 자동 포커스 이동
+document.getElementById('partner-birth-year').addEventListener('input', function() {
+    if (this.value.length === 4) document.getElementById('partner-birth-month').focus();
+});
+document.getElementById('partner-birth-month').addEventListener('input', function() {
+    if (this.value.length >= 2 || parseInt(this.value) > 1) {
+        const v = parseInt(this.value);
+        if (v >= 1 && v <= 12 && this.value.length >= 2) document.getElementById('partner-birth-day').focus();
+    }
+});
+
 // 양력/음력 변경 시 globalBirthdate 업데이트
 document.querySelectorAll('input[name="calendar-type"]').forEach(radio => {
     radio.addEventListener('change', () => {
@@ -333,13 +344,13 @@ function switchView(target) {
         n.classList.toggle('active', n.getAttribute('data-target') === target);
     });
 
-    if (target !== 'home' && prevView !== target) updateFortune(target);
+    if (target !== 'home' && prevView !== target && target !== 'compatibility') updateFortune(target);
 }
 
 function getTargetFromHash() {
     const hash = location.hash.replace('#', '');
     if (!hash) return 'home';
-    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth'];
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth', 'career', 'compatibility'];
     return allowed.includes(hash) ? hash : 'home';
 }
 
@@ -441,9 +452,6 @@ async function updateFortune(type) {
     }
 
     if (type === 'love') {
-        const loveDesc = document.getElementById('love-desc') || document.getElementById('saju-desc');
-        // love 전용 엘리먼트가 없으면 사주 섹션의 포맷을 빌려 쓰거나, index.html에 추가해야 함.
-        // 현재는 사주/띠와 동일한 API 호출 방식 사용.
         if (document.getElementById('love-desc')) {
             document.getElementById('love-desc').innerText = '오늘의 연애운을 분석하는 중...';
             await fetchAIFortune('love', document.getElementById('love-desc'));
@@ -454,6 +462,13 @@ async function updateFortune(type) {
         if (document.getElementById('wealth-desc')) {
             document.getElementById('wealth-desc').innerText = '오늘의 재물운을 분석하는 중...';
             await fetchAIFortune('wealth', document.getElementById('wealth-desc'));
+        }
+    }
+
+    if (type === 'career') {
+        if (document.getElementById('career-desc')) {
+            document.getElementById('career-desc').innerText = '오늘의 업무와 학업 기운을 분석하는 중...';
+            await fetchAIFortune('career', document.getElementById('career-desc'));
         }
     }
 }
@@ -468,22 +483,70 @@ function getCalendarType() {
     return document.querySelector('input[name="calendar-type"]:checked').value;
 }
 
-async function fetchAIFortune(type, targetEl) {
+// 상대방 정보 가져오기 헬퍼
+function getPartnerBirthdateValue() {
+    const y = document.getElementById('partner-birth-year').value.trim();
+    const m = document.getElementById('partner-birth-month').value.trim();
+    const d = document.getElementById('partner-birth-day').value.trim();
+    if (!y || !m || !d) return '';
+    return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+function getPartnerCalendarType() {
+    return document.querySelector('input[name="partner-calendar-type"]:checked').value;
+}
+
+// 궁합 분석 버튼 이벤트
+const checkCompatBtn = document.getElementById('check-compat-btn');
+if (checkCompatBtn) {
+    checkCompatBtn.addEventListener('click', async () => {
+        const partnerBirth = getPartnerBirthdateValue();
+        if (!partnerBirth || partnerBirth.split('-')[0].length !== 4) {
+            alert('상대방의 올바른 생년월일을 입력해주세요!');
+            return;
+        }
+        const resultEl = document.getElementById('compatibility-desc');
+        const resultBox = document.getElementById('compatibility-result');
+        resultEl.innerText = '두 사람의 오늘의 조화를 분석하고 있습니다...';
+        resultBox.classList.remove('hidden');
+        
+        await fetchAIFortune('compatibility', resultEl, {
+            partnerBirthdate: partnerBirth,
+            partnerCalendarType: getPartnerCalendarType()
+        });
+    });
+}
+
+async function fetchAIFortune(type, targetEl, extraData = {}) {
     const today = new Date().toISOString().split('T')[0];
     const calendarType = getCalendarType();
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${calendarType}_${today}_ko`;
+    
+    // 캐시 키 생성 시 추가 데이터(궁합용 상대방 생일 등) 포함
+    let cacheKey = `ai_fortune_${type}_${globalBirthdate}_${calendarType}_${today}_ko`;
+    if (extraData.partnerBirthdate) {
+        cacheKey += `_${extraData.partnerBirthdate}_${extraData.partnerCalendarType}`;
+    }
+    
     const cached = localStorage.getItem(cacheKey);
-
     if (cached) {
         targetEl.innerText = cached;
         return;
     }
 
     try {
+        const body = { 
+            type, 
+            birthdate: globalBirthdate, 
+            calendarType, 
+            today, 
+            lang: 'ko',
+            ...extraData 
+        };
+        
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, calendarType, today, lang: 'ko' })
+            body: JSON.stringify(body)
         });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const result = await resp.json();

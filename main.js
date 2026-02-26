@@ -350,32 +350,41 @@ function switchView(target) {
 function getTargetFromHash() {
     const hash = location.hash.replace('#', '');
     if (!hash) return 'home';
-    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth', 'career', 'compatibility'];
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth', 'career', 'compatibility', 'contact'];
     return allowed.includes(hash) ? hash : 'home';
 }
 
 function handleHashChange() {
     const target = getTargetFromHash();
+    if (target === 'home' || target === 'contact') {
+        switchView(target);
+        return;
+    }
     const birthInput = getBirthdateValue();
-    if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+    if (!birthInput || birthInput.split('-')[0].length !== 4) {
         history.replaceState(null, "", location.pathname);
         switchView('home');
         return;
     }
-    if (target !== 'home') globalBirthdate = birthInput;
+    globalBirthdate = birthInput;
     switchView(target);
 }
 
-navItems.forEach(item => {
+// navigation items listener (includes the new top-contact-link if data-target is set)
+document.querySelectorAll('.nav-item, .menu-card, .top-contact-link').forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
         const target = item.getAttribute('data-target');
+        if (target === 'home' || target === 'contact') {
+            switchView(target);
+            return;
+        }
         const birthInput = getBirthdateValue();
-        if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
+        if (!birthInput || birthInput.split('-')[0].length !== 4) {
             alert('올바른 생년월일을 입력해주세요!');
             return;
         }
-        if (target !== 'home') globalBirthdate = birthInput;
+        globalBirthdate = birthInput;
         switchView(target);
     });
 });

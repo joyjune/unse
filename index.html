@@ -99,6 +99,16 @@
                             <h3>오하아사</h3>
                             <p>별자리 행운</p>
                         </a>
+                        <a class="menu-card" href="#love" data-target="love">
+                            <span class="icon">💖</span>
+                            <h3>연애운</h3>
+                            <p>오늘의 설렘</p>
+                        </a>
+                        <a class="menu-card" href="#wealth" data-target="wealth">
+                            <span class="icon">💰</span>
+                            <h3>재물운</h3>
+                            <p>금전 흐름</p>
+                        </a>
                         <a class="menu-card" href="#saju" data-target="saju">
                             <span class="icon grayscale">☯️</span>
                             <h3>사주</h3>
@@ -113,10 +123,12 @@
                 </div>
                 <div class="info-card">
                     <h3>생년월일로 보는 오늘의 운세</h3>
-                    <p>매일운세는 타로 카드·별자리·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
+                    <p>매일운세는 타로 카드·별자리·연애운·재물운·사주 오행·12지 띠운세를 한 곳에서 제공하는 운세 플랫폼입니다. 생년월일을 입력하면 당신만을 위한 오늘의 운세를 즉시 확인할 수 있습니다.</p>
                     <ul class="feature-list">
                         <li>🃏 타로 — 78장 카드의 상징으로 오늘의 에너지와 방향을 직관적으로 파악합니다.</li>
                         <li>🌌 오하아사 — 일본 아사히TV 인기 아침 프로그램의 별자리 운세를 실시간으로 제공합니다.</li>
+                        <li>💖 연애운 — 도화살과 합의 원리로 오늘의 인연과 관계의 흐름을 분석합니다.</li>
+                        <li>💰 재물운 — 사주 재성(財星)의 기운을 분석하여 투자와 소비에 대한 조언을 드립니다.</li>
                         <li>☯️ 사주 — 동양 철학 오행(木火土金水) 이론으로 오늘의 기운을 AI가 분석합니다.</li>
                         <li>🐉 띠운세 — 12지신의 동물 기운을 AI가 해석해 오늘의 맞춤 조언을 드립니다.</li>
                     </ul>
@@ -228,6 +240,38 @@
                         <li>🏆 순위는 오늘 하루의 전반적인 운 흐름을 나타냅니다. 1위라도 방심은 금물!</li>
                         <li>🍀 행운의 아이템을 오늘 하루 몸에 지니거나 활용해보세요.</li>
                     </ul>
+                </div>
+            </section>
+
+            <!-- Love Section -->
+            <section id="love-section" class="view hidden">
+                <div id="love"></div>
+                <div class="card">
+                    <h2>오늘의 연애운</h2>
+                    <div id="love-result" class="result-box">
+                        <div class="luck-icon" style="font-size: 5rem; margin-bottom: 1rem;">💖</div>
+                        <p id="love-desc" class="desc-box">연애 기운을 분석하고 있습니다...</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>연애운 분석 안내</h3>
+                    <p>사주 명리학의 합(合)과 충(沖), 그리고 도화살·홍염살 등의 에너지를 분석하여 오늘의 연애 기운을 읽어드립니다. 인연의 흐름을 파악하여 더 행복한 관계를 맺을 수 있도록 AI 전문가가 조언합니다.</p>
+                </div>
+            </section>
+
+            <!-- Wealth Section -->
+            <section id="wealth-section" class="view hidden">
+                <div id="wealth"></div>
+                <div class="card">
+                    <h2>오늘의 재물운</h2>
+                    <div id="wealth-result" class="result-box">
+                        <div class="luck-icon" style="font-size: 5rem; margin-bottom: 1rem;">💰</div>
+                        <p id="wealth-desc" class="desc-box">재물 흐름을 분석하고 있습니다...</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>재물운 분석 안내</h3>
+                    <p>오늘의 천간과 지지가 본인의 사주 속 재성(財星)에 어떻게 작용하는지 분석합니다. 금전의 유입과 유출, 투자에 적합한 시기 등을 파악하여 실질적인 경제 활동에 도움을 드리는 조언을 제공합니다.</p>
                 </div>
             </section>
 

@@ -339,7 +339,7 @@ function switchView(target) {
 function getTargetFromHash() {
     const hash = location.hash.replace('#', '');
     if (!hash) return 'home';
-    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac'];
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth'];
     return allowed.includes(hash) ? hash : 'home';
 }
 
@@ -438,6 +438,23 @@ async function updateFortune(type) {
         document.getElementById('zodiac-name').innerText = `${zodiac.name} (출생연도 기준)`;
         document.getElementById('zodiac-desc').innerText = '운세를 분석하는 중...';
         await fetchAIFortune('zodiac', document.getElementById('zodiac-desc'));
+    }
+
+    if (type === 'love') {
+        const loveDesc = document.getElementById('love-desc') || document.getElementById('saju-desc');
+        // love 전용 엘리먼트가 없으면 사주 섹션의 포맷을 빌려 쓰거나, index.html에 추가해야 함.
+        // 현재는 사주/띠와 동일한 API 호출 방식 사용.
+        if (document.getElementById('love-desc')) {
+            document.getElementById('love-desc').innerText = '오늘의 연애운을 분석하는 중...';
+            await fetchAIFortune('love', document.getElementById('love-desc'));
+        }
+    }
+
+    if (type === 'wealth') {
+        if (document.getElementById('wealth-desc')) {
+            document.getElementById('wealth-desc').innerText = '오늘의 재물운을 분석하는 중...';
+            await fetchAIFortune('wealth', document.getElementById('wealth-desc'));
+        }
     }
 }
 

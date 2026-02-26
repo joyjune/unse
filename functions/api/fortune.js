@@ -7,51 +7,66 @@ const ELEMENTS = {
 };
 
 function getElement(birthdate, calendarType, today, lang) {
-    // 음력일 경우 시드값을 다르게 하여 다른 오행이 나오도록 유도 (간이 구현)
     const seed = parseInt(birthdate.replace(/-/g, "")) + parseInt(today.replace(/-/g, "")) + (calendarType === 'lunar' ? 123 : 0);
     return ELEMENTS[lang][Math.abs(seed) % 5];
 }
 
 function buildPrompt(type, birthdate, calendarType, today, lang) {
     const calName = calendarType === 'lunar' ? '음력' : '양력';
+    const element = getElement(birthdate, calendarType, today, lang);
+    const year = parseInt(birthdate.split("-")[0]);
+    const zodiacIdx = (year - 4) % 12;
+    const zodiacName = ZODIACS[lang][zodiacIdx];
+
+    // 전문적인 페르소나 설정
+    const systemRole = "당신은 30년 경력의 명리학자이자 타로 마스터입니다. 사용자의 생년월일을 바탕으로 사주팔자의 원리와 오늘의 일진을 분석하여 조언합니다.";
 
     if (type === "saju") {
-        const element = getElement(birthdate, calendarType, today, lang);
-
-        return `당신은 대한민국 최고의 사주명리학 전문가입니다. 아래 정보를 바탕으로 오늘의 사주 운세를 작성해주세요.
-
+        return `${systemRole}
 생년월일: ${birthdate} (${calName})
 오늘 날짜: ${today}
 오늘의 오행 기운: ${element}
 
 조건:
-- 2~3문장의 정중하고 신뢰감 있는 한국어로 작성
-- 사용자의 생일이 ${calName}임을 고려하여 분석
-- 오늘의 오행 기운(${element})이 주는 의미를 명확히 반영
-- 오늘 하루를 위한 구체적이고 실질적인 조언 포함
-- 제목이나 인사말 없이 본문만 출력
-
-운세 본문:`;
+- 명리학의 전문 용어(천간, 지지, 상생상극 등)를 자연스럽게 섞어 신뢰감을 주되, 이해하기 쉽게 풀어서 설명하세요.
+- 오늘의 기운인 ${element}이 사용자의 사주와 어떻게 조화되는지 분석하세요.
+- [오늘의 흐름], [주의할 점], [행운의 아이템] 순서로 출력하세요.
+- 3~4문장의 품격 있는 한국어로 작성하세요.`;
     }
 
     if (type === "zodiac") {
-        const year = parseInt(birthdate.split("-")[0]);
-        const idx = (year - 4) % 12;
-        const zodiacName = ZODIACS[lang][idx];
-
-        return `당신은 대한민국 최고의 운세 전문가입니다. 12지신 동물의 특성을 반영하여 아래 띠의 오늘 운세를 작성해주세요.
-
+        return `${systemRole}
 띠: ${zodiacName}띠 (${year}년생, ${calName} 기준)
 오늘 날짜: ${today}
 
 조건:
-- 2~3문장의 생동감 있고 희망적인 한국어로 작성
-- ${zodiacName}띠의 성향과 오늘의 에너지를 조화롭게 표현
-- 생년월일이 ${calName}임을 참고하여 더욱 정확하게 분석
-- 구체적인 행동 지침이나 조언 1가지 포함
-- 제목이나 인사말 없이 본문만 출력
+- 12지신 동물의 특성과 오늘 일진의 충(沖), 합(合)을 고려하여 분석하세요.
+- ${zodiacName}띠 특유의 성향이 오늘 하루 어떤 결과를 낼지 예측하세요.
+- [오늘의 운세], [행동 지침] 순서로 3문장 이내로 작성하세요.`;
+    }
 
-운세 본문:`;
+    if (type === "love") {
+        return `${systemRole}
+생년월일: ${birthdate} (${calName})
+오늘 날짜: ${today}
+분석 대상: 오늘의 연애운
+
+조건:
+- 도화살, 홍염살 혹은 합의 원리를 응용하여 오늘의 연애 기운을 분석하세요.
+- 솔로라면 새로운 인연의 가능성을, 커플이라면 관계의 유지나 갈등 조율에 대해 조언하세요.
+- 정중하고 부드러운 말투로 3문장 이내로 작성하세요.`;
+    }
+
+    if (type === "wealth") {
+        return `${systemRole}
+생년월일: ${birthdate} (${calName})
+오늘 날짜: ${today}
+분석 대상: 오늘의 재물운
+
+조건:
+- 사주 상의 재성(財星)의 기운이 오늘 어떻게 흐르는지 분석하세요.
+- 투자, 계약, 소비에 관한 실질적인 조언을 포함하세요.
+- [금전 흐름], [재물 행운] 키워드를 포함하여 3문장 이내로 작성하세요.`;
     }
 
     return null;
@@ -85,8 +100,8 @@ export async function onRequestPost(context) {
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [{ role: "user", content: prompt }],
-                max_tokens: 200,
-                temperature: 0.9,
+                max_tokens: 300,
+                temperature: 0.8,
             }),
         });
 

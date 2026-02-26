@@ -1,6 +1,4 @@
-User-agent: Yeti
-Allow: /
-
 User-agent: *
 Allow: /
+
 Sitemap: https://maeilunse.com/sitemap.xml

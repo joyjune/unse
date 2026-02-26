@@ -280,6 +280,36 @@ async function scheduleOhaasaAutoUpdate() {
     }
 }
 
+// 생년월일 입력값 조합 헬퍼
+function getBirthdateValue() {
+    const y = document.getElementById('birth-year').value.trim();
+    const m = document.getElementById('birth-month').value.trim();
+    const d = document.getElementById('birth-day').value.trim();
+    if (!y || !m || !d) return '';
+    return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+// 연→월→일 자동 포커스 이동
+document.getElementById('birth-year').addEventListener('input', function() {
+    if (this.value.length === 4) document.getElementById('birth-month').focus();
+});
+document.getElementById('birth-month').addEventListener('input', function() {
+    if (this.value.length >= 2 || parseInt(this.value) > 1) {
+        const v = parseInt(this.value);
+        if (v >= 1 && v <= 12 && this.value.length >= 2) document.getElementById('birth-day').focus();
+    }
+});
+
+// 양력/음력 변경 시 globalBirthdate 업데이트
+document.querySelectorAll('input[name="calendar-type"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        const birthInput = getBirthdateValue();
+        if (birthInput && birthInput.split('-')[0].length === 4) {
+            globalBirthdate = birthInput;
+        }
+    });
+});
+
 // Navigation
 const navItems = document.querySelectorAll('.nav-item, .menu-card');
 const views = document.querySelectorAll('.view');
@@ -315,7 +345,7 @@ function getTargetFromHash() {
 
 function handleHashChange() {
     const target = getTargetFromHash();
-    const birthInput = document.getElementById('birthdate-global').value;
+    const birthInput = getBirthdateValue();
     if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
         history.replaceState(null, "", location.pathname);
         switchView('home');
@@ -329,7 +359,7 @@ navItems.forEach(item => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
         const target = item.getAttribute('data-target');
-        const birthInput = document.getElementById('birthdate-global').value;
+        const birthInput = getBirthdateValue();
         if (target !== 'home' && (!birthInput || birthInput.split('-')[0].length !== 4)) {
             alert('올바른 생년월일을 입력해주세요!');
             return;
@@ -417,9 +447,14 @@ function drawConstellation(constellation) {
     container.innerHTML = `<div class="representative-icon" style="font-size: 8rem; animation: float 3s ease-in-out infinite;">${constellation.representative}</div>`;
 }
 
+function getCalendarType() {
+    return document.querySelector('input[name="calendar-type"]:checked').value;
+}
+
 async function fetchAIFortune(type, targetEl) {
     const today = new Date().toISOString().split('T')[0];
-    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${today}_ko`;
+    const calendarType = getCalendarType();
+    const cacheKey = `ai_fortune_${type}_${globalBirthdate}_${calendarType}_${today}_ko`;
     const cached = localStorage.getItem(cacheKey);
 
     if (cached) {
@@ -431,7 +466,7 @@ async function fetchAIFortune(type, targetEl) {
         const resp = await fetch('/api/fortune', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type, birthdate: globalBirthdate, today, lang: 'ko' })
+            body: JSON.stringify({ type, birthdate: globalBirthdate, calendarType, today, lang: 'ko' })
         });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const result = await resp.json();

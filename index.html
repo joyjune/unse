@@ -70,6 +70,13 @@
                 <div class="hero-card card">
                     <h2>당신의 운명은 무엇을 말하고 있나요?</h2>
                     <p class="seo-intro">매일운세는 생년월일 기반으로 타로, 별자리, 사주, 띠 운세를 제공하는 운세 사이트입니다.</p>
+                    <div class="input-group birthdate-inputs">
+                        <input type="number" id="birth-year" placeholder="년도" inputmode="numeric" min="1900" max="2099">
+                        <span class="date-sep">.</span>
+                        <input type="number" id="birth-month" placeholder="월" inputmode="numeric" min="1" max="12">
+                        <span class="date-sep">.</span>
+                        <input type="number" id="birth-day" placeholder="일" inputmode="numeric" min="1" max="31">
+                    </div>
                     <div class="calendar-type-selector">
                         <label class="radio-label">
                             <input type="radio" name="calendar-type" value="solar" checked>
@@ -79,13 +86,6 @@
                             <input type="radio" name="calendar-type" value="lunar">
                             <span>음력</span>
                         </label>
-                    </div>
-                    <div class="input-group birthdate-inputs">
-                        <input type="number" id="birth-year" placeholder="년도" inputmode="numeric" min="1900" max="2099">
-                        <span class="date-sep">.</span>
-                        <input type="number" id="birth-month" placeholder="월" inputmode="numeric" min="1" max="12">
-                        <span class="date-sep">.</span>
-                        <input type="number" id="birth-day" placeholder="일" inputmode="numeric" min="1" max="31">
                     </div>
                     <p class="input-hint">생년월일을 넣고 아래 메뉴에서 원하는 운세를 눌러보세요.</p>
                     <div class="menu-grid">

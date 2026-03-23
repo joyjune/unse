@@ -174,6 +174,7 @@ async function fetchOhaasaData(forceRefresh = false) {
 
     try {
         const res = await fetch("/api/ohaasa");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
         if (json.error) throw new Error(json.error);
 
@@ -344,19 +345,20 @@ function switchView(target) {
         n.classList.toggle('active', n.getAttribute('data-target') === target);
     });
 
-    if (target !== 'home' && prevView !== target && target !== 'compatibility') updateFortune(target);
+    const noFortune = ['home', 'contact', 'privacy', 'compatibility'];
+    if (!noFortune.includes(target) && prevView !== target) updateFortune(target);
 }
 
 function getTargetFromHash() {
     const hash = location.hash.replace('#', '');
     if (!hash) return 'home';
-    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth', 'career', 'compatibility', 'contact'];
+    const allowed = ['home', 'tarot', 'constellation', 'saju', 'zodiac', 'love', 'wealth', 'career', 'compatibility', 'contact', 'privacy'];
     return allowed.includes(hash) ? hash : 'home';
 }
 
 function handleHashChange() {
     const target = getTargetFromHash();
-    if (target === 'home' || target === 'contact') {
+    if (target === 'home' || target === 'contact' || target === 'privacy') {
         switchView(target);
         return;
     }
@@ -375,7 +377,7 @@ document.querySelectorAll('.nav-item, .menu-card, .top-contact-link').forEach(it
     item.addEventListener('click', (e) => {
         e.preventDefault();
         const target = item.getAttribute('data-target');
-        if (target === 'home' || target === 'contact') {
+        if (target === 'home' || target === 'contact' || target === 'privacy') {
             switchView(target);
             return;
         }
@@ -390,6 +392,15 @@ document.querySelectorAll('.nav-item, .menu-card, .top-contact-link').forEach(it
 });
 
 document.getElementById('home-btn').addEventListener('click', () => switchView('home'));
+
+// Footer links navigation
+document.querySelectorAll('.footer-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+        if (target) switchView(target);
+    });
+});
 
 // Fortune Logic
 async function updateFortune(type) {

@@ -588,3 +588,51 @@ footer {
         font-size: 1.05rem;
     }
 }
+
+/* FAQ styles */
+.faq-list {
+    margin: 0.5rem 0 1rem 0;
+    padding: 0;
+}
+.faq-list dt {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+.faq-list dd {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* Footer links */
+.footer-links {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+.footer-link {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.footer-link:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+.footer-sep {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+/* Privacy content */
+.privacy-content h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+.privacy-content p, .privacy-content li {
+    line-height: 1.8;
+    opacity: 0.9;
+}
